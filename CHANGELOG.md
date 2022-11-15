@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.8.6
+
+- 修复插件功能
+
 ## 0.8.5
 
 - 切换到 [uni-helper](https://github.com/uni-helper) 组织下
