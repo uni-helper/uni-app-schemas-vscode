@@ -58,7 +58,7 @@
       "type": "boolean"
     },
     "uniStatistics": {
-      "description": "uni 统计配置项。",
+      "description": "uni 统计配置项。更多信息查看 <https://uniapp.dcloud.net.cn/uni-stat-v1.html> 和 <https://uniapp.dcloud.net.cn/uni-stat-v2.html>。",
       "type": "object",
       "properties": {
         "enable": {
@@ -71,8 +71,22 @@
           "enum": ["1", "2"]
         },
         "debug": {
-          "description": "是否开启调试模式。生产阶段务必关闭。默认为 false。",
+          "description": "是否开启统计调试模式。生产阶段务必关闭。默认为 false。",
           "type": "boolean"
+        },
+        "reportInterval": {
+          "description": "前端数据上报周期。默认为 10。",
+          "type": "number"
+        },
+        "collectItems": {
+          "description": "采集项配置。",
+          "type": "object",
+          "properties": {
+            "uniPushClientID": {
+              "description": "是否开启推送 PushClientID 的采集。默认为 false。",
+              "type": "boolean"
+            }
+          }
         }
       }
     },
@@ -233,7 +247,7 @@
                   "type": "boolean"
                 },
                 "allowDownloadWithoutWiFi": {
-                  "description": "是否允许用户在非 WiFi 网络时直接下载 X5 内核。默认为 false， showTipsWithoutWifi 为 true 时弹框询问用户，showTipsWithoutWifi 为 false 时不下载。true 时不弹框询问用户。",
+                  "description": "是否允许用户在非 WiFi 网络时直接下载 X5 内核。默认为 false，此时 showTipsWithoutWifi 为 true 时弹框询问用户，showTipsWithoutWifi 为 false 时不下载。true 时不弹框询问用户。",
                   "type": "boolean"
                 }
               }
@@ -282,11 +296,11 @@
               "type": "string"
             },
             "delay": {
-              "description": "展示加载中组件的延时时间，单位 ms。如果在延时内加载完成，则不会显示加载中组件。默认为 200。",
+              "description": "展示加载中组件的延时时间，如果在延时内加载完成，则不会显示加载中组件。单位为 ms。默认为 200。",
               "type": "number"
             },
             "timeout": {
-              "description": "加载超时时间，单位 ms。如果超时，则显示加载失败组件。默认为 60000。",
+              "description": "加载超时时间，如果超时，则显示加载失败组件。单位为 ms。默认为 60000。",
               "type": "number"
             }
           }
@@ -464,7 +478,7 @@
               "type": "boolean"
             },
             "bigPackageSizeSupport": {
-              "description": "预览及真机调试的时主包、分包体积上限调整为小程序 4M、小游戏 8M。",
+              "description": "预览及真机调试的时主包、分包体积上限是否调整为小程序 4M、小游戏 8M。",
               "type": "boolean"
             },
             "babelSetting": {
@@ -986,6 +1000,16 @@
         "appid": {
           "description": "快手小程序的 appid。",
           "type": "string"
+        },
+        "optimization": {
+          "description": "优化配置。",
+          "type": "object",
+          "properties": {
+            "subPackages": {
+              "description": "是否开启分包优化。",
+              "type": "boolean"
+            }
+          }
         },
         "uniStatistics": {
           "description": "uni 统计配置项。",
