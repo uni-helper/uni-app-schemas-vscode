@@ -27,14 +27,14 @@
 ```json
 {
   // github
-  "$schema": "https://raw.githubusercontent.com/ModyQyW/uni-helper/main/packages/vscode-uni-app-schemas/schemas/androidPrivacy.json"
-  "$schema": "https://raw.githubusercontent.com/ModyQyW/uni-helper/main/packages/vscode-uni-app-schemas/schemas/manifest.json"
-  "$schema": "https://raw.githubusercontent.com/ModyQyW/uni-helper/main/packages/vscode-uni-app-schemas/schemas/pages.json"
+  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/androidPrivacy.json"
+  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/manifest.json"
+  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/pages.json"
 
   // gitee
-  "$schema": "https://gitee.com/ModyQyW/uni-helper/raw/main/packages/vscode-uni-app-schemas/schemas/androidPrivacy.json"
-  "$schema": "https://gitee.com/ModyQyW/uni-helper/raw/main/packages/vscode-uni-app-schemas/schemas/manifest.json"
-  "$schema": "https://gitee.com/ModyQyW/uni-helper/raw/main/packages/vscode-uni-app-schemas/schemas/pages.json"
+  "$schema": "https://gitee.com/uni-helper/uni-app-schemas-vscode/raw/main/schemas/androidPrivacy.json"
+  "$schema": "https://gitee.com/uni-helper/uni-app-schemas-vscode/raw/main/schemas/manifest.json"
+  "$schema": "https://gitee.com/uni-helper/uni-app-schemas-vscode/raw/main/schemas/pages.json"
 }
 ```
 
