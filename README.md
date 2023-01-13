@@ -27,9 +27,9 @@
 ```json
 {
   // github
-  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/androidPrivacy.json"
-  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/manifest.json"
-  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/pages.json"
+  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/androidPrivacy.json"
+  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/manifest.json"
+  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/pages.json"
 }
 ```
 
