@@ -30,11 +30,6 @@
   "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/androidPrivacy.json"
   "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/manifest.json"
   "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas/main/schemas/pages.json"
-
-  // gitee
-  "$schema": "https://gitee.com/uni-helper/uni-app-schemas-vscode/raw/main/schemas/androidPrivacy.json"
-  "$schema": "https://gitee.com/uni-helper/uni-app-schemas-vscode/raw/main/schemas/manifest.json"
-  "$schema": "https://gitee.com/uni-helper/uni-app-schemas-vscode/raw/main/schemas/pages.json"
 }
 ```
 
