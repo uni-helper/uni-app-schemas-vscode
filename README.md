@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/github/license/uni-helper/uni-app-schemas-vscode)](https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/LICENSE)
 
-[![VSCode](https://vsmarketplacebadge.apphb.com/version-short/uni-helper.uni-app-schemas-vscode.svg)](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
+[![VSCode](https://vsmarketplacebadge.apphb.com/version-short/uni-helper.uni-app-schemas-vscode.png)](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
 
 [![OpenVSX](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=OpenVSX&query=%24.version&url=https%3A%2F%2Fopen-vsx.org%2Fapi%2Funi-helper%2Funi-app-schemas-vscode)](https://open-vsx.org/extension/uni-helper/uni-app-schemas-vscode)
 
