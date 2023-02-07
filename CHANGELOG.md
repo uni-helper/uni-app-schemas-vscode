@@ -1,5 +1,9 @@
 # 改动日志
 
+## Unreleased
+
+- `manifest.json` 中 `versionCode` 调整为 `number` 类型
+
 ## 0.8.7
 
 - 补充部分字段
