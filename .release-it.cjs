@@ -5,7 +5,6 @@ module.exports = {
   },
   npm: {
     publish: false,
-    timeout: 30,
   },
   hooks: {
     'after:bump': 'tsx ./scripts/generate.ts',
