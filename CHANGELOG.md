@@ -3,7 +3,7 @@
 ## 0.8.8 (2023-02-28)
 
 - `manifest.json` 中 `versionCode` 调整为 `number` 类型
-- 修复 `pages.json` 中 `preloadRule` 类型和字段描述
+- 修复 `pages.json` 中 `preloadRule` 类型和字段描述，非常感谢 [Megasu](https://github.com/Megasu) 在 [#11](https://github.com/uni-helper/uni-app-schemas-vscode/pull/11) 的贡献
 
 ## 0.8.7
 
