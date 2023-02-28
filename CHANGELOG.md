@@ -1,8 +1,9 @@
 # 改动日志
 
-## Unreleased
+## 0.8.8 (2023-02-28)
 
 - `manifest.json` 中 `versionCode` 调整为 `number` 类型
+- 修复 `pages.json` 中 `preloadRule` 类型和字段描述
 
 ## 0.8.7
 
