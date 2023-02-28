@@ -1,9 +1,11 @@
 import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { simpleGit } from 'simple-git';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
+const readmePath = resolve(root, 'README.md');
 
 const readme = `# @uni-helper/uni-app-schemas-vscode
 
@@ -46,4 +48,6 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 请查看 [uni-helper 插件说明](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode)。
 `;
 
-writeFileSync(resolve(root, 'README.md'), readme);
+writeFileSync(readmePath, readme);
+
+simpleGit().add(readmePath);

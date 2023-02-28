@@ -43,7 +43,7 @@
     "lint": "run-p lint:eslint lint:markdownlint check:types",
     "lint:eslint": "eslint . --fix --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
-    "release": "bumpp --execute=\"tsx ./scripts/generate.ts\"",
+    "release": "bumpp -all --x=\"tsx ./scripts/update-readme.ts\"",
     "prepare": "is-ci || husky install",
     "publish": "run-p publish:vscode publish:openvsx",
     "publish:vscode": "vsce package && vsce publish",
