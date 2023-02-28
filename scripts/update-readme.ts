@@ -50,4 +50,4 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 
 writeFileSync(readmePath, readme);
 
-simpleGit().add(readmePath);
+await simpleGit().add(readmePath);
