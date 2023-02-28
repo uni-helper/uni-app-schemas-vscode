@@ -229,18 +229,25 @@
     "preloadRule": {
       "description": "分包预下载规则。",
       "type": "object",
-      "properties": {
-        "packages": {
-          "description": "进入页面后预下载分包的 root 或 name。APP 表示主包。",
-          "type": "array",
-          "items": {
-            "type": "string"
+      "patternProperties": {
+        ".+": {
+          "description": "页面路径。",
+          "type": "object",
+          "required": ["packages"],
+          "properties": {
+            "packages": {
+              "description": "进入页面后预下载分包的 root 或 name。APP 表示主包。",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "network": {
+              "description": "在指定网络下预下载。",
+              "type": "string",
+              "enum": ["all", "wifi"]
+            }
           }
-        },
-        "network": {
-          "description": "在指定网络下预下载。",
-          "type": "string",
-          "enum": ["all", "wifi"]
         }
       }
     },
