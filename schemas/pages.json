@@ -243,7 +243,7 @@
               }
             },
             "network": {
-              "description": "在指定网络下预下载。",
+              "description": "在指定网络下预下载。默认为 wifi。",
               "type": "string",
               "enum": ["all", "wifi"]
             }
@@ -263,6 +263,31 @@
     },
     "rightWindow": {
       "allOf": [{ "$ref": "#/definitions/window" }, { "description": "大屏右侧窗口。" }]
+    },
+    "uniIdRouter": {
+      "description": "自动跳转相关配置。",
+      "type": "object",
+      "properties": {
+        "loginPage": {
+          "description": "登录页面路径。",
+          "type": "string"
+        },
+        "needLogin": {
+          "description": "需要登录才可访问的页面列表，可以使用正则语法。",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resToLogin": {
+          "description": "是否自动解析云对象及 clientDB 的错误码，如果客户端 token 不正确或 token 过期则自动跳转配置的登录页面。默认为 true。",
+          "type": "boolean"
+        }
+      }
+    },
+    "entryPagePath": {
+      "description": "默认启动首页。",
+      "type": "string"
     }
   },
   "definitions": {
@@ -1098,6 +1123,10 @@
                 }
               }
             ]
+          },
+          "needLogin": {
+            "description": "当前页面是否需要登录才可以访问，此配置优先级高于 uniIdRouter 下的 needLogin。",
+            "type": "boolean"
           }
         }
       }
