@@ -13,7 +13,6 @@ package-lock.json
 yarn.lock
 scripts/**
 renovate.json
-.release-it.cjs
 .nvmrc
 .lintstagedrc.cjs
 .markdownlint.json
