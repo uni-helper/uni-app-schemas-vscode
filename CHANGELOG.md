@@ -1,5 +1,15 @@
 # 改动日志
 
+## 0.8.10 (2023-03-01)
+
+- 补充 `pages.json` 中 `pages` 下元素的 `needLogin` 字段
+- 补充 `pages.json` 中 `uniIdRouter` 字段
+- 补充 `pages.json` 中 `entryPagePath` 字段
+
+## 0.8.9 (2023-02-28)
+
+- 修复部署脚本
+
 ## 0.8.8 (2023-02-28)
 
 - `manifest.json` 中 `versionCode` 调整为 `number` 类型
