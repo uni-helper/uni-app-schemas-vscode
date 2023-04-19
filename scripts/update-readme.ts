@@ -34,11 +34,26 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 
 在对应文件的顶部加入 \`"$schema"\` 字段即可。
 
+\`androidPrivacy.json\`
+
 \`\`\`json
 {
-  // github
   "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/androidPrivacy.json"
+}
+\`\`\`
+
+\`manifest.json\`
+
+\`\`\`json
+{
   "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/manifest.json"
+}
+\`\`\`
+
+\`pages.json\`
+
+\`\`\`json
+{
   "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/pages.json"
 }
 \`\`\`
