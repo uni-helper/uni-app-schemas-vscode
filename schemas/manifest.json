@@ -25,7 +25,7 @@
     },
     "versionCode": {
       "description": "版本号。",
-      "type": "number"
+      "type": ["number", "string"]
     },
     "transformPx": {
       "description": "是否转换 px 为 rpx。默认为 true，建议使用 false。",
