@@ -38,7 +38,7 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 
 \`\`\`json
 {
-  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/androidPrivacy.json"
+  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/androidPrivacy.json"
 }
 \`\`\`
 
@@ -46,7 +46,7 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 
 \`\`\`json
 {
-  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/manifest.json"
+  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json"
 }
 \`\`\`
 
@@ -54,7 +54,7 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 
 \`\`\`json
 {
-  "$schema": "https://raw.githubusercontent.com/uni-helper/uni-app-schemas-vscode/main/schemas/pages.json"
+  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages.json"
 }
 \`\`\`
 
