@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.8.11 (2023-05-16)
+
+- 允许 `manifest.json` 中 `versionCode` 为数字或字符串
+
 ## 0.8.10 (2023-03-01)
 
 - 补充 `pages.json` 中 `pages` 下元素的 `needLogin` 字段
