@@ -38,6 +38,9 @@
     "*.vsix"
   ],
   "scripts": {
+    "build": "conc \"npm:build:manifest-schema\" \"npm:build:pages-schema\"",
+    "build:manifest-schema": "echo \"import {type ManifestConfig as MC} from '@uni-helper/vite-plugin-uni-manifest';export interface ManifestConfig extends MC{}\" >> manifest.ts && ts-json-schema-generator -p \"manifest.ts\" -t \"ManifestConfig\" -o \"schemas/manifest.json\" --no-type-check && rm -rf manifest.ts",
+    "build:pages-schema": "cp node_modules/@uni-helper/pages-json-schema/schema.json schemas/pages.json",
     "check:deps": "taze",
     "check:types": "tsc --noEmit",
     "lint": "conc \"npm:lint:eslint\" \"npm:lint:markdownlint\"",
@@ -47,7 +50,7 @@
     "publish": "conc \"npm:publish:vscode\" \"npm:publish:openvsx\"",
     "publish:openvsx": "ovsx publish",
     "publish:vscode": "vsce package && vsce publish",
-    "release": "npm run lint && npm run check:types && bumpp --all --x=\"tsx ./scripts/update-readme.ts\""
+    "release": "npm run build && bumpp --all --x=\"tsx ./scripts/update-readme.ts\""
   },
   "contributes": {
     "jsonValidation": [
@@ -74,11 +77,14 @@
     "@types/node": "^18.18.9",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
+    "@uni-helper/pages-json-schema": "^0.2.12",
+    "@uni-helper/vite-plugin-uni-manifest": "^0.2.3",
     "@vscode/vsce": "^2.22.0",
     "bumpp": "^9.2.0",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.53.0",
+    "execa": "^8.0.1",
     "is-ci": "^3.0.1",
     "lint-staged": "^15.1.0",
     "markdownlint-cli": "^0.37.0",
@@ -87,6 +93,7 @@
     "simple-git": "^3.20.0",
     "simple-git-hooks": "^2.9.0",
     "taze": "^0.12.0",
+    "ts-json-schema-generator": "^1.4.0",
     "tsx": "^4.1.2",
     "typescript": "^5.2.2"
   },

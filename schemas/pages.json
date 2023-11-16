@@ -1,1158 +1,739 @@
 {
-  "description": "应用页面配置文件。更多信息查看 <https://uniapp.dcloud.io/collocation/pages>。",
-  "type": "object",
-  "properties": {
-    "globalStyle": {
-      "allOf": [
-        { "$ref": "#/definitions/style" },
-        {
-          "description": "默认窗口表现。",
-          "properties": {
-            "pageOrientation": {
-              "description": "屏幕方向配置。",
-              "type": "string",
-              "enum": ["auto", "portrait", "landscape"]
+  "$ref": "#/definitions/PagesConfig",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AppPlus": {
+      "properties": {
+        "animationDuration": {
+          "default": "300",
+          "description": "窗口显示动画的持续时间，单位为 ms。",
+          "type": "number"
+        },
+        "animationType": {
+          "default": "pop-in",
+          "description": "窗口显示的动画效果，详见：窗口动画。",
+          "type": "string"
+        },
+        "background": {
+          "$ref": "#/definitions/HEXColor",
+          "default": "#FFFFFF",
+          "description": "窗体背景色。无论vue页面还是nvue页面，在App上都有一个父级原生窗体，该窗体的背景色生效时间快于页面里的css生效时间"
+        },
+        "bounce": {
+          "description": "页面回弹效果，设置为 \"none\" 时关闭效果。",
+          "type": "string"
+        },
+        "popGesture": {
+          "default": "close",
+          "description": "侧滑返回功能，可选值：\"close\"（启用侧滑返回）、\"none\"（禁用侧滑返回）",
+          "type": "string"
+        },
+        "pullToRefresh": {
+          "description": "下拉刷新",
+          "type": "object"
+        },
+        "scrollIndicator": {
+          "description": "滚动条显示策略，设置为 \"none\" 时不显示滚动条。",
+          "type": "string"
+        },
+        "softInputMode": {
+          "default": "adjustPan",
+          "description": "软键盘弹出模式，支持 adjustResize、adjustPan 两种模式",
+          "type": "string"
+        },
+        "softInputNavBar": {
+          "default": "auto",
+          "description": "iOS软键盘上完成工具栏的显示模式，设置为 \"none\" 时关闭工具栏。",
+          "type": "string"
+        },
+        "subNVues": {
+          "description": "原生子窗体，详见?:原生子窗体",
+          "type": "object"
+        },
+        "titleNView": {
+          "anyOf": [
+            {
+              "type": "object"
             },
-            "animationType": {
-              "description": "窗口显示的动画效果。",
-              "type": "string",
-              "enum": [
-                "slide-in-right",
-                "slide-in-left",
-                "slide-in-top",
-                "slide-in-bottom",
-                "pop-in",
-                "fade-in",
-                "zoom-out",
-                "zoom-fade-out",
-                "none"
-              ]
-            },
-            "animationDuration": {
-              "description": "窗口显示动画的持续时间。单位为 ms。默认为 300。",
-              "type": "number"
-            },
-            "renderingMode": {
-              "description": "渲染模式。",
-              "type": "string",
-              "enum": ["seperated"]
-            },
-            "rpxCalcMaxDeviceWidth": {
-              "description": "rpx 计算所支持的最大设备宽度。单位为 px。默认为 960。",
-              "type": "number"
-            },
-            "rpxCalcBaseDeviceWidthN": {
-              "description": "rpx 计算使用的基准设备宽度，设备实际宽度超出 rpx 计算所支持的最大设备宽度时将按基准宽度计算。单位为 px。默认为 375。",
-              "type": "number"
-            },
-            "rpxCalcIncludeWidth": {
-              "description": "rpx 计算特殊处理的值，始终按实际的设备宽度计算。单位为 rpx。默认为 750。",
-              "type": "number"
+            {
+              "const": false,
+              "type": "boolean"
             }
-          }
+          ],
+          "description": "导航栏 ，详见?:导航栏; 设置为 false 不显示默认导航栏"
+        }
+      },
+      "type": "object"
+    },
+    "Color": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/RGBColor"
+        },
+        {
+          "$ref": "#/definitions/RGBAColor"
+        },
+        {
+          "$ref": "#/definitions/HEXColor"
         }
       ]
     },
-    "pages": { "$ref": "#/definitions/pages" },
-    "easycom": {
-      "description": "组件自动引入规则。",
-      "type": "object",
+    "Condition": {
+      "additionalProperties": false,
       "properties": {
-        "autoscan": {
-          "description": "是否开启自动扫描。",
-          "type": "boolean"
-        },
-        "custom": {
-          "description": "以正则方式自定义组件匹配规则。",
-          "type": "object"
-        }
-      }
-    },
-    "tabBar": {
-      "description": "设置 TabBar。",
-      "type": "object",
-      "required": ["color", "selectedColor", "backgroundColor", "list"],
-      "properties": {
-        "color": {
-          "description": "文字默认颜色。",
-          "type": "string",
-          "format": "color"
-        },
-        "selectedColor": {
-          "description": "文字选中时颜色。",
-          "type": "string",
-          "format": "color"
-        },
-        "backgroundColor": {
-          "description": "背景色。",
-          "type": "string",
-          "format": "color"
-        },
-        "borderStyle": {
-          "description": "上边框的颜色。",
-          "type": "string",
-          "enum": ["black", "white"]
-        },
-        "blurEffect": {
-          "description": "iOS 高斯模糊效果。",
-          "type": "string",
-          "enum": ["none", "dark", "extralight", "light"]
+        "current": {
+          "description": "当前激活的模式，list节点的索引值",
+          "type": "number"
         },
         "list": {
-          "description": "列表。",
-          "type": "array",
-          "minItems": 2,
-          "maxItems": 5,
+          "description": "启动模式列表",
           "items": {
-            "type": "object",
-            "required": ["pagePath", "text"],
-            "properties": {
-              "pagePath": {
-                "description": "页面路径。",
-                "type": "string"
-              },
-              "text": {
-                "description": "按钮文字。",
-                "type": "string"
-              },
-              "iconPath": {
-                "description": "本地图标路径。",
-                "type": "string"
-              },
-              "selectedIconPath": {
-                "description": "选中时的本地图标路径。",
-                "type": "string"
-              }
-            }
-          }
-        },
-        "position": {
-          "description": "位置。",
-          "type": "string",
-          "enum": ["bottom", "top"]
-        },
-        "fontSize": {
-          "description": "默认字体大小。",
-          "type": "string"
-        },
-        "iconWidth": {
-          "description": "图标默认宽度，高度将等比例缩放。",
-          "type": "string"
-        },
-        "spacing": {
-          "description": "图标和文字的间距。",
-          "type": "string"
-        },
-        "height": {
-          "description": "默认高度。",
-          "type": "string"
-        },
-        "midButton": {
-          "description": "中间按钮，list 元素数量为偶数时有效。",
-          "type": "object",
-          "properties": {
-            "width": {
-              "description": "中间按钮宽度。",
-              "type": "string"
-            },
-            "height": {
-              "description": "中间按钮高度。",
-              "type": "string"
-            },
-            "text": {
-              "description": "中间按钮文字。",
-              "type": "string"
-            },
-            "iconPath": {
-              "description": "中间按钮图标路径。",
-              "type": "string"
-            },
-            "iconWidth": {
-              "description": "图标宽度，高度等比例缩放。",
-              "type": "string"
-            },
-            "backgroundImage": {
-              "description": "中间按钮背景图标路径。",
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "condition": {
-      "type": "object",
-      "description": "启动模式配置。",
-      "required": ["list", "current"],
-      "properties": {
-        "list": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["name", "path"],
+            "additionalProperties": false,
             "properties": {
               "name": {
-                "description": "启动模式名称。",
+                "description": "启动模式名称",
                 "type": "string"
               },
               "path": {
-                "description": "启动页面路径。",
+                "description": "启动页面路径",
                 "type": "string"
               },
               "query": {
-                "description": "启动参数。",
+                "description": "启动参数，可在页面的 onLoad 函数里获得",
                 "type": "string"
               }
-            }
-          }
-        },
-        "current": {
-          "description": "当前激活 list 元素的索引值。",
-          "type": "number"
+            },
+            "type": "object"
+          },
+          "type": "array"
         }
-      }
+      },
+      "type": "object"
     },
-    "subPackages": {
-      "description": "分包加载规则。",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["root", "pages"],
-        "properties": {
-          "root": {
-            "description": "子包的根目录。",
+    "EasyCom": {
+      "additionalProperties": false,
+      "properties": {
+        "autoscan": {
+          "type": "boolean"
+        },
+        "custom": {
+          "additionalProperties": {
             "type": "string"
           },
-          "pages": { "$ref": "#/definitions/pages" }
+          "type": "object"
         }
-      }
+      },
+      "required": ["autoscan", "custom"],
+      "type": "object"
     },
-    "preloadRule": {
-      "description": "分包预下载规则。",
-      "type": "object",
-      "patternProperties": {
-        ".+": {
-          "description": "页面路径。",
-          "type": "object",
-          "required": ["packages"],
-          "properties": {
-            "packages": {
-              "description": "进入页面后预下载分包的 root 或 name。__APP__ 表示主包。",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "network": {
-              "description": "在指定网络下预下载。默认为 wifi。",
-              "type": "string",
-              "enum": ["all", "wifi"]
-            }
-          }
-        }
-      }
-    },
-    "workers": {
-      "description": "Worker 代码目录。",
-      "type": "string"
-    },
-    "leftWindow": {
-      "allOf": [{ "$ref": "#/definitions/window" }, { "description": "大屏左侧窗口。" }]
-    },
-    "topWindow": {
-      "allOf": [{ "$ref": "#/definitions/window" }, { "description": "大屏顶部窗口。" }]
-    },
-    "rightWindow": {
-      "allOf": [{ "$ref": "#/definitions/window" }, { "description": "大屏右侧窗口。" }]
-    },
-    "uniIdRouter": {
-      "description": "自动跳转相关配置。",
-      "type": "object",
+    "GlobalStyle": {
       "properties": {
-        "loginPage": {
-          "description": "登录页面路径。",
-          "type": "string"
-        },
-        "needLogin": {
-          "description": "需要登录才可访问的页面列表，可以使用正则语法。",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "resToLogin": {
-          "description": "是否自动解析云对象及 clientDB 的错误码，如果客户端 token 不正确或 token 过期则自动跳转配置的登录页面。默认为 true。",
-          "type": "boolean"
-        }
-      }
-    },
-    "entryPagePath": {
-      "description": "默认启动首页。",
-      "type": "string"
-    }
-  },
-  "definitions": {
-    "titleNView": {
-      "description": "导航栏。",
-      "type": "object",
-      "properties": {
-        "backgroundColor": {
-          "description": "背景颜色，#RRGGBB 格式。",
-          "type": "string",
-          "format": "color"
-        },
-        "buttons": {
-          "description": "自定义按钮。",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "description": "自定义按钮样式。默认为 none。",
-                "type": "string",
-                "enum": ["forward", "back", "share", "favorite", "home", "menu", "close", "none"]
-              },
-              "color": {
-                "description": "自定义按钮文字颜色。默认和标题文字颜色一样。",
-                "type": "string",
-                "format": "color"
-              },
-              "background": {
-                "description": "自定义按钮背景色，titleNView.type 为 transparent 时有效。默认为灰色半透明。",
-                "type": "string",
-                "format": "color"
-              },
-              "colorPressed": {
-                "description": "自定义按钮按下状态文字颜色。默认值为 color 属性值自动调整透明度为 0.3。",
-                "type": "string",
-                "format": "color"
-              },
-              "float": {
-                "description": "自定义按钮在标题栏的显示位置。",
-                "type": "string",
-                "enum": ["right", "left"]
-              },
-              "fontWeight": {
-                "description": "自定义按钮文字粗细。",
-                "type": "string",
-                "enum": ["normal", "bold"]
-              },
-              "fontSize": {
-                "description": "自定义按钮文字大小。",
-                "type": "string"
-              },
-              "fontSrc": {
-                "description": "自定义按钮字体文件路径。只支持本地地址。",
-                "type": "string"
-              },
-              "select": {
-                "description": "自定义按钮是否显示下箭头。默认为 false。",
-                "type": "boolean"
-              },
-              "text": {
-                "description": "自定义按钮文字内容。使用字体图标时 unicode 字符表示必须 '\\u' 开头，如 '\\ue123'。",
-                "type": "string"
-              },
-              "width": {
-                "description": "自定义按钮文字内容。支持像素值和 auto，不支持 rpx。默认为 44px。",
-                "type": "string"
-              }
-            }
-          }
-        },
-        "titleColor": {
-          "description": "标题颜色。默认为 #000000。",
-          "type": "string",
-          "format": "color"
-        },
-        "titleOverflow": {
-          "description": "标题文字超出显示区域时处理方式。默认为 ellipsis。",
-          "type": "string",
-          "enum": ["ellipsis", "clip"]
-        },
-        "titleText": {
-          "description": "标题内容。",
-          "type": "string"
-        },
-        "titleSize": {
-          "description": "标题字体大小。",
-          "type": "string"
-        },
-        "type": {
-          "description": "导航栏样式。默认为 default。",
-          "type": "string",
-          "enum": ["default", "transparent", "float"]
-        },
-        "tags": {
-          "description": "原生 View 增强。",
-          "type": "array",
-          "items": {
-            "id": {
-              "description": "绘制操作标识。",
-              "type": "string"
-            },
-            "tag": {
-              "description": "绘制操作类型。",
-              "type": "string",
-              "enum": ["img", "rect", "font", "richtext", "input"]
-            },
-            "inputStyles": {
-              "description": "绘制输入框的样式。",
-              "type": "object",
-              "properties": {
-                "type": {
-                  "description": "输入框类型。默认为 text。",
-                  "type": "string",
-                  "enum": ["email", "number", "search", "tel", "text", "url"]
-                },
-                "placeholder": {
-                  "description": "输入框的提示文本。",
-                  "type": "string"
-                },
-                "fontSize": {
-                  "description": "输入框的字体大小。默认为 16px。",
-                  "type": "string"
-                },
-                "borderWidth": {
-                  "description": "输入框的边框宽度。默认为 1px。",
-                  "type": "string"
-                },
-                "borderColor": {
-                  "description": "输入框的边框颜色，#RRGGBB 格式。默认为 #000000。",
-                  "type": "string",
-                  "format": "color"
-                },
-                "borderRadius": {
-                  "description": "输入框边框圆角半径。默认为 0px。",
-                  "type": "string"
-                }
-              }
-            },
-            "position": {
-              "description": "绘制内容区域。",
-              "type": "object",
-              "properties": {
-                "top": {
-                  "description": "区域顶部相对于作用对象（或容器）向下的偏移量。可填写百分比或 auto。默认为 0px。",
-                  "type": "string"
-                },
-                "left": {
-                  "description": "区域顶部相对于作用对象（或容器）向右的偏移量。可填写百分比或 auto。默认为 0px。",
-                  "type": "string"
-                },
-                "width": {
-                  "description": "区域宽度。可填写像素值或百分比。默认为 100%。",
-                  "type": "string"
-                },
-                "height": {
-                  "description": "区域高度。可填写像素值或百分比。默认为 100%。",
-                  "type": "string"
-                },
-                "bottom": {
-                  "description": "区域顶部相对于作用对象（或容器）向上的偏移量。可填写百分比或 auto。",
-                  "type": "string"
-                },
-                "right": {
-                  "description": "区域顶部相对于作用对象（或容器）向左的偏移量。可填写百分比或 auto。",
-                  "type": "string"
-                }
-              }
-            },
-            "rectStyles": {
-              "description": "绘制区域的样式。tag 为 rect 时有效。",
-              "type": "object",
-              "properties": {
-                "color": {
-                  "description": "绘制颜色，#RRGGBB 格式。默认为 #ffffff。",
-                  "type": "string",
-                  "format": "color"
-                },
-                "radius": {
-                  "description": "矩形区域的圆角半径。默认为 0px。",
-                  "type": "string"
-                },
-                "borderColor": {
-                  "description": "矩形边框颜色，#RRGGBB 格式。默认为 color 的值。",
-                  "type": "string",
-                  "format": "color"
-                },
-                "borderWidth": {
-                  "description": "矩形边框宽度。默认为 0px。",
-                  "type": "string"
-                }
-              }
-            },
-            "src": {
-              "description": "绘制的图片资源。",
-              "type": ["string", "object"]
-            },
-            "sprite": {
-              "description": "图片源的绘制区域。",
-              "type": "object",
-              "properties": {
-                "top": {
-                  "description": "区域顶部相对于作用对象（或容器）向下的偏移量。可填写百分比或 auto。默认为 0px。",
-                  "type": "string"
-                },
-                "left": {
-                  "description": "区域顶部相对于作用对象（或容器）向右的偏移量。可填写百分比或 auto。默认为 0px。",
-                  "type": "string"
-                },
-                "width": {
-                  "description": "区域宽度。可填写像素值或百分比。默认为 100%。",
-                  "type": "string"
-                },
-                "height": {
-                  "description": "区域高度。可填写像素值或百分比。默认为 100%。",
-                  "type": "string"
-                },
-                "bottom": {
-                  "description": "区域顶部相对于作用对象（或容器）向上的偏移量。可填写百分比或 auto。",
-                  "type": "string"
-                },
-                "right": {
-                  "description": "区域顶部相对于作用对象（或容器）向左的偏移量。可填写百分比或 auto。",
-                  "type": "string"
-                }
-              }
-            },
-            "text": {
-              "description": "绘制的文本内容。tag 为 font 时有效。",
-              "type": "string",
-              "properties": {}
-            },
-            "textStyles": {
-              "description": "绘制文本的样式。",
-              "type": "object",
-              "properties": {
-                "align": {
-                  "description": "水平对齐方式。默认为 center。",
-                  "type": "string",
-                  "enum": ["left", "right", "center"]
-                },
-                "color": {
-                  "description": "字体颜色，#RRGGBB 格式。默认为 #000000。",
-                  "type": "string",
-                  "format": "color"
-                },
-                "decoration": {
-                  "description": "文本装饰。默认为 none。",
-                  "type": "string",
-                  "enum": ["none", "underline", "line-through"]
-                },
-                "family": {
-                  "description": "字体名称。",
-                  "type": "string"
-                },
-                "fontSrc": {
-                  "description": "字体文件路径。",
-                  "type": "string"
-                },
-                "lineSpacing": {
-                  "description": "文本行间距。可填写像素值或百分比。默认为 20%。",
-                  "type": "string"
-                },
-                "margin": {
-                  "description": "字体边距。可填写像素值或百分比。默认为 0px。",
-                  "type": "string"
-                },
-                "overflow": {
-                  "description": "文本内容超出显示区域时处理方式。默认为 clip。",
-                  "type": "string",
-                  "enum": ["clip", "ellipsis"]
-                },
-                "size": {
-                  "description": "字体大小。默认为 16px。",
-                  "type": "string"
-                },
-                "style": {
-                  "description": "字体样式。默认为 normal。",
-                  "type": "string",
-                  "enum": ["normal", "italic"]
-                },
-                "verticalAlign": {
-                  "description": "垂直对齐方式。默认为 middle。",
-                  "type": "string",
-                  "enum": ["top", "middle", "bottom"]
-                },
-                "weight": {
-                  "description": "字体粗细。默认为 normal。",
-                  "type": "string",
-                  "enum": ["normal", "bold"]
-                },
-                "whiteSpace": {
-                  "description": "文本换行模式。默认为 nowrap。",
-                  "type": "string",
-                  "enum": ["nowrap", "normal"]
-                }
-              }
-            },
-            "richTextStyles": {
-              "description": "绘制富文本的样式。",
-              "type": "object",
-              "properties": {
-                "align": {
-                  "description": "水平对齐方式。默认为 center。",
-                  "type": "string",
-                  "enum": ["left", "right", "center"]
-                },
-                "family": {
-                  "description": "字体名称。",
-                  "type": "string"
-                },
-                "fontSrc": {
-                  "description": "字体文件路径。",
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "searchInput": {
-          "description": "原生导航栏上的搜索框配置。",
-          "type": "object",
-          "properties": {
-            "autoFocus": {
-              "description": "是否自动获取焦点。",
-              "type": "boolean"
-            },
-            "align": {
-              "description": "非输入状态下文本的对齐方式。默认为 center。",
-              "type": "string",
-              "enum": ["center", "left", "right"]
-            },
-            "backgroundColor": {
-              "description": "背景色。默认为 rgba(255,255,255,0.5)。",
-              "type": "string",
-              "format": "color"
-            },
-            "borderRadius": {
-              "description": "输入框的圆角半径。支持像素值。默认为 0px。",
-              "type": "string"
-            },
-            "placeholder": {
-              "description": "提示文本。",
-              "type": "string"
-            },
-            "placeholderColor": {
-              "description": "提示文本颜色。默认为 #cccccc。",
-              "type": "string",
-              "format": "color"
-            },
-            "disabled": {
-              "description": "是否禁止输入。默认为 false。",
-              "type": "boolean"
-            }
-          }
-        }
-      }
-    },
-    "pullToRefresh": {
-      "description": "下拉刷新。",
-      "type": "object",
-      "properties": {
-        "color": {
-          "description": "颜色，#RRGGBB 格式。",
-          "type": "string",
-          "format": "color"
-        },
-        "offset": {
-          "description": "下拉刷新控件的起始位置，style 为 circle 时有效。支持百分比和像素值。",
-          "type": "string"
-        }
-      }
-    },
-    "style": {
-      "type": "object",
-      "properties": {
-        "navigationBarBackgroundColor": {
-          "description": "导航栏背景色。",
-          "type": "string",
-          "format": "color"
-        },
-        "navigationBarTextStyle": {
-          "description": "导航栏标题颜色和状态栏前景颜色。",
-          "type": "string",
-          "enum": ["black", "white"]
-        },
-        "navigationBarTitleText": {
-          "description": "导航栏标题文字内容。",
-          "type": "string"
-        },
-        "navigationStyle": {
-          "description": "导航栏样式。",
-          "type": "string",
-          "enum": ["default", "custom"]
-        },
-        "backgroundColor": {
-          "description": "下拉显示出来的窗口的背景色。",
-          "type": "string",
-          "format": "color"
-        },
-        "backgroundTextStyle": {
-          "description": "下拉 loading 的样式。",
-          "type": "string",
-          "enum": ["dark", "light"]
-        },
-        "enablePullDownRefresh": {
-          "description": "是否开启下拉刷新。",
-          "type": "boolean"
-        },
-        "onReachBottomDistance": {
-          "description": "页面触发上拉触底事件时和底部的距离，单位 px。",
+        "animationDuration": {
+          "default": "300",
+          "description": "窗口显示动画的持续时间，单位为 ms",
           "type": "number"
         },
-        "backgroundColorTop": {
-          "description": "回弹区域顶部窗口的背景色。",
-          "type": "string",
-          "format": "color"
-        },
-        "backgroundColorBottom": {
-          "description": "回弹区域底部窗口的背景色。",
-          "type": "string",
-          "format": "color"
-        },
-        "titleImage": {
-          "description": "导航栏图片地址。",
+        "animationType": {
+          "default": "pop-in",
+          "description": "窗口显示的动画效果，详见：窗口动画",
           "type": "string"
         },
-        "transparentTitle": {
-          "description": "导航栏整体透明设置。",
-          "type": "string",
-          "enum": ["always", "auto", "none"]
-        },
-        "titlePenetrate": {
-          "description": "导航栏点击穿透。",
-          "type": "string",
-          "enum": ["YES", "NO"]
-        },
         "app-plus": {
-          "description": "编译到 APP 的特定样式。",
-          "type": "object",
-          "properties": {
-            "background": {
-              "description": "窗体背景色。",
-              "type": "string"
+          "$ref": "#/definitions/AppPlus",
+          "description": "设置编译到 App 平台的特定样式，配置项参考下方 app-plus"
+        },
+        "backgroundColor": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/HEXColor"
             },
-            "titleNView": {
-              "allOf": [
-                { "$ref": "#/definitions/titleNView" },
-                {
-                  "properties": {
-                    "titleOverflow": {
-                      "description": "标题文字超出显示区域时处理方式。",
-                      "type": "string",
-                      "enum": ["clip", "ellipsis"]
-                    },
-                    "tags": {
-                      "description": "原生 View 增强。",
-                      "type": "array"
-                    },
-                    "homeButton": {
-                      "description": "是否显示 Home 按钮。",
-                      "type": "boolean"
-                    },
-                    "autoBackButton": {
-                      "description": "是否自动显示左侧返回按钮。",
-                      "type": "boolean"
-                    },
-                    "backButton": {
-                      "description": "返回按钮的样式。",
-                      "type": "object"
-                    },
-                    "backgroundImage": {
-                      "description": "背景图片。支持背景图片路径和 linear-gradient 渐变色。",
-                      "type": "string"
-                    },
-                    "backgroundRepeat": {
-                      "description": "backgroundImage 为背景图片路径时有效。",
-                      "type": "string",
-                      "enum": ["repeat", "repeat-x", "repeat-y", "no-repeat"]
-                    },
-                    "titleAlign": {
-                      "description": "对齐方式。",
-                      "type": "string",
-                      "enum": ["center", "left", "auto"]
-                    },
-                    "blurEffect": {
-                      "description": "高斯模糊效果，type 为 transparent 或 float 时有效。",
-                      "type": "string",
-                      "enum": ["dark", "extralight", "light", "none"]
-                    },
-                    "coverage": {
-                      "description": "标题栏控件变化作用范围，type 为 transparent 时有效。支持百分比和像素值。",
-                      "type": "string"
-                    },
-                    "splitLine": {
-                      "description": "是否显示标题栏控件的底部分割线。",
-                      "type": "boolean"
-                    },
-                    "subtitleColor": {
-                      "description": "副标题颜色，默认和标题颜色一样。",
-                      "type": "string",
-                      "format": "color"
-                    },
-                    "subtitleSize": {
-                      "description": "副标题字体大小。",
-                      "type": "string"
-                    },
-                    "subtitleOverflow": {
-                      "description": "副标题文字超出显示区域时处理方式。",
-                      "type": "string",
-                      "enum": ["clip", "ellipsis"]
-                    },
-                    "subtitleText": {
-                      "description": "副标题内容。",
-                      "type": "string"
-                    },
-                    "titleIcon": {
-                      "description": "标题图标。支持本地路径。",
-                      "type": "string"
-                    },
-                    "titleIconRadius": {
-                      "description": "标题图标圆角。支持像素值。",
-                      "type": "string"
-                    }
-                  }
-                }
-              ]
-            },
-            "subNVues": {
-              "description": "原生子窗体。",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "原生子窗体的标识。",
-                    "type": "string"
-                  },
-                  "path": {
-                    "description": "配置 nvue 文件路径，nvue 文件需放置到使用 subNVue 的页面文件目录下。",
-                    "type": "string"
-                  },
-                  "type": {
-                    "description": "原生子窗口内置样式。",
-                    "type": "string",
-                    "enum": ["popup", "navigationBar"]
-                  },
-                  "style": {
-                    "description": "subNVue 原生子窗体的样式。",
-                    "type": "object",
-                    "properties": {
-                      "position": {
-                        "description": "原生子窗体的排版位置，排版位置决定原生子窗体在父窗口中的定位方式。",
-                        "type": "string",
-                        "enum": ["static", "absolute", "dock"]
-                      },
-                      "dock": {
-                        "description": "原生子窗体的停靠方式，position 为 dock 时生效。",
-                        "type": "string",
-                        "enum": ["top", "bottom", "right", "left"]
-                      },
-                      "mask": {
-                        "description": "原生子窗体的遮罩层，type 为 popup 时生效。",
-                        "type": "string"
-                      },
-                      "width": {
-                        "description": "原生子窗体的宽度。支持百分比和像素值。",
-                        "type": "string"
-                      },
-                      "height": {
-                        "description": "原生子窗体的高度。支持百分比和像素值。",
-                        "type": "string"
-                      },
-                      "top": {
-                        "description": "原生子窗体垂直向下的偏移量。支持百分比和像素值。",
-                        "type": "string"
-                      },
-                      "bottom": {
-                        "description": "原生子窗体垂直向上的偏移量。支持百分比和像素值。",
-                        "type": "string"
-                      },
-                      "left": {
-                        "description": "原生子窗体水平向左的偏移量。支持百分比和像素值。",
-                        "type": "string"
-                      },
-                      "right": {
-                        "description": "原生子窗体水平向右的偏移量。支持百分比和像素值。",
-                        "type": "string"
-                      },
-                      "margin": {
-                        "description": "原生子窗体的边距，用于定位原生子窗体的位置。",
-                        "type": "string"
-                      },
-                      "zindex": {
-                        "description": "原生子窗体的窗口的堆叠顺序值。",
-                        "type": "number"
-                      },
-                      "background": {
-                        "description": "窗口的背景颜色。",
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "bounce": {
-              "description": "页面回弹效果。",
-              "type": "string",
-              "enum": ["none"]
-            },
-            "popGesture": {
-              "description": "配置侧滑返回功能。",
-              "type": "string",
-              "enum": ["close", "none"]
-            },
-            "softinputNavBar": {
-              "description": "iOS 软键盘上完成工具栏的显示模式。",
-              "type": "string",
-              "enum": ["auto", "none"]
-            },
-            "softinputMode": {
-              "description": "软键盘弹出模式。",
-              "type": "string",
-              "enum": ["adjustResize", "adjustPan"]
-            },
-            "pullToRefresh": {
-              "allOf": [
-                { "$ref": "#/definitions/pullToRefresh" },
-                {
-                  "properties": {
-                    "support": {
-                      "description": "是否开启下拉刷新功能。",
-                      "type": "boolean"
-                    },
-                    "style": {
-                      "description": "下拉刷新样式。",
-                      "type": "string",
-                      "enum": ["circle", "default"]
-                    },
-                    "height": {
-                      "description": "窗口的下拉刷新控件进入刷新状态的拉拽高度。支持百分比和像素值。",
-                      "type": "string"
-                    },
-                    "range": {
-                      "description": "窗口可下拉拖拽的范围。支持百分比和像素值。",
-                      "type": "string"
-                    },
-                    "contentdown": {
-                      "description": "在下拉可刷新状态时下拉刷新控件上显示的内容，style 为 default 时有效。",
-                      "type": "object",
-                      "properties": {
-                        "caption": {
-                          "description": "在下拉可刷新状态时下拉刷新控件上显示的标题内容。",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "contentover": {
-                      "description": "在释放可刷新状态时下拉刷新控件上显示的内容，style 为 default 时有效。",
-                      "type": "object",
-                      "properties": {
-                        "caption": {
-                          "description": "在释放可刷新状态时下拉刷新控件上显示的标题内容。",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "contentrefresh": {
-                      "description": "在正在刷新状态时下拉刷新控件上显示的内容，style 为 default 时有效。",
-                      "type": "object",
-                      "properties": {
-                        "caption": {
-                          "description": "在正在刷新状态时下拉刷新控件上显示的标题内容。",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            "scrollIndicator": {
-              "description": "滚动条显示方式。",
-              "type": "string",
-              "enum": ["none"]
-            },
-            "animationType": {
-              "description": "窗口显示的动画效果。",
-              "type": "string",
-              "enum": [
-                "slide-in-right",
-                "slide-in-left",
-                "slide-in-top",
-                "slide-in-bottom",
-                "pop-in",
-                "fade-in",
-                "zoom-out",
-                "zoom-fade-out",
-                "none"
-              ]
-            },
-            "animationDuration": {
-              "description": "窗口显示动画的持续时间，单位 ms。",
-              "type": "string"
+            {
+              "$ref": "#/definitions/ThemeColor"
             }
-          }
+          ],
+          "default": "#ffffff",
+          "description": "下拉显示出来的窗口的背景色"
+        },
+        "backgroundColorBottom": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/HEXColor"
+            },
+            {
+              "$ref": "#/definitions/ThemeColor"
+            }
+          ],
+          "default": "#ffffff",
+          "description": "底部窗口的背景色（bounce回弹区域）"
+        },
+        "backgroundColorTop": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/HEXColor"
+            },
+            {
+              "$ref": "#/definitions/ThemeColor"
+            }
+          ],
+          "default": "#ffffff",
+          "description": "顶部窗口的背景色（bounce回弹区域）"
+        },
+        "backgroundTextStyle": {
+          "default": "dark",
+          "description": "下拉 loading 的样式，仅支持 dark / light",
+          "type": "string"
+        },
+        "dynamicRpx": {
+          "default": "false",
+          "description": "动态 rpx，屏幕大小变化会重新渲染 rpx",
+          "type": "boolean"
+        },
+        "enablePullDownRefresh": {
+          "default": "false",
+          "description": "是否开启下拉刷新，详见页面生命周期。",
+          "type": "boolean"
         },
         "h5": {
-          "type": "object",
-          "description": "编译到 H5 的特定样式。",
-          "properties": {
-            "titleNView": { "$ref": "#/definitions/titleNView" },
-            "pullToRefresh": { "$ref": "#/definitions/pullToRefresh" }
-          }
-        },
-        "mp-weixin": {
-          "description": "编译到微信小程序的特定样式。",
-          "type": "object"
-        },
-        "mp-alipay": {
-          "description": "编译到支付宝小程序的特定样式。",
-          "type": "object",
-          "properties": {
-            "allowsBounceVertical": {
-              "description": "是否允许向下拉拽。",
-              "type": "string",
-              "enum": ["YES", "NO"]
-            },
-            "titleImage": {
-              "description": "导航栏图片地址。",
-              "type": "string"
-            },
-            "transparentTitle": {
-              "description": "导航栏透明设置。",
-              "type": "string",
-              "enum": ["always", "auto", "none"]
-            },
-            "titlePenetrate": {
-              "description": "导航栏是否点击穿透。",
-              "type": "string",
-              "enum": ["YES", "NO"]
-            },
-            "showTitleLoading": {
-              "description": "进入时是否显示导航栏的 loading。",
-              "type": "string",
-              "enum": ["YES", "NO"]
-            },
-            "backgroundImageUrl": {
-              "description": "下拉露出显示的背景图链接。",
-              "type": "string"
-            },
-            "backgroundImageColor": {
-              "description": "下拉露出显示的背景图底色。",
-              "type": "string",
-              "format": "color"
-            },
-            "gestureBack": {
-              "description": "iOS 是否支持手势返回。",
-              "type": "string",
-              "enum": ["YES", "NO"]
-            },
-            "enableScrollBar": {
-              "description": "Android 是否显示 WebView 滚动条。",
-              "type": "string",
-              "enum": ["YES", "NO"]
-            }
-          }
-        },
-        "mp-baidu": {
-          "description": "编译到百度小程序的特定样式。",
-          "type": "object"
-        },
-        "mp-toutiao": {
-          "description": "编译到字节跳动小程序的特定样式。",
-          "type": "object"
-        },
-        "mp-qq": {
-          "description": "编译到 QQ 小程序的特定样式。",
-          "type": "object"
-        },
-        "usingComponents": {
-          "description": "引用小程序组件。",
-          "type": "object"
+          "$ref": "#/definitions/H5",
+          "description": "设置编译到 H5 平台的特定样式，配置项参考下方 H5"
         },
         "leftWindow": {
-          "description": "存在 leftWindow 时，默认是否显示 leftWindow。",
-          "type": "boolean"
-        },
-        "topWindow": {
-          "description": "存在 topWindow 时，默认是否显示 topWindow。",
-          "type": "boolean"
-        },
-        "rightWindow": {
-          "description": "存在 rightWindow 时，默认是否显示 rightWindow。",
+          "default": "true",
+          "description": "当存在 leftWindow 时，默认是否显示 leftWindow",
           "type": "boolean"
         },
         "maxWidth": {
-          "description": "当浏览器可见区域宽度大于 maxWidth 时两侧留白，当小于等于 maxWidth 时页面铺满。不同页面支持配置不同的maxWidth。单位 px。",
+          "description": "单位px，当浏览器可见区域宽度大于maxWidth时，两侧留白，当小于等于maxWidth时，页面铺满；不同页面支持配置不同的maxWidth；maxWidth = leftWindow(可选)+page(页面主体)+rightWindow(可选)",
           "type": "number"
-        }
-      }
-    },
-    "pages": {
-      "description": "页面路径和窗口表现。",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "path": {
-            "description": "页面路径。",
+        },
+        "mp-alipay": {
+          "description": "设置编译到 mp-alipay 平台的特定样式，配置项参考下方 MP-ALIPAY",
+          "type": "object"
+        },
+        "mp-baidu": {
+          "description": "设置编译到 mp-baidu 平台的特定样式",
+          "type": "object"
+        },
+        "mp-jd": {
+          "description": "设置编译到 mp-jd 平台的特定样式",
+          "type": "object"
+        },
+        "mp-kuaishou": {
+          "description": "设置编译到 mp-kuaishou 平台的特定样式",
+          "type": "object"
+        },
+        "mp-lark": {
+          "description": "设置编译到 mp-lark 平台的特定样式",
+          "type": "object"
+        },
+        "mp-qq": {
+          "description": "设置编译到 mp-qq 平台的特定样式",
+          "type": "object"
+        },
+        "mp-toutiao": {
+          "description": "设置编译到 mp-toutiao 平台的特定样式",
+          "type": "object"
+        },
+        "mp-weixin": {
+          "description": "设置编译到 mp-weixin 平台的特定样式",
+          "type": "object"
+        },
+        "navigationBarBackgroundColor": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/HEXColor"
+            },
+            {
+              "$ref": "#/definitions/ThemeColor"
+            }
+          ],
+          "default": "#F7F7F7",
+          "description": "导航栏背景颜色（同状态栏背景色）"
+        },
+        "navigationBarTextStyle": {
+          "default": "white",
+          "description": "导航栏标题颜色及状态栏前景颜色，仅支持 black/white",
+          "type": "string"
+        },
+        "navigationBarTitleText": {
+          "description": "导航栏标题文字内容",
+          "type": "string"
+        },
+        "navigationStyle": {
+          "default": "default",
+          "description": "导航栏样式，仅支持 default/custom。custom即取消默认的原生导航栏，需看使用注意",
+          "type": "string"
+        },
+        "onReachBottomDistance": {
+          "default": "50",
+          "description": "页面上拉触底事件触发时距页面底部距离，单位只支持px，详见页面生命周期",
+          "type": "number"
+        },
+        "pageOrientation": {
+          "default": "portrait",
+          "description": "横屏配置，屏幕旋转设置，仅支持 auto / portrait / landscape 详见 响应显示区域变化",
+          "type": "string"
+        },
+        "renderingMode": {
+          "description": "同层渲染，webrtc(实时音视频) 无法正常时尝试配置 seperated 强制关掉同层",
+          "type": "string"
+        },
+        "rightWindow": {
+          "default": "true",
+          "description": "当存在 rightWindow 时，默认是否显示 rightWindow",
+          "type": "boolean"
+        },
+        "rpxCalcBaseDeviceWidth": {
+          "default": "375",
+          "description": "rpx 计算使用的基准设备宽度，设备实际宽度超出 rpx 计算所支持的最大设备宽度时将按基准宽度计算，单位 px",
+          "type": "number"
+        },
+        "rpxCalcIncludeWidth": {
+          "default": "750",
+          "description": "rpx 计算特殊处理的值，始终按实际的设备宽度计算，单位 rpx",
+          "type": "number"
+        },
+        "rpxCalcMaxDeviceWidth": {
+          "default": "960",
+          "description": "rpx 计算所支持的最大设备宽度，单位 px",
+          "type": "number"
+        },
+        "titleImage": {
+          "description": "导航栏图片地址（替换当前文字标题），支付宝小程序内必须使用https的图片链接地址",
+          "type": "string"
+        },
+        "titlePenetrate": {
+          "default": "NO",
+          "description": "导航栏点击穿透",
+          "type": "string"
+        },
+        "topWindow": {
+          "default": "true",
+          "description": "当存在 topWindow 时，默认是否显示 topWindow",
+          "type": "boolean"
+        },
+        "transparentTitle": {
+          "default": "none",
+          "description": "导航栏整体（前景、背景）透明设置。支持 always 一直透明 / auto 滑动自适应 / none 不透明",
+          "type": "string"
+        },
+        "usingComponents": {
+          "additionalProperties": {
             "type": "string"
           },
-          "style": {
-            "allOf": [
-              { "$ref": "#/definitions/style" },
-              {
-                "description": "页面窗口表现。",
-                "properties": {
-                  "navigationBarShadow": {
-                    "description": "导航栏阴影。",
-                    "type": "object",
-                    "properties": {
-                      "description": "阴影色。",
-                      "type": "string",
-                      "enum": ["grey", "blue", "green", "orange", "red", "yellow"]
-                    }
-                  },
-                  "disableScroll": {
-                    "description": "是否禁止页面整体上下滚动。",
-                    "type": "boolean"
-                  }
-                }
-              }
-            ]
-          },
-          "needLogin": {
-            "description": "当前页面是否需要登录才可以访问，此配置优先级高于 uniIdRouter 下的 needLogin。",
-            "type": "boolean"
-          }
+          "description": "引用小程序组件，参考 小程序组件",
+          "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
-    "window": {
-      "type": "object",
+    "H5": {
       "properties": {
+        "backgroundColor": {
+          "$ref": "#/definitions/HEXColor",
+          "default": "#F7F7F7",
+          "description": "背景颜色，颜色值格式为\"#RRGGBB\"。"
+        },
+        "buttons": {
+          "description": "自定义按钮，参考 buttons",
+          "items": {},
+          "type": "array"
+        },
+        "searchInput": {
+          "description": "导航栏上的搜索框样式，详见：searchInput",
+          "type": "object"
+        },
+        "titleColor": {
+          "$ref": "#/definitions/HEXColor",
+          "default": "#000000",
+          "description": "标题文字颜色"
+        },
+        "titleSize": {
+          "description": "标题文字字体大小",
+          "type": "string"
+        },
+        "titleText": {
+          "description": "标题文字内容",
+          "type": "string"
+        },
+        "type": {
+          "default": "default",
+          "description": "导航栏样式。\"default\"-默认样式；\"transparent\"-透明渐变。",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HEXColor": {
+      "type": "string"
+    },
+    "IconFont": {
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "description": "字体图标颜色",
+          "type": "string"
+        },
+        "fontSize": {
+          "description": "字体图标字号(px)",
+          "type": "string"
+        },
+        "selectedColor": {
+          "description": "字体图标选中颜色",
+          "type": "string"
+        },
+        "selectedText": {
+          "description": "选中后字库 Unicode 码",
+          "type": "string"
+        },
+        "text": {
+          "description": "字库 Unicode 码",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MidButton": {
+      "additionalProperties": false,
+      "properties": {
+        "backgroundImage": {
+          "description": "中间按钮的背景图片路径",
+          "type": "string"
+        },
+        "height": {
+          "default": "50px",
+          "description": "中间按钮的高度，可以大于 tabBar 高度，达到中间凸起的效果",
+          "type": "string"
+        },
+        "iconPath": {
+          "description": "中间按钮的图片路径",
+          "type": "string"
+        },
+        "iconWidth": {
+          "default": "24px",
+          "description": "图片宽度（高度等比例缩放）",
+          "type": "string"
+        },
+        "iconfont": {
+          "$ref": "#/definitions/IconFont",
+          "description": "字体图标，优先级高于 iconPath"
+        },
+        "text": {
+          "description": "中间按钮的文字",
+          "type": "string"
+        },
+        "width": {
+          "default": "80px",
+          "description": "中间按钮的宽度，tabBar 其它项为减去此宽度后平分，默认值为与其它项平分宽度",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PageMetaDatum": {
+      "properties": {
+        "needLogin": {
+          "description": "当前页面是否需要登录才可以访问，此配置优先级高于 uniIdRouter 下的 needLogin",
+          "type": "boolean"
+        },
         "path": {
-          "description": "配置页面路径。",
+          "description": "配置页面路径",
           "type": "string"
         },
         "style": {
-          "description": "配置页面窗口表现。",
+          "$ref": "#/definitions/GlobalStyle",
+          "description": "配置页面窗口表现，配置项参考下方 pageStyle"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": ["path"],
+      "type": "object"
+    },
+    "PagesConfig": {
+      "properties": {
+        "condition": {
+          "$ref": "#/definitions/Condition",
+          "description": "启动模式配置"
+        },
+        "easycom": {
+          "$ref": "#/definitions/EasyCom",
+          "description": "组件自动引入规则"
+        },
+        "entryPagePath": {
+          "description": "默认启动首页，新增于 HBuilderX 3.7.0",
+          "type": "string"
+        },
+        "globalStyle": {
+          "$ref": "#/definitions/GlobalStyle",
+          "description": "设置默认页面的窗口表现"
+        },
+        "leftWindow": {
+          "$ref": "#/definitions/TheWindow",
+          "description": "大屏左侧窗口"
+        },
+        "pages": {
+          "description": "设置页面路径及窗口表现",
+          "items": {
+            "$ref": "#/definitions/PageMetaDatum"
+          },
+          "type": "array"
+        },
+        "preloadRule": {
+          "additionalProperties": {
+            "$ref": "#/definitions/PreloadRule"
+          },
+          "description": "分包预下载规则",
           "type": "object"
         },
+        "rightWindow": {
+          "$ref": "#/definitions/TheWindow",
+          "description": "大屏右侧窗口"
+        },
+        "subPackages": {
+          "description": "分包加载配置",
+          "items": {
+            "$ref": "#/definitions/SubPackage"
+          },
+          "type": "array"
+        },
+        "tabBar": {
+          "$ref": "#/definitions/TabBar",
+          "description": "设置底部 tab 的表现"
+        },
+        "topWindow": {
+          "$ref": "#/definitions/TheWindow",
+          "description": "大屏顶部窗口"
+        },
+        "uniIdRouter": {
+          "$ref": "#/definitions/UniIdRouter",
+          "description": "自动跳转相关配置，新增于 HBuilderX 3.5.0"
+        },
+        "workers": {
+          "description": "`Worker` 代码放置的目录"
+        }
+      },
+      "type": "object"
+    },
+    "PreloadRule": {
+      "additionalProperties": false,
+      "properties": {
+        "network": {
+          "default": "wifi",
+          "description": "在指定网络下预下载，可选值为：all（不限网络）、wifi（仅wifi下预下载）",
+          "type": "string"
+        },
+        "packages": {
+          "description": "进入页面后预下载分包的 root 或 name。__APP__ 表示主包。",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RGBAColor": {
+      "type": "string"
+    },
+    "RGBColor": {
+      "type": "string"
+    },
+    "SubPackage": {
+      "additionalProperties": false,
+      "properties": {
+        "pages": {
+          "description": "子包由哪些页面组成，参数同 pages",
+          "items": {},
+          "type": "array"
+        },
+        "root": {
+          "description": "子包的根目录",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TabBar": {
+      "properties": {
+        "backgroundColor": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Color"
+            },
+            {
+              "$ref": "#/definitions/ThemeColor"
+            }
+          ],
+          "description": "tab 的背景色"
+        },
+        "blurEffect": {
+          "default": "none",
+          "description": "iOS 高斯模糊效果，可选值 dark/extralight/light/none（参考?:使用说明）",
+          "type": "string"
+        },
+        "borderStyle": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/ThemeColor"
+            }
+          ],
+          "default": "black",
+          "description": "tabbar 上边框的颜色，可选值 black/white，也支持其他颜色值"
+        },
+        "color": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Color"
+            },
+            {
+              "$ref": "#/definitions/ThemeColor"
+            }
+          ],
+          "description": "tab 上的文字默认颜色"
+        },
+        "fontSize": {
+          "default": "10px",
+          "description": "文字默认大小",
+          "type": "string"
+        },
+        "height": {
+          "default": "50px",
+          "description": "tabBar 默认高度",
+          "type": "string"
+        },
+        "iconWidth": {
+          "default": "24px",
+          "description": "图标默认宽度（高度等比例缩放）",
+          "type": "string"
+        },
+        "iconfontSrc": {
+          "description": "list设置 iconfont 属性时，需要指定字体文件路径",
+          "type": "string"
+        },
+        "list": {
+          "description": "tab 的列表，详见 list 属性说明，最少2个、最多5个 tab",
+          "items": {
+            "$ref": "#/definitions/TabBarItem"
+          },
+          "maxItems": 5,
+          "minItems": 2,
+          "type": "array"
+        },
+        "midButton": {
+          "$ref": "#/definitions/MidButton",
+          "description": "中间按钮 仅在 list 项为偶数时有效"
+        },
+        "position": {
+          "default": "bottom",
+          "description": "可选值 bottom、top",
+          "type": "string"
+        },
+        "selectedColor": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Color"
+            },
+            {
+              "$ref": "#/definitions/ThemeColor"
+            }
+          ],
+          "description": "tab 上的文字选中时的颜色"
+        },
+        "spacing": {
+          "default": "3px",
+          "description": "图标和文字的间距",
+          "type": "string"
+        }
+      },
+      "required": ["list"],
+      "type": "object"
+    },
+    "TabBarItem": {
+      "properties": {
+        "iconPath": {
+          "description": "图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px， 当 position 为 top 时，此参数无效，不支持网络图片，不支持字体图标",
+          "type": "string"
+        },
+        "iconfont": {
+          "$ref": "#/definitions/IconFont",
+          "description": "字体图标，优先级高于 iconPath"
+        },
+        "pagePath": {
+          "description": "页面路径，必须在 pages 中先定义",
+          "type": "string"
+        },
+        "selectedIconPath": {
+          "description": "选中时的图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px ，当 position 为 top 时，此参数无效",
+          "type": "string"
+        },
+        "text": {
+          "description": "tab 上按钮文字，在 App 和 H5 平台为非必填。例如中间可放一个没有文字的+号图标",
+          "type": "string"
+        },
+        "visible": {
+          "description": "该项是否显示，默认显示",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "TheWindow": {
+      "additionalProperties": false,
+      "properties": {
         "matchMedia": {
-          "description": "配置显示该窗口的规则。",
-          "type": "object",
+          "additionalProperties": false,
+          "description": "配置显示该窗口的规则，配置项参考下方 matchMedia",
           "properties": {
             "minWidth": {
-              "description": "当设备可见区域宽度 >= minWidth 时显示该窗口。",
+              "default": "768",
+              "description": "当设备可见区域宽度 >= minWidth 时，显示该 window",
               "type": "number"
             }
-          }
+          },
+          "type": "object"
+        },
+        "path": {
+          "description": "配置页面路径",
+          "type": "string"
+        },
+        "style": {
+          "$ref": "#/definitions/GlobalStyle",
+          "description": "配置页面窗口表现，配置项参考下方 pageStyle"
         }
-      }
+      },
+      "required": ["path"],
+      "type": "object"
+    },
+    "ThemeColor": {
+      "type": "string"
+    },
+    "UniIdRouter": {
+      "additionalProperties": false,
+      "properties": {
+        "loginPage": {
+          "description": "登录页面路径",
+          "type": "string"
+        },
+        "needLogin": {
+          "description": "需要登录才可以访问的页面列表，可以使用正则语法",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resToLogin": {
+          "default": true,
+          "description": "是否自动解析云对象及 clientDB 的错误码，如果是客户端 token 不正确或 token 过期则自动跳转配置的登录页面",
+          "type": "boolean"
+        }
+      },
+      "required": ["loginPage", "needLogin"],
+      "type": "object"
     }
   }
 }

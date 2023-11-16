@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.9.0 (2023-11-16)
+
+- feat!: 默认使用通过 TypeScript 类型生成的 JSON 文件
+
 ## 0.8.11 (2023-05-16)
 
 - 允许 `manifest.json` 中 `versionCode` 为数字或字符串

@@ -46,17 +46,41 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 
 \`manifest.json\`
 
+> 该文件根据 \`@uni-helper/vite-plugin-uni-manifest\` 提供的 TypeScript 类型自动生成，0.9.0 起默认使用该文件
+
 \`\`\`json
 {
-  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json"
+  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest_legacy.json"
 }
 \`\`\`
 
 \`pages.json\`
 
+> 该文件根据 \`@uni-helper/vite-plugin-uni-pages\` 提供的 TypeScript 类型自动生成，0.9.0 起默认使用该文件
+
 \`\`\`json
 {
   "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages.json"
+}
+\`\`\`
+
+\`manifest_legacy.json\`
+
+> 该文件根据官方文档手动整合，0.9.0 前默认使用该文件，不建议再使用
+
+\`\`\`json
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest_legacy.json"
+}
+\`\`\`
+
+\`pages_legacy.json\`
+
+> 该文件根据官方文档手动整合，0.9.0 前默认使用该文件，不建议再使用
+
+\`\`\`json
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages_legacy.json"
 }
 \`\`\`
 `;
