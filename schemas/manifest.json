@@ -24,7 +24,11 @@
                   "type": "string"
                 }
               },
-              "required": ["ignoreVersion", "runtimeVersion", "compilerVersion"],
+              "required": [
+                "ignoreVersion",
+                "runtimeVersion",
+                "compilerVersion"
+              ],
               "type": "object"
             },
             "distribute": {
@@ -45,30 +49,49 @@
                       "properties": {
                         "hdpi": {
                           "description": "高分屏设备程序图标，分辨率要求72x72",
-                          "type": ["string"]
+                          "type": [
+                            "string"
+                          ]
                         },
                         "ldpi": {
                           "description": "大屏设备程序图标，分辨率要求48x48，这类设备很少见，可以不配置",
-                          "type": ["string"]
+                          "type": [
+                            "string"
+                          ]
                         },
                         "mdpi": {
                           "description": "普通屏设备程序图标，分辨率要求48x48，这类设备很少见，可以不配置",
-                          "type": ["string"]
+                          "type": [
+                            "string"
+                          ]
                         },
                         "xhdpi": {
                           "description": "720P高分屏设备程序图标，分辨率要求96x96",
-                          "type": ["string"]
+                          "type": [
+                            "string"
+                          ]
                         },
                         "xxhdpi": {
                           "description": "1080P高分屏设备程序图标，分辨率要求144x144",
-                          "type": ["string"]
+                          "type": [
+                            "string"
+                          ]
                         },
                         "xxxhdpi": {
                           "description": "2K屏设备程序图标，分辨率要求192x192",
-                          "type": ["string"]
+                          "type": [
+                            "string"
+                          ]
                         }
                       },
-                      "required": ["xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi", "ldpi"],
+                      "required": [
+                        "xxxhdpi",
+                        "xxhdpi",
+                        "xhdpi",
+                        "hdpi",
+                        "mdpi",
+                        "ldpi"
+                      ],
                       "type": "object"
                     },
                     "ios": {
@@ -77,7 +100,9 @@
                       "properties": {
                         "appstore": {
                           "description": "App Store图标路径，分辨率要求1024x1024",
-                          "type": ["string"]
+                          "type": [
+                            "string"
+                          ]
                         },
                         "ipad": {
                           "additionalProperties": false,
@@ -85,39 +110,57 @@
                           "properties": {
                             "app": {
                               "description": "iOS7+设备程序主图标，分辨率要求76x76",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "app@2x": {
                               "description": "iOS7+高分屏设备程序主图标，分辨率要求152x152",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "notification": {
                               "description": "iOS7+设备通知栏图标，分辨率要求20x20",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "notification@2x": {
                               "description": "iOS7+高分屏设备通知栏图标，分辨率要求40x40",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "proapp@2x": {
                               "description": "iOS9+ iPad Pro(12.9英寸)设备程序主图标，分辨率要求167x167",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "settings": {
                               "description": "iOS5+设备Settings设置图标，分辨率要求29x29",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "settings@2x": {
                               "description": "iOS5+高分屏设备Settings设置图标，分辨率要求58x58",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "spotlight": {
                               "description": "iOS7+设备Spotlight搜索图标，分辨率要求40x40",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "spotlight@2x": {
                               "description": "iOS7+高分屏设备Spotlight搜索图标，分辨率要求80x80",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             }
                           },
                           "required": [
@@ -139,35 +182,51 @@
                           "properties": {
                             "app@2x": {
                               "description": "iOS7+设备程序主图标，分辨率要求120x120",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "app@3x": {
                               "description": "iOS7+设备程序主图标，分辨率要求180x180",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "notification@2x": {
                               "description": "iOS7+设备通知栏图标，分辨率要求40x40",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "notification@3x": {
                               "description": "iOS7+设备通知栏图标，分辨率要求60x60",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "settings@2x": {
                               "description": "iOS7+设备Settings设置图标，分辨率要求58x58",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "settings@3x": {
                               "description": "iOS7+设备Settings设置图标，分辨率要求87x87",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "spotlight@2x": {
                               "description": "iOS7+设备Spotlight搜索图标，分辨率要求80x80",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             },
                             "spotlight@3x": {
                               "description": "iOS7+设备Spotlight搜索图标，分辨率要求120x120",
-                              "type": ["string"]
+                              "type": [
+                                "string"
+                              ]
                             }
                           },
                           "required": [
@@ -183,11 +242,18 @@
                           "type": "object"
                         }
                       },
-                      "required": ["appstore", "ipad", "iphone"],
+                      "required": [
+                        "appstore",
+                        "ipad",
+                        "iphone"
+                      ],
                       "type": "object"
                     }
                   },
-                  "required": ["android", "ios"],
+                  "required": [
+                    "android",
+                    "ios"
+                  ],
                   "type": "object"
                 },
                 "ios": {
@@ -209,7 +275,12 @@
                   "type": "object"
                 }
               },
-              "required": ["android", "ios", "icons", "sdkConfigs"],
+              "required": [
+                "android",
+                "ios",
+                "icons",
+                "sdkConfigs"
+              ],
               "type": "object"
             },
             "modules": {
@@ -222,26 +293,42 @@
               "properties": {
                 "flex-direction": {
                   "description": "flex 项目的排列方向 默认为 column",
-                  "enum": ["row", "row-reverse", "column", "column-reverse"],
+                  "enum": [
+                    "row",
+                    "row-reverse",
+                    "column",
+                    "column-reverse"
+                  ],
                   "type": "string"
                 }
               },
-              "required": ["flex-direction"],
+              "required": [
+                "flex-direction"
+              ],
               "type": "object"
             },
             "nvueCompiler": {
               "description": "nvue 编译模式 默认为 weex 建议使用 uni-app",
-              "enum": ["weex", "uni-app"],
+              "enum": [
+                "weex",
+                "uni-app"
+              ],
               "type": "string"
             },
             "nvueLaunchMode": {
               "description": "nvue 首页启动模式 默认为 normal",
-              "enum": ["normal", "fast"],
+              "enum": [
+                "normal",
+                "fast"
+              ],
               "type": "string"
             },
             "nvueStyleCompiler": {
               "description": "nvue 样式编译模式 默认为 weex 建议使用 uni-app",
-              "enum": ["weex", "uni-app"],
+              "enum": [
+                "weex",
+                "uni-app"
+              ],
               "type": "string"
             },
             "optimization": {
@@ -253,7 +340,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["subPackages"],
+              "required": [
+                "subPackages"
+              ],
               "type": "object"
             },
             "renderer": {
@@ -263,7 +352,10 @@
             },
             "runmode": {
               "description": "运行模式 分包时必须设置 liberate",
-              "enum": ["normal", "liberate"],
+              "enum": [
+                "normal",
+                "liberate"
+              ],
               "type": "string"
             },
             "screenOrientation": {
@@ -322,7 +414,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             },
             "webView": {
@@ -350,11 +444,18 @@
                       "type": "number"
                     }
                   },
-                  "required": ["timeOut", "showTipsWithoutWifi", "allowDownloadWithoutWiFi"],
+                  "required": [
+                    "timeOut",
+                    "showTipsWithoutWifi",
+                    "allowDownloadWithoutWiFi"
+                  ],
                   "type": "object"
                 }
               },
-              "required": ["minUserAgentVersion", "x5"],
+              "required": [
+                "minUserAgentVersion",
+                "x5"
+              ],
               "type": "object"
             }
           },
@@ -412,7 +513,12 @@
                   "type": "number"
                 }
               },
-              "required": ["loading", "error", "delay", "timeout"],
+              "required": [
+                "loading",
+                "error",
+                "delay",
+                "timeout"
+              ],
               "type": "object"
             },
             "devServer": {
@@ -428,7 +534,10 @@
                   "type": "boolean"
                 }
               },
-              "required": ["https", "disableHostCheck"],
+              "required": [
+                "https",
+                "disableHostCheck"
+              ],
               "type": "object"
             },
             "optimization": {
@@ -452,11 +561,17 @@
                       "type": "boolean"
                     }
                   },
-                  "required": ["enable"],
+                  "required": [
+                    "enable"
+                  ],
                   "type": "object"
                 }
               },
-              "required": ["prefetch", "preload", "treeShaking"],
+              "required": [
+                "prefetch",
+                "preload",
+                "treeShaking"
+              ],
               "type": "object"
             },
             "publicPath": {
@@ -473,11 +588,17 @@
                 },
                 "mode": {
                   "description": "路由跳转模式 默认为 hash",
-                  "enum": ["hash", "history"],
+                  "enum": [
+                    "hash",
+                    "history"
+                  ],
                   "type": "string"
                 }
               },
-              "required": ["mode", "base"],
+              "required": [
+                "mode",
+                "base"
+              ],
               "type": "object"
             },
             "sdkConfigs": {
@@ -501,7 +622,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             }
           },
@@ -560,7 +683,11 @@
             },
             "scopedSlotsCompiler": {
               "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": ["auto", "legacy", "augmented"],
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
               "type": "string"
             },
             "uniStatistics": {
@@ -572,7 +699,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             }
           },
@@ -606,7 +735,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["subPackages"],
+              "required": [
+                "subPackages"
+              ],
               "type": "object"
             },
             "prefetches": {
@@ -626,7 +757,11 @@
             },
             "scopedSlotsCompiler": {
               "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": ["auto", "legacy", "augmented"],
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
               "type": "string"
             },
             "uniStatistics": {
@@ -638,7 +773,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             }
           },
@@ -668,12 +805,18 @@
                   "type": "boolean"
                 }
               },
-              "required": ["subPackages"],
+              "required": [
+                "subPackages"
+              ],
               "type": "object"
             },
             "scopedSlotsCompiler": {
               "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": ["auto", "legacy", "augmented"],
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
               "type": "string"
             },
             "uniStatistics": {
@@ -685,11 +828,18 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             }
           },
-          "required": ["appid", "optimization", "uniStatistics", "scopedSlotsCompiler"],
+          "required": [
+            "appid",
+            "optimization",
+            "uniStatistics",
+            "scopedSlotsCompiler"
+          ],
           "type": "object"
         },
         "mp-lark": {
@@ -701,7 +851,11 @@
             },
             "scopedSlotsCompiler": {
               "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": ["auto", "legacy", "augmented"],
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
               "type": "string"
             },
             "setting": {
@@ -720,7 +874,9 @@
                       "type": "array"
                     }
                   },
-                  "required": ["ignore"],
+                  "required": [
+                    "ignore"
+                  ],
                   "type": "object"
                 },
                 "es6": {
@@ -740,7 +896,13 @@
                   "type": "boolean"
                 }
               },
-              "required": ["es6", "minified", "postcss", "urlCheck", "babelSetting"],
+              "required": [
+                "es6",
+                "minified",
+                "postcss",
+                "urlCheck",
+                "babelSetting"
+              ],
               "type": "object"
             },
             "uniStatistics": {
@@ -752,11 +914,18 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             }
           },
-          "required": ["appid", "setting", "uniStatistics", "scopedSlotsCompiler"],
+          "required": [
+            "appid",
+            "setting",
+            "uniStatistics",
+            "scopedSlotsCompiler"
+          ],
           "type": "object"
         },
         "mp-qq": {
@@ -789,7 +958,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["subPackages"],
+              "required": [
+                "subPackages"
+              ],
               "type": "object"
             },
             "permission": {
@@ -806,7 +977,11 @@
             },
             "scopedSlotsCompiler": {
               "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": ["auto", "legacy", "augmented"],
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
               "type": "string"
             },
             "uniStatistics": {
@@ -818,7 +993,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             },
             "workers": {
@@ -862,12 +1039,18 @@
                   "type": "boolean"
                 }
               },
-              "required": ["subPackages"],
+              "required": [
+                "subPackages"
+              ],
               "type": "object"
             },
             "scopedSlotsCompiler": {
               "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": ["auto", "legacy", "augmented"],
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
               "type": "string"
             },
             "setting": {
@@ -928,7 +1111,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             }
           },
@@ -989,7 +1174,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["subPackages"],
+              "required": [
+                "subPackages"
+              ],
               "type": "object"
             },
             "permission": {
@@ -1003,7 +1190,10 @@
             "requiredBackgroundModes": {
               "description": "需要在后台使用的能力",
               "items": {
-                "enum": ["audio", "location"],
+                "enum": [
+                  "audio",
+                  "location"
+                ],
                 "type": "string"
               },
               "type": "array"
@@ -1021,7 +1211,11 @@
             },
             "scopedSlotsCompiler": {
               "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": ["auto", "legacy", "augmented"],
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
               "type": "string"
             },
             "setting": {
@@ -1048,7 +1242,10 @@
                       "type": "string"
                     }
                   },
-                  "required": ["outputPath", "ignore"],
+                  "required": [
+                    "outputPath",
+                    "ignore"
+                  ],
                   "type": "object"
                 },
                 "bigPackageSizeSupport": {
@@ -1137,7 +1334,10 @@
                         "type": "string"
                       }
                     },
-                    "required": ["packageJsonPath", "miniprogramNpmDistDir"],
+                    "required": [
+                      "packageJsonPath",
+                      "miniprogramNpmDistDir"
+                    ],
                     "type": "object"
                   },
                   "type": "array"
@@ -1258,7 +1458,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["enable"],
+              "required": [
+                "enable"
+              ],
               "type": "object"
             },
             "workers": {
@@ -1338,7 +1540,13 @@
               "type": "string"
             }
           },
-          "required": ["icon", "package", "minPlatformVersion", "versionName", "versionCode"],
+          "required": [
+            "icon",
+            "package",
+            "minPlatformVersion",
+            "versionName",
+            "versionCode"
+          ],
           "type": "object"
         },
         "quickapp-webview-huawei": {
@@ -1350,7 +1558,9 @@
               "type": "number"
             }
           },
-          "required": ["minPlatformVersion"],
+          "required": [
+            "minPlatformVersion"
+          ],
           "type": "object"
         },
         "quickapp-webview-union": {
@@ -1362,7 +1572,9 @@
               "type": "number"
             }
           },
-          "required": ["minPlatformVersion"],
+          "required": [
+            "minPlatformVersion"
+          ],
           "type": "object"
         },
         "transformPx": {
@@ -1382,7 +1594,9 @@
                   "type": "boolean"
                 }
               },
-              "required": ["uniPushClientID"],
+              "required": [
+                "uniPushClientID"
+              ],
               "type": "object"
             },
             "debug": {
@@ -1399,11 +1613,20 @@
             },
             "version": {
               "description": "uni 统计版本 默认为 1",
-              "enum": ["1", "2"],
+              "enum": [
+                "1",
+                "2"
+              ],
               "type": "string"
             }
           },
-          "required": ["enable", "version", "debug", "reportInterval", "collectItems"],
+          "required": [
+            "enable",
+            "version",
+            "debug",
+            "reportInterval",
+            "collectItems"
+          ],
           "type": "object"
         },
         "versionCode": {

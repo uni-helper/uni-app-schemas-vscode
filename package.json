@@ -1,7 +1,7 @@
 {
   "name": "uni-app-schemas-vscode",
   "displayName": "uni-app-schemas",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "校验 uni-app 中的 androidPrivacy.json、pages.json 和 manifest.json 格式",
   "categories": [
     "Other"
