@@ -52,7 +52,7 @@
     "publish": "conc \"npm:publish:vscode\" \"npm:publish:openvsx\"",
     "publish:openvsx": "ovsx publish",
     "publish:vscode": "vsce package && vsce publish",
-    "release": "npm run build && bumpp --all --x=\"tsx ./scripts/update-readme.ts\"",
+    "release": "npm run build && git add ./schemas/*.json && bumpp --all --x=\"tsx ./scripts/update-readme.ts\"",
     "typecheck": "tsc --noEmit"
   },
   "contributes": {
