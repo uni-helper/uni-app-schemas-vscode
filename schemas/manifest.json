@@ -1,1668 +1,1324 @@
 {
-  "$ref": "#/definitions/ManifestConfig",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/ManifestConfig",
   "definitions": {
     "ManifestConfig": {
+      "type": "object",
       "properties": {
-        "app-plus": {
-          "description": "APP 特有配置",
+        "name": {
+          "type": "string",
+          "description": "应用名称，安装 APP 后显示的名称"
+        },
+        "appid": {
+          "type": "string",
+          "description": "应用标识，由 DCloud 云端分配 更多信息查看 <https://ask.dcloud.net.cn/article/35907>"
+        },
+        "description": {
+          "type": "string",
+          "description": "应用描述"
+        },
+        "locale": {
+          "type": "string",
+          "description": "当前默认语言 默认为 auto"
+        },
+        "versionName": {
+          "type": "string",
+          "description": "版本名称，在云打包和生成 wgt 资源时使用"
+        },
+        "versionCode": {
+          "type": "string",
+          "description": "版本号"
+        },
+        "transformPx": {
+          "type": "boolean",
+          "description": "是否转换 px 为 rpx 默认为 true 建议使用 false"
+        },
+        "networkTimeout": {
+          "type": "object",
           "properties": {
-            "compatible": {
-              "additionalProperties": false,
-              "description": "编译器兼容性配置",
+            "request": {
+              "type": "number",
+              "description": "uni.request 超时时间 单位为 ms 默认为 60000"
+            },
+            "connectSocket": {
+              "type": "number",
+              "description": "uni.connectSocket 超时时间 单位为 ms 默认为 60000"
+            },
+            "uploadFile": {
+              "type": "number",
+              "description": "uni.uploadFile 超时时间 单位为 ms 默认为 60000"
+            },
+            "downloadFile": {
+              "type": "number",
+              "description": "uni.downloadFile 超时时间 单位为 ms 默认为 60000"
+            }
+          },
+          "additionalProperties": false,
+          "description": "网络超时时间"
+        },
+        "debug": {
+          "type": "boolean",
+          "description": "是否开启 debug 模式 默认为 false"
+        },
+        "uniStatistics": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "description": "是否开启 uni 统计 默认为 false"
+            },
+            "version": {
+              "type": "string",
+              "enum": [
+                "1",
+                "2"
+              ],
+              "description": "uni 统计版本 默认为 1"
+            },
+            "debug": {
+              "type": "boolean",
+              "description": "是否开启统计调试模式 生产阶段务必关闭 默认为 false"
+            },
+            "reportInterval": {
+              "type": "number",
+              "description": "前端数据上报周期 默认为 10"
+            },
+            "collectItems": {
+              "type": "object",
               "properties": {
-                "compilerVersion": {
-                  "description": "编译环境版本号",
-                  "type": "string"
-                },
-                "ignoreVersion": {
-                  "description": "是否忽略运行环境与编译环境不一致的问题",
-                  "type": "boolean"
-                },
-                "runtimeVersion": {
-                  "description": "运行环境版本号 可以使用英文逗号分割",
-                  "type": "string"
+                "uniPushClientID": {
+                  "type": "boolean",
+                  "description": "是否开启推送 PushClientID 的采集 默认为 false"
                 }
               },
-              "required": [
-                "ignoreVersion",
-                "runtimeVersion",
-                "compilerVersion"
-              ],
-              "type": "object"
+              "additionalProperties": false,
+              "description": "采集项配置"
+            }
+          },
+          "additionalProperties": false,
+          "description": "uni 统计配置 更多信息查看 <https://uniapp.dcloud.net.cn/uni-stat-v1.html> 和 <https://uniapp.dcloud.net.cn/uni-stat-v2.html>"
+        },
+        "app-plus": {
+          "type": "object",
+          "properties": {
+            "compatible": {
+              "type": "object",
+              "properties": {
+                "ignoreVersion": {
+                  "type": "boolean",
+                  "description": "是否忽略运行环境与编译环境不一致的问题"
+                },
+                "runtimeVersion": {
+                  "type": "string",
+                  "description": "运行环境版本号 可以使用英文逗号分割"
+                },
+                "compilerVersion": {
+                  "type": "string",
+                  "description": "编译环境版本号"
+                }
+              },
+              "additionalProperties": false,
+              "description": "编译器兼容性配置"
+            },
+            "splashscreen": {
+              "type": "object",
+              "properties": {
+                "alwaysShowBeforeRender": {
+                  "type": "boolean",
+                  "description": "是否等待首页渲染完毕后再关闭启动界面 默认为 true"
+                },
+                "autoclose": {
+                  "type": "boolean",
+                  "description": "是否自动关闭启动界面 默认为 true"
+                },
+                "waiting": {
+                  "type": "boolean",
+                  "description": "是否在程序启动界面显示加载 默认为 true"
+                },
+                "useOriginalMsgbox": {
+                  "type": "boolean",
+                  "description": "是否使用原生提示框"
+                },
+                "delay": {
+                  "type": "number",
+                  "description": "未知属性，但是uni默认配置中有该属性"
+                }
+              },
+              "additionalProperties": false,
+              "description": "启动界面信息"
+            },
+            "screenOrientation": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "portrait-primary",
+                  "portrait-secondary",
+                  "landscape-primary",
+                  "landscape-secondary"
+                ]
+              },
+              "description": "重力感应、横竖屏配置"
+            },
+            "modules": {
+              "type": "object",
+              "description": "APP 权限模块"
             },
             "distribute": {
-              "additionalProperties": false,
-              "description": "APP 发布信息",
+              "type": "object",
               "properties": {
                 "android": {
-                  "description": "Android 专用配置",
-                  "type": "object"
-                },
-                "icons": {
-                  "additionalProperties": false,
-                  "description": "App图标配置",
-                  "properties": {
-                    "android": {
-                      "additionalProperties": false,
-                      "description": "Android平台",
-                      "properties": {
-                        "hdpi": {
-                          "description": "高分屏设备程序图标，分辨率要求72x72",
-                          "type": [
-                            "string"
-                          ]
-                        },
-                        "ldpi": {
-                          "description": "大屏设备程序图标，分辨率要求48x48，这类设备很少见，可以不配置",
-                          "type": [
-                            "string"
-                          ]
-                        },
-                        "mdpi": {
-                          "description": "普通屏设备程序图标，分辨率要求48x48，这类设备很少见，可以不配置",
-                          "type": [
-                            "string"
-                          ]
-                        },
-                        "xhdpi": {
-                          "description": "720P高分屏设备程序图标，分辨率要求96x96",
-                          "type": [
-                            "string"
-                          ]
-                        },
-                        "xxhdpi": {
-                          "description": "1080P高分屏设备程序图标，分辨率要求144x144",
-                          "type": [
-                            "string"
-                          ]
-                        },
-                        "xxxhdpi": {
-                          "description": "2K屏设备程序图标，分辨率要求192x192",
-                          "type": [
-                            "string"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "xxxhdpi",
-                        "xxhdpi",
-                        "xhdpi",
-                        "hdpi",
-                        "mdpi",
-                        "ldpi"
-                      ],
-                      "type": "object"
-                    },
-                    "ios": {
-                      "additionalProperties": false,
-                      "description": "iOS平台",
-                      "properties": {
-                        "appstore": {
-                          "description": "App Store图标路径，分辨率要求1024x1024",
-                          "type": [
-                            "string"
-                          ]
-                        },
-                        "ipad": {
-                          "additionalProperties": false,
-                          "description": "iPad设备程序图标",
-                          "properties": {
-                            "app": {
-                              "description": "iOS7+设备程序主图标，分辨率要求76x76",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "app@2x": {
-                              "description": "iOS7+高分屏设备程序主图标，分辨率要求152x152",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "notification": {
-                              "description": "iOS7+设备通知栏图标，分辨率要求20x20",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "notification@2x": {
-                              "description": "iOS7+高分屏设备通知栏图标，分辨率要求40x40",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "proapp@2x": {
-                              "description": "iOS9+ iPad Pro(12.9英寸)设备程序主图标，分辨率要求167x167",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "settings": {
-                              "description": "iOS5+设备Settings设置图标，分辨率要求29x29",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "settings@2x": {
-                              "description": "iOS5+高分屏设备Settings设置图标，分辨率要求58x58",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "spotlight": {
-                              "description": "iOS7+设备Spotlight搜索图标，分辨率要求40x40",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "spotlight@2x": {
-                              "description": "iOS7+高分屏设备Spotlight搜索图标，分辨率要求80x80",
-                              "type": [
-                                "string"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "app",
-                            "app@2x",
-                            "notification",
-                            "notification@2x",
-                            "proapp@2x",
-                            "settings",
-                            "settings@2x",
-                            "spotlight",
-                            "spotlight@2x"
-                          ],
-                          "type": "object"
-                        },
-                        "iphone": {
-                          "additionalProperties": false,
-                          "description": "iPhone设备程序图标",
-                          "properties": {
-                            "app@2x": {
-                              "description": "iOS7+设备程序主图标，分辨率要求120x120",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "app@3x": {
-                              "description": "iOS7+设备程序主图标，分辨率要求180x180",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "notification@2x": {
-                              "description": "iOS7+设备通知栏图标，分辨率要求40x40",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "notification@3x": {
-                              "description": "iOS7+设备通知栏图标，分辨率要求60x60",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "settings@2x": {
-                              "description": "iOS7+设备Settings设置图标，分辨率要求58x58",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "settings@3x": {
-                              "description": "iOS7+设备Settings设置图标，分辨率要求87x87",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "spotlight@2x": {
-                              "description": "iOS7+设备Spotlight搜索图标，分辨率要求80x80",
-                              "type": [
-                                "string"
-                              ]
-                            },
-                            "spotlight@3x": {
-                              "description": "iOS7+设备Spotlight搜索图标，分辨率要求120x120",
-                              "type": [
-                                "string"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "app@2x",
-                            "app@3x",
-                            "notification@2x",
-                            "notification@3x",
-                            "settings@2x",
-                            "settings@3x",
-                            "spotlight@2x",
-                            "spotlight@3x"
-                          ],
-                          "type": "object"
-                        }
-                      },
-                      "required": [
-                        "appstore",
-                        "ipad",
-                        "iphone"
-                      ],
-                      "type": "object"
-                    }
-                  },
-                  "required": [
-                    "android",
-                    "ios"
-                  ],
-                  "type": "object"
+                  "type": "object",
+                  "description": "Android 专用配置"
                 },
                 "ios": {
-                  "description": "iOS 专用配置",
-                  "type": "object"
+                  "type": "object",
+                  "description": "iOS 专用配置"
+                },
+                "icons": {
+                  "type": "object",
+                  "properties": {
+                    "android": {
+                      "type": "object",
+                      "properties": {
+                        "xxxhdpi": {
+                          "type": [
+                            "string"
+                          ],
+                          "description": "2K屏设备程序图标，分辨率要求192x192"
+                        },
+                        "xxhdpi": {
+                          "type": [
+                            "string"
+                          ],
+                          "description": "1080P高分屏设备程序图标，分辨率要求144x144"
+                        },
+                        "xhdpi": {
+                          "type": [
+                            "string"
+                          ],
+                          "description": "720P高分屏设备程序图标，分辨率要求96x96"
+                        },
+                        "hdpi": {
+                          "type": [
+                            "string"
+                          ],
+                          "description": "高分屏设备程序图标，分辨率要求72x72"
+                        },
+                        "mdpi": {
+                          "type": [
+                            "string"
+                          ],
+                          "description": "普通屏设备程序图标，分辨率要求48x48，这类设备很少见，可以不配置"
+                        },
+                        "ldpi": {
+                          "type": [
+                            "string"
+                          ],
+                          "description": "大屏设备程序图标，分辨率要求48x48，这类设备很少见，可以不配置"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Android平台"
+                    },
+                    "ios": {
+                      "type": "object",
+                      "properties": {
+                        "appstore": {
+                          "type": [
+                            "string"
+                          ],
+                          "description": "App Store图标路径，分辨率要求1024x1024"
+                        },
+                        "ipad": {
+                          "type": "object",
+                          "properties": {
+                            "app": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备程序主图标，分辨率要求76x76"
+                            },
+                            "app@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+高分屏设备程序主图标，分辨率要求152x152"
+                            },
+                            "notification": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备通知栏图标，分辨率要求20x20"
+                            },
+                            "notification@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+高分屏设备通知栏图标，分辨率要求40x40"
+                            },
+                            "proapp@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS9+ iPad Pro(12.9英寸)设备程序主图标，分辨率要求167x167"
+                            },
+                            "settings": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS5+设备Settings设置图标，分辨率要求29x29"
+                            },
+                            "settings@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS5+高分屏设备Settings设置图标，分辨率要求58x58"
+                            },
+                            "spotlight": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备Spotlight搜索图标，分辨率要求40x40"
+                            },
+                            "spotlight@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+高分屏设备Spotlight搜索图标，分辨率要求80x80"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "description": "iPad设备程序图标"
+                        },
+                        "iphone": {
+                          "type": "object",
+                          "properties": {
+                            "app@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备程序主图标，分辨率要求120x120"
+                            },
+                            "app@3x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备程序主图标，分辨率要求180x180"
+                            },
+                            "notification@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备通知栏图标，分辨率要求40x40"
+                            },
+                            "notification@3x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备通知栏图标，分辨率要求60x60"
+                            },
+                            "settings@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备Settings设置图标，分辨率要求58x58"
+                            },
+                            "settings@3x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备Settings设置图标，分辨率要求87x87"
+                            },
+                            "spotlight@2x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备Spotlight搜索图标，分辨率要求80x80"
+                            },
+                            "spotlight@3x": {
+                              "type": [
+                                "string"
+                              ],
+                              "description": "iOS7+设备Spotlight搜索图标，分辨率要求120x120"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "description": "iPhone设备程序图标"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "iOS平台"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "App图标配置"
                 },
                 "sdkConfigs": {
-                  "description": "SDK 配置 仅打包生效",
-                  "type": "object"
+                  "type": "object",
+                  "description": "SDK 配置 仅打包生效"
                 },
                 "splashscreen": {
-                  "additionalProperties": false,
-                  "description": "Android使用原生隐私政策提示框",
+                  "type": "object",
                   "properties": {
                     "useOriginalMsgbox": {
                       "type": "boolean"
                     }
                   },
-                  "type": "object"
+                  "additionalProperties": false,
+                  "description": "Android使用原生隐私政策提示框"
                 }
               },
-              "required": [
-                "android",
-                "ios",
-                "icons",
-                "sdkConfigs"
-              ],
-              "type": "object"
+              "additionalProperties": false,
+              "description": "APP 发布信息"
             },
-            "modules": {
-              "description": "APP 权限模块",
-              "type": "object"
+            "nvueCompiler": {
+              "type": "string",
+              "enum": [
+                "weex",
+                "uni-app"
+              ],
+              "description": "nvue 编译模式 默认为 weex 建议使用 uni-app"
+            },
+            "nvueStyleCompiler": {
+              "type": "string",
+              "enum": [
+                "weex",
+                "uni-app"
+              ],
+              "description": "nvue 样式编译模式 默认为 weex 建议使用 uni-app"
+            },
+            "renderer": {
+              "type": "string",
+              "const": "native",
+              "description": "运行框架"
+            },
+            "nvueLaunchMode": {
+              "type": "string",
+              "enum": [
+                "normal",
+                "fast"
+              ],
+              "description": "nvue 首页启动模式 默认为 normal"
             },
             "nvue": {
-              "additionalProperties": false,
-              "description": "nvue 页面布局初始配置",
+              "type": "object",
               "properties": {
                 "flex-direction": {
-                  "description": "flex 项目的排列方向 默认为 column",
+                  "type": "string",
                   "enum": [
                     "row",
                     "row-reverse",
                     "column",
                     "column-reverse"
                   ],
-                  "type": "string"
+                  "description": "flex 项目的排列方向 默认为 column"
                 }
               },
-              "required": [
-                "flex-direction"
-              ],
-              "type": "object"
+              "additionalProperties": false,
+              "description": "nvue 页面布局初始配置"
             },
-            "nvueCompiler": {
-              "description": "nvue 编译模式 默认为 weex 建议使用 uni-app",
-              "enum": [
-                "weex",
-                "uni-app"
-              ],
-              "type": "string"
-            },
-            "nvueLaunchMode": {
-              "description": "nvue 首页启动模式 默认为 normal",
-              "enum": [
-                "normal",
-                "fast"
-              ],
-              "type": "string"
-            },
-            "nvueStyleCompiler": {
-              "description": "nvue 样式编译模式 默认为 weex 建议使用 uni-app",
-              "enum": [
-                "weex",
-                "uni-app"
-              ],
-              "type": "string"
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
             },
             "optimization": {
-              "additionalProperties": false,
-              "description": "优化配置",
+              "type": "object",
               "properties": {
                 "subPackages": {
-                  "description": "是否开启分包配置 为 true 时必须设置 app-plus.runmode 为 liberate",
-                  "type": "boolean"
+                  "type": "boolean",
+                  "description": "是否开启分包配置 为 true 时必须设置 app-plus.runmode 为 liberate"
                 }
               },
-              "required": [
-                "subPackages"
-              ],
-              "type": "object"
-            },
-            "renderer": {
-              "const": "native",
-              "description": "运行框架",
-              "type": "string"
+              "additionalProperties": false,
+              "description": "优化配置"
             },
             "runmode": {
-              "description": "运行模式 分包时必须设置 liberate",
+              "type": "string",
               "enum": [
                 "normal",
                 "liberate"
               ],
-              "type": "string"
-            },
-            "screenOrientation": {
-              "description": "重力感应、横竖屏配置",
-              "items": {
-                "enum": [
-                  "portrait-primary",
-                  "portrait-secondary",
-                  "landscape-primary",
-                  "landscape-secondary"
-                ],
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "splashscreen": {
-              "additionalProperties": false,
-              "description": "启动界面信息",
-              "properties": {
-                "alwaysShowBeforeRender": {
-                  "description": "是否等待首页渲染完毕后再关闭启动界面 默认为 true",
-                  "type": "boolean"
-                },
-                "autoclose": {
-                  "description": "是否自动关闭启动界面 默认为 true",
-                  "type": "boolean"
-                },
-                "delay": {
-                  "description": "未知属性，但是uni默认配置中有该属性",
-                  "type": "number"
-                },
-                "useOriginalMsgbox": {
-                  "description": "是否使用原生提示框",
-                  "type": "boolean"
-                },
-                "waiting": {
-                  "description": "是否在程序启动界面显示加载 默认为 true",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "alwaysShowBeforeRender",
-                "autoclose",
-                "waiting",
-                "useOriginalMsgbox",
-                "delay"
-              ],
-              "type": "object"
-            },
-            "uniStatistics": {
-              "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
+              "description": "运行模式 分包时必须设置 liberate"
             },
             "webView": {
-              "additionalProperties": false,
-              "description": "系统 webview 低于指定版本时，会弹出提示，或者下载 x5 内核后继续启动 Android 支持",
+              "type": "object",
               "properties": {
                 "minUserAgentVersion": {
-                  "description": "最小 webview 版本 当低于最小版本要求时，显示弹框提示，点击确定退出应用",
-                  "type": "string"
+                  "type": "string",
+                  "description": "最小 webview 版本 当低于最小版本要求时，显示弹框提示，点击确定退出应用"
                 },
                 "x5": {
-                  "additionalProperties": false,
-                  "description": "x5 内核配置 启用 Android X5 Webview 模块后生效",
+                  "type": "object",
                   "properties": {
-                    "allowDownloadWithoutWiFi": {
-                      "description": "是否允许用户在非 WiFi 网络时直接下载 X5 内核 默认为 false，此时 showTipsWithoutWifi 为 true 时弹框询问用户，showTipsWithoutWifi 为 false 时不下载 true 时不弹框询问用户",
-                      "type": "boolean"
+                    "timeOut": {
+                      "type": "number",
+                      "description": "超时时间 默认为 3000"
                     },
                     "showTipsWithoutWifi": {
-                      "description": "是否在非 WiFi 网络环境时弹框询问用户是否确认下载 X5 内核 默认为 false，即不弹框询问",
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "是否在非 WiFi 网络环境时弹框询问用户是否确认下载 X5 内核 默认为 false，即不弹框询问"
                     },
-                    "timeOut": {
-                      "description": "超时时间 默认为 3000",
-                      "type": "number"
+                    "allowDownloadWithoutWiFi": {
+                      "type": "boolean",
+                      "description": "是否允许用户在非 WiFi 网络时直接下载 X5 内核 默认为 false，此时 showTipsWithoutWifi 为 true 时弹框询问用户，showTipsWithoutWifi 为 false 时不下载 true 时不弹框询问用户"
                     }
                   },
-                  "required": [
-                    "timeOut",
-                    "showTipsWithoutWifi",
-                    "allowDownloadWithoutWiFi"
-                  ],
-                  "type": "object"
+                  "additionalProperties": false,
+                  "description": "x5 内核配置 启用 Android X5 Webview 模块后生效"
                 }
               },
-              "required": [
-                "minUserAgentVersion",
-                "x5"
-              ],
-              "type": "object"
+              "additionalProperties": false,
+              "description": "系统 webview 低于指定版本时，会弹出提示，或者下载 x5 内核后继续启动 Android 支持"
             }
           },
-          "required": [
-            "compatible",
-            "splashscreen",
-            "screenOrientation",
-            "modules",
-            "distribute",
-            "nvueCompiler",
-            "nvueStyleCompiler",
-            "renderer",
-            "nvueLaunchMode",
-            "nvue",
-            "uniStatistics",
-            "optimization",
-            "runmode",
-            "webView"
-          ],
-          "type": "object"
-        },
-        "appid": {
-          "description": "应用标识，由 DCloud 云端分配 更多信息查看 <https://ask.dcloud.net.cn/article/35907>",
-          "type": "string"
-        },
-        "debug": {
-          "description": "是否开启 debug 模式 默认为 false",
-          "type": "boolean"
-        },
-        "description": {
-          "description": "应用描述",
-          "type": "string"
+          "description": "APP 特有配置"
         },
         "h5": {
-          "description": "H5 特有配置",
+          "type": "object",
           "properties": {
-            "async": {
-              "additionalProperties": false,
-              "description": "加载相关设置",
-              "properties": {
-                "delay": {
-                  "description": "显示加载中组件的延时时间，如果在延时内加载完成，则不会显示加载中组件 单位为 ms 默认为 200",
-                  "type": "number"
-                },
-                "error": {
-                  "description": "页面 JavaScript 加载失败时使用的组件，需注册为全局组件 默认为 AsyncError",
-                  "type": "string"
-                },
-                "loading": {
-                  "description": "页面 JavaScript 加载时使用的组件，需注册为全局组件 默认为 AsyncLoading",
-                  "type": "string"
-                },
-                "timeout": {
-                  "description": "加载超时时间，如果超时，则显示加载失败组件 单位为 ms 默认为 60000",
-                  "type": "number"
-                }
-              },
-              "required": [
-                "loading",
-                "error",
-                "delay",
-                "timeout"
-              ],
-              "type": "object"
+            "title": {
+              "type": "string",
+              "description": "页面标题 默认使用顶层 name 字段"
             },
-            "devServer": {
-              "additionalProperties": false,
-              "description": "dev server 设置",
-              "properties": {
-                "disableHostCheck": {
-                  "description": "是否禁用 host 检查 默认为 false",
-                  "type": "boolean"
-                },
-                "https": {
-                  "description": "是否启用 HTTPS 协议 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "https",
-                "disableHostCheck"
-              ],
-              "type": "object"
-            },
-            "optimization": {
-              "additionalProperties": false,
-              "description": "优化配置",
-              "properties": {
-                "prefetch": {
-                  "description": "资源预获取 默认为 false",
-                  "type": "boolean"
-                },
-                "preload": {
-                  "description": "资源预加载 默认为 false",
-                  "type": "boolean"
-                },
-                "treeShaking": {
-                  "additionalProperties": false,
-                  "description": "摇树优化",
-                  "properties": {
-                    "enable": {
-                      "description": "是否开启摇树优化 默认为 false",
-                      "type": "boolean"
-                    }
-                  },
-                  "required": [
-                    "enable"
-                  ],
-                  "type": "object"
-                }
-              },
-              "required": [
-                "prefetch",
-                "preload",
-                "treeShaking"
-              ],
-              "type": "object"
-            },
-            "publicPath": {
-              "description": "引用资源的地址前缀，仅发布时生效",
-              "type": "string"
+            "template": {
+              "type": "string",
+              "description": "相对于应用根目录的 index.html 模板路径"
             },
             "router": {
-              "additionalProperties": false,
-              "description": "路由设置",
+              "type": "object",
               "properties": {
-                "base": {
-                  "description": "应用基础路径 默认为 /",
-                  "type": "string"
-                },
                 "mode": {
-                  "description": "路由跳转模式 默认为 hash",
+                  "type": "string",
                   "enum": [
                     "hash",
                     "history"
                   ],
-                  "type": "string"
+                  "description": "路由跳转模式 默认为 hash"
+                },
+                "base": {
+                  "type": "string",
+                  "description": "应用基础路径 默认为 /"
                 }
               },
-              "required": [
-                "mode",
-                "base"
-              ],
-              "type": "object"
+              "additionalProperties": false,
+              "description": "路由设置"
+            },
+            "async": {
+              "type": "object",
+              "properties": {
+                "loading": {
+                  "type": "string",
+                  "description": "页面 JavaScript 加载时使用的组件，需注册为全局组件 默认为 AsyncLoading"
+                },
+                "error": {
+                  "type": "string",
+                  "description": "页面 JavaScript 加载失败时使用的组件，需注册为全局组件 默认为 AsyncError"
+                },
+                "delay": {
+                  "type": "number",
+                  "description": "显示加载中组件的延时时间，如果在延时内加载完成，则不会显示加载中组件 单位为 ms 默认为 200"
+                },
+                "timeout": {
+                  "type": "number",
+                  "description": "加载超时时间，如果超时，则显示加载失败组件 单位为 ms 默认为 60000"
+                }
+              },
+              "additionalProperties": false,
+              "description": "加载相关设置"
+            },
+            "devServer": {
+              "type": "object",
+              "properties": {
+                "https": {
+                  "type": "boolean",
+                  "description": "是否启用 HTTPS 协议 默认为 false"
+                },
+                "disableHostCheck": {
+                  "type": "boolean",
+                  "description": "是否禁用 host 检查 默认为 false"
+                }
+              },
+              "additionalProperties": false,
+              "description": "dev server 设置"
+            },
+            "publicPath": {
+              "type": "string",
+              "description": "引用资源的地址前缀，仅发布时生效"
             },
             "sdkConfigs": {
-              "description": "SDK 配置",
-              "type": "object"
-            },
-            "template": {
-              "description": "相对于应用根目录的 index.html 模板路径",
-              "type": "string"
-            },
-            "title": {
-              "description": "页面标题 默认使用顶层 name 字段",
-              "type": "string"
-            },
-            "uniStatistics": {
-              "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
-            }
-          },
-          "required": [
-            "title",
-            "template",
-            "router",
-            "async",
-            "devServer",
-            "publicPath",
-            "sdkConfigs",
-            "optimization",
-            "uniStatistics"
-          ],
-          "type": "object"
-        },
-        "locale": {
-          "description": "当前默认语言 默认为 auto",
-          "type": "string"
-        },
-        "mp-alipay": {
-          "description": "支付宝小程序特有配置",
-          "properties": {
-            "axmlStrictCheck": {
-              "description": "是否开启 axml 严格语法检查 默认为 false",
-              "type": "boolean"
-            },
-            "component2": {
-              "description": "是否启用 component2 编译 默认为 true",
-              "type": "boolean"
-            },
-            "enableAppxNg": {
-              "description": "是否启用小程序基础库 2.0 构建 默认为 true",
-              "type": "boolean"
-            },
-            "enableDistFileMinify": {
-              "description": "是否压缩编译产物，仅在真机预览/真机调试时生效 默认为 false",
-              "type": "boolean"
-            },
-            "enableParallelLoader": {
-              "description": "是否启用多进程编译 默认为 false",
-              "type": "boolean"
-            },
-            "lazyCodeLoading": {
-              "const": "requiredComponents",
-              "description": "目前仅支持值 requiredComponents，代表开启小程序按需注入特性",
-              "type": "string"
-            },
-            "mergeVirtualHostAttributes": {
-              "description": "是否合并组件虚拟节点外层属性 目前仅支持 style、class 属性",
-              "type": "boolean"
-            },
-            "plugins": {
-              "description": "使用到的插件",
-              "type": "object"
-            },
-            "scopedSlotsCompiler": {
-              "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": [
-                "auto",
-                "legacy",
-                "augmented"
-              ],
-              "type": "string"
-            },
-            "uniStatistics": {
-              "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
-            }
-          },
-          "required": [
-            "plugins",
-            "component2",
-            "enableAppxNg",
-            "axmlStrictCheck",
-            "enableParallelLoader",
-            "enableDistFileMinify",
-            "uniStatistics",
-            "scopedSlotsCompiler",
-            "mergeVirtualHostAttributes",
-            "lazyCodeLoading"
-          ],
-          "type": "object"
-        },
-        "mp-baidu": {
-          "description": "百度小程序特有配置",
-          "properties": {
-            "appid": {
-              "description": "百度小程序的 appid",
-              "type": "string"
+              "type": "object",
+              "description": "SDK 配置"
             },
             "optimization": {
-              "additionalProperties": false,
-              "description": "优化配置",
+              "type": "object",
               "properties": {
-                "subPackages": {
-                  "description": "是否开启分包优化",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "subPackages"
-              ],
-              "type": "object"
-            },
-            "prefetches": {
-              "description": "预请求的所有 url 的列表",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "requiredBackgroundModes": {
-              "description": "需要在后台使用的能力",
-              "items": {
-                "const": "audio",
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "scopedSlotsCompiler": {
-              "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": [
-                "auto",
-                "legacy",
-                "augmented"
-              ],
-              "type": "string"
-            },
-            "uniStatistics": {
-              "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
-            }
-          },
-          "required": [
-            "appid",
-            "requiredBackgroundModes",
-            "prefetches",
-            "optimization",
-            "uniStatistics",
-            "scopedSlotsCompiler"
-          ],
-          "type": "object"
-        },
-        "mp-kuaishou": {
-          "description": "快手小程序特有配置",
-          "properties": {
-            "appid": {
-              "description": "快手小程序的 appid",
-              "type": "string"
-            },
-            "optimization": {
-              "additionalProperties": false,
-              "description": "优化配置",
-              "properties": {
-                "subPackages": {
-                  "description": "是否开启分包优化",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "subPackages"
-              ],
-              "type": "object"
-            },
-            "scopedSlotsCompiler": {
-              "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": [
-                "auto",
-                "legacy",
-                "augmented"
-              ],
-              "type": "string"
-            },
-            "uniStatistics": {
-              "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
-            }
-          },
-          "required": [
-            "appid",
-            "optimization",
-            "uniStatistics",
-            "scopedSlotsCompiler"
-          ],
-          "type": "object"
-        },
-        "mp-lark": {
-          "description": "飞书小程序特有配置",
-          "properties": {
-            "appid": {
-              "description": "飞书小程序的 appid",
-              "type": "string"
-            },
-            "scopedSlotsCompiler": {
-              "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": [
-                "auto",
-                "legacy",
-                "augmented"
-              ],
-              "type": "string"
-            },
-            "setting": {
-              "additionalProperties": false,
-              "description": "飞书小程序小程序项目设置",
-              "properties": {
-                "babelSetting": {
-                  "additionalProperties": false,
-                  "description": "Babel 的配置项",
+                "prefetch": {
+                  "type": "boolean",
+                  "description": "资源预获取 默认为 false"
+                },
+                "preload": {
+                  "type": "boolean",
+                  "description": "资源预加载 默认为 false"
+                },
+                "treeShaking": {
+                  "type": "object",
                   "properties": {
-                    "ignore": {
-                      "description": "需要跳过 Babel 编译（包括代码压缩）处理的文件或目录",
-                      "items": {
-                        "type": "string"
-                      },
-                      "type": "array"
+                    "enable": {
+                      "type": "boolean",
+                      "description": "是否开启摇树优化 默认为 false"
                     }
                   },
-                  "required": [
-                    "ignore"
-                  ],
-                  "type": "object"
-                },
-                "es6": {
-                  "description": "是否启用 ES6 转 ES5",
-                  "type": "boolean"
-                },
-                "minified": {
-                  "description": "是否启用脚本代码自动压缩",
-                  "type": "boolean"
-                },
-                "postcss": {
-                  "description": "是否启用样式自动补全",
-                  "type": "boolean"
-                },
-                "urlCheck": {
-                  "description": "是否检查安全域名和 TLS 版本",
-                  "type": "boolean"
+                  "additionalProperties": false,
+                  "description": "摇树优化"
                 }
               },
-              "required": [
-                "es6",
-                "minified",
-                "postcss",
-                "urlCheck",
-                "babelSetting"
-              ],
-              "type": "object"
+              "additionalProperties": false,
+              "description": "优化配置"
             },
             "uniStatistics": {
+              "type": "object",
               "additionalProperties": false,
-              "description": "uni 统计配置项",
               "properties": {
                 "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
                 }
               },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
+              "description": "uni 统计配置项"
             }
           },
-          "required": [
-            "appid",
-            "setting",
-            "uniStatistics",
-            "scopedSlotsCompiler"
-          ],
-          "type": "object"
+          "description": "H5 特有配置"
         },
-        "mp-qq": {
-          "description": "QQ 小程序特有配置",
+        "quickapp-webview": {
+          "type": "object",
           "properties": {
-            "appid": {
-              "description": "QQ 小程序的 appid",
-              "type": "string"
+            "icon": {
+              "type": "string",
+              "description": "应用图标，推荐尺寸 192x192"
             },
-            "groupIdList": {
-              "description": "需要打开群资料卡的群号列表",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
+            "package": {
+              "type": "string",
+              "description": "应用包名"
             },
-            "navigateToMiniProgramAppIdList": {
-              "description": "需要跳转的 QQ 小程序列表",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
+            "minPlatformVersion": {
+              "type": "number",
+              "description": "最小平台支持，快应用联盟最低 1063，快应用华为最低 1070"
             },
-            "optimization": {
-              "additionalProperties": false,
-              "description": "优化配置",
-              "properties": {
-                "subPackages": {
-                  "description": "是否开启分包优化",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "subPackages"
-              ],
-              "type": "object"
+            "versionName": {
+              "type": "string",
+              "description": "版本名称"
             },
-            "permission": {
-              "description": "接口权限设置",
-              "type": "object"
-            },
-            "requiredBackgroundModes": {
-              "description": "需要在后台使用的能力",
-              "items": {
-                "const": "audio",
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "scopedSlotsCompiler": {
-              "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": [
-                "auto",
-                "legacy",
-                "augmented"
-              ],
-              "type": "string"
-            },
-            "uniStatistics": {
-              "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
-            },
-            "workers": {
-              "description": "Worker 代码目录",
-              "type": "string"
+            "versionCode": {
+              "type": "number",
+              "description": "版本号"
             }
           },
-          "required": [
-            "appid",
-            "requiredBackgroundModes",
-            "navigateToMiniProgramAppIdList",
-            "permission",
-            "workers",
-            "groupIdList",
-            "optimization",
-            "uniStatistics",
-            "scopedSlotsCompiler"
-          ],
-          "type": "object"
+          "description": "快应用特有配置"
         },
-        "mp-toutiao": {
-          "description": "字节跳动小程序特有配置",
+        "quickapp-webview-union": {
+          "type": "object",
           "properties": {
-            "appid": {
-              "description": "字节跳动小程序的 appid",
-              "type": "string"
-            },
-            "navigateToMiniProgramAppIdList": {
-              "description": "需要跳转的字节跳动小程序列表",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "optimization": {
-              "additionalProperties": false,
-              "description": "优化配置",
-              "properties": {
-                "subPackages": {
-                  "description": "是否开启分包优化",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "subPackages"
-              ],
-              "type": "object"
-            },
-            "scopedSlotsCompiler": {
-              "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": [
-                "auto",
-                "legacy",
-                "augmented"
-              ],
-              "type": "string"
-            },
-            "setting": {
-              "additionalProperties": false,
-              "description": "字节跳动小程序小程序项目设置",
-              "properties": {
-                "autoCompile": {
-                  "description": "修改文件的时候是否自动编译",
-                  "type": "boolean"
-                },
-                "es6": {
-                  "description": "是否启用 ES6 转 ES5",
-                  "type": "boolean"
-                },
-                "minified": {
-                  "description": "上传代码时是否自动压缩脚本文件",
-                  "type": "boolean"
-                },
-                "mockLogin": {
-                  "description": "是否开启宿主登录模拟",
-                  "type": "boolean"
-                },
-                "mockUpdate": {
-                  "description": "下次编译是否模拟更新",
-                  "type": "boolean"
-                },
-                "postcss": {
-                  "description": "上传代码时样式是否自动补全",
-                  "type": "boolean"
-                },
-                "scripts": {
-                  "description": "是否启动自定义处理命令",
-                  "type": "boolean"
-                },
-                "urlCheck": {
-                  "description": "是否检查安全域名和 TLS 版本",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "es6",
-                "postcss",
-                "minified",
-                "urlCheck",
-                "autoCompile",
-                "mockUpdate",
-                "scripts",
-                "mockLogin"
-              ],
-              "type": "object"
-            },
-            "uniStatistics": {
-              "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
+            "minPlatformVersion": {
+              "type": "number",
+              "description": "最小平台支持，最低 1063"
             }
           },
-          "required": [
-            "appid",
-            "setting",
-            "navigateToMiniProgramAppIdList",
-            "optimization",
-            "uniStatistics",
-            "scopedSlotsCompiler"
-          ],
-          "type": "object"
+          "additionalProperties": false,
+          "description": "快应用联盟特有配置"
+        },
+        "quickapp-webview-huawei": {
+          "type": "object",
+          "properties": {
+            "minPlatformVersion": {
+              "type": "number",
+              "description": "最小平台支持，最低 1070"
+            }
+          },
+          "additionalProperties": false,
+          "description": "快应用华为特有配置"
         },
         "mp-weixin": {
-          "description": "微信小程序特有配置",
+          "type": "object",
           "properties": {
             "appid": {
-              "description": "微信小程序的 appid",
-              "type": "string"
-            },
-            "cloudfunctionRoot": {
-              "description": "云开发代码目录",
-              "type": "string"
-            },
-            "embeddedAppIdList": {
-              "description": "要半屏跳转的小程序 appid",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "functionalPages": {
-              "description": "是否启用插件功能页 默认为 false",
-              "type": "boolean"
-            },
-            "lazyCodeLoading": {
-              "const": "requiredComponents",
-              "description": "目前仅支持值 requiredComponents，代表开启小程序按需注入特性",
-              "type": "string"
-            },
-            "mergeVirtualHostAttributes": {
-              "description": "是否合并组件虚拟节点外层属性 目前仅支持 style、class 属性",
-              "type": "boolean"
-            },
-            "navigateToMiniProgramAppIdList": {
-              "description": "需要跳转的微信小程序列表",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "optimization": {
-              "additionalProperties": false,
-              "description": "优化配置",
-              "properties": {
-                "subPackages": {
-                  "description": "是否开启分包优化",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "subPackages"
-              ],
-              "type": "object"
-            },
-            "permission": {
-              "description": "接口权限设置",
-              "type": "object"
-            },
-            "plugins": {
-              "description": "使用到的插件",
-              "type": "object"
-            },
-            "requiredBackgroundModes": {
-              "description": "需要在后台使用的能力",
-              "items": {
-                "enum": [
-                  "audio",
-                  "location"
-                ],
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "requiredPrivateInfos": {
-              "description": "地理位置相关接口",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "resizable": {
-              "description": "是否支持 iPad 上屏幕旋转 默认为 false",
-              "type": "boolean"
-            },
-            "scopedSlotsCompiler": {
-              "description": "Vue2 作用域插槽编译模式 默认为 auto",
-              "enum": [
-                "auto",
-                "legacy",
-                "augmented"
-              ],
-              "type": "string"
+              "type": "string",
+              "description": "微信小程序的 appid"
             },
             "setting": {
-              "additionalProperties": false,
-              "description": "微信小程序项目设置 更多信息查看 <https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html>",
+              "type": "object",
               "properties": {
+                "es6": {
+                  "type": "boolean",
+                  "description": "是否启用 ES6 转 ES5"
+                },
+                "es7": {
+                  "type": "boolean",
+                  "description": "是否使用增强编译\n\n {@link  https://developers.weixin.qq.com/community/develop/doc/0002ce07a58000a57c5da5e6456c09 regeneratorRuntime 相关报错排查指引 }"
+                },
+                "enhance": {
+                  "type": "boolean",
+                  "description": "是否使用增强编译"
+                },
+                "postcss": {
+                  "type": "boolean",
+                  "description": "上传代码时样式是否自动补全"
+                },
+                "minified": {
+                  "type": "boolean",
+                  "description": "上传代码时是否自动压缩脚本文件"
+                },
+                "minifyWXSS": {
+                  "type": "boolean",
+                  "description": "上传代码时是否自动压缩样式文件"
+                },
+                "minifyWXML": {
+                  "type": "boolean",
+                  "description": "上传代码时是否自动压缩 WXML 文件"
+                },
+                "uglifyFileName": {
+                  "type": "boolean",
+                  "description": "上传时是否代码保护"
+                },
+                "ignoreUploadUnusedFiles": {
+                  "type": "boolean",
+                  "description": "上传时是否过滤无依赖文件"
+                },
                 "autoAudits": {
-                  "description": "是否自动运行体验评分",
-                  "type": "boolean"
+                  "type": "boolean",
+                  "description": "是否自动运行体验评分"
+                },
+                "urlCheck": {
+                  "type": "boolean",
+                  "description": "是否检查安全域名和 TLS 版本"
+                },
+                "compileHotReLoad": {
+                  "type": "boolean",
+                  "description": "是否启用代码自动热重载"
+                },
+                "preloadBackgroundData": {
+                  "type": "boolean",
+                  "description": "是否启用数据预拉取"
+                },
+                "lazyloadPlaceholderEnable": {
+                  "type": "boolean",
+                  "description": "是否启用懒注入占位组件调试"
+                },
+                "useStaticServer": {
+                  "type": "boolean",
+                  "description": "小游戏项目有效，是否开启静态资源服务器"
+                },
+                "bigPackageSizeSupport": {
+                  "type": "boolean",
+                  "description": "预览及真机调试的时主包、分包体积上限是否调整为小程序 4M、小游戏 8M"
                 },
                 "babelSetting": {
-                  "additionalProperties": false,
-                  "description": "增强编译 Babel 的配置项",
+                  "type": "object",
                   "properties": {
+                    "outputPath": {
+                      "type": "string",
+                      "description": "Babel 辅助函数的输出目录 默认为"
+                    },
                     "ignore": {
-                      "description": "需要跳过 Babel 编译（包括代码压缩）处理的文件或目录",
+                      "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "type": "array"
-                    },
-                    "outputPath": {
-                      "description": "Babel 辅助函数的输出目录 默认为",
-                      "type": "string"
+                      "description": "需要跳过 Babel 编译（包括代码压缩）处理的文件或目录"
                     }
                   },
-                  "required": [
-                    "outputPath",
-                    "ignore"
-                  ],
-                  "type": "object"
-                },
-                "bigPackageSizeSupport": {
-                  "description": "预览及真机调试的时主包、分包体积上限是否调整为小程序 4M、小游戏 8M",
-                  "type": "boolean"
-                },
-                "checkInvalidKey": {
-                  "description": "是否检查键名",
-                  "type": "boolean"
-                },
-                "checkSiteMap": {
-                  "description": "是否检查 SiteMap 索引",
-                  "type": "boolean"
-                },
-                "compileHotReLoad": {
-                  "description": "是否启用代码自动热重载",
-                  "type": "boolean"
-                },
-                "coverView": {
-                  "description": "是否使用工具渲染 CoverView",
-                  "type": "boolean"
-                },
-                "disableUseStrict": {
-                  "description": "将 JS 编译成 ES5 时，是否禁用严格模式",
-                  "type": "boolean"
-                },
-                "enableEngineNative": {
-                  "description": "是否在游戏引擎项目中开启支持引用 node 原生模块的底层加速特性",
-                  "type": "boolean"
-                },
-                "enhance": {
-                  "description": "是否使用增强编译",
-                  "type": "boolean"
-                },
-                "es6": {
-                  "description": "是否启用 ES6 转 ES5",
-                  "type": "boolean"
-                },
-                "es7": {
-                  "description": "是否使用增强编译\n\n {@link  https://developers.weixin.qq.com/community/develop/doc/0002ce07a58000a57c5da5e6456c09 regeneratorRuntime 相关报错排查指引 }",
-                  "type": "boolean"
-                },
-                "ignoreDevUnusedFiles": {
-                  "description": "预览、真机调试和本地模拟器等开发阶段是否过滤无依赖文件 默认为 true",
-                  "type": "boolean"
-                },
-                "ignoreUploadUnusedFiles": {
-                  "description": "上传时是否过滤无依赖文件",
-                  "type": "boolean"
-                },
-                "lazyloadPlaceholderEnable": {
-                  "description": "是否启用懒注入占位组件调试",
-                  "type": "boolean"
-                },
-                "localPlugins": {
-                  "description": "在小游戏插件项目中，是否启用 以本地目录为插件资源来源 特性",
-                  "type": "boolean"
-                },
-                "minified": {
-                  "description": "上传代码时是否自动压缩脚本文件",
-                  "type": "boolean"
-                },
-                "minifyWXML": {
-                  "description": "上传代码时是否自动压缩 WXML 文件",
-                  "type": "boolean"
-                },
-                "minifyWXSS": {
-                  "description": "上传代码时是否自动压缩样式文件",
-                  "type": "boolean"
-                },
-                "packNpmManually": {
-                  "description": "是否手动配置构建 npm 的路径",
-                  "type": "boolean"
-                },
-                "packNpmRelationList": {
-                  "description": "仅 packNpmManually 为 true 时生效",
-                  "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "miniprogramNpmDistDir": {
-                        "description": "node_modules 的构建结果目标位置",
-                        "type": "string"
-                      },
-                      "packageJsonPath": {
-                        "description": "node_modules 源对应的 package.json",
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "packageJsonPath",
-                      "miniprogramNpmDistDir"
-                    ],
-                    "type": "object"
-                  },
-                  "type": "array"
-                },
-                "postcss": {
-                  "description": "上传代码时样式是否自动补全",
-                  "type": "boolean"
-                },
-                "preloadBackgroundData": {
-                  "description": "是否启用数据预拉取",
-                  "type": "boolean"
-                },
-                "showES6CompileOption": {
-                  "description": "是否在本地设置中展示传统的 ES6 转 ES5 开关（对应 es6），增强编译开关 （对应 enhance）",
-                  "type": "boolean"
-                },
-                "showShadowRootInWxmlPanel": {
-                  "description": "是否开启调试器 WXML 面板展示 shadow-root",
-                  "type": "boolean"
-                },
-                "uglifyFileName": {
-                  "description": "上传时是否代码保护",
-                  "type": "boolean"
-                },
-                "uploadWithSourceMap": {
-                  "description": "上传时是否带上 sourcemap 默认为 true",
-                  "type": "boolean"
-                },
-                "urlCheck": {
-                  "description": "是否检查安全域名和 TLS 版本",
-                  "type": "boolean"
-                },
-                "useApiHook": {
-                  "description": "是否启用 API Hook 功能",
-                  "type": "boolean"
-                },
-                "useApiHostProcess": {
-                  "description": "是否在额外的进程处理一些小程序 API",
-                  "type": "boolean"
+                  "additionalProperties": false,
+                  "description": "增强编译 Babel 的配置项"
                 },
                 "useCompilerPlugins": {
                   "anyOf": [
                     {
-                      "const": false,
-                      "type": "boolean"
+                      "type": "boolean",
+                      "const": false
                     },
                     {
+                      "type": "array",
                       "items": {
                         "type": "string"
-                      },
-                      "type": "array"
+                      }
                     }
                   ],
                   "description": "编译插件配置"
                 },
-                "useIsolateContext": {
-                  "description": "是否开启小程序独立域调试特性",
-                  "type": "boolean"
+                "disableUseStrict": {
+                  "type": "boolean",
+                  "description": "将 JS 编译成 ES5 时，是否禁用严格模式"
                 },
-                "useLanDebug": {
-                  "description": "小游戏有效，是否开启局域网调试服务器",
-                  "type": "boolean"
+                "uploadWithSourceMap": {
+                  "type": "boolean",
+                  "description": "上传时是否带上 sourcemap 默认为 true"
+                },
+                "localPlugins": {
+                  "type": "boolean",
+                  "description": "在小游戏插件项目中，是否启用 以本地目录为插件资源来源 特性"
+                },
+                "packNpmManually": {
+                  "type": "boolean",
+                  "description": "是否手动配置构建 npm 的路径"
+                },
+                "packNpmRelationList": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "packageJsonPath": {
+                        "type": "string",
+                        "description": "node_modules 源对应的 package.json"
+                      },
+                      "miniprogramNpmDistDir": {
+                        "type": "string",
+                        "description": "node_modules 的构建结果目标位置"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "description": "仅 packNpmManually 为 true 时生效"
+                },
+                "coverView": {
+                  "type": "boolean",
+                  "description": "是否使用工具渲染 CoverView"
+                },
+                "ignoreDevUnusedFiles": {
+                  "type": "boolean",
+                  "description": "预览、真机调试和本地模拟器等开发阶段是否过滤无依赖文件 默认为 true"
+                },
+                "checkInvalidKey": {
+                  "type": "boolean",
+                  "description": "是否检查键名"
+                },
+                "showShadowRootInWxmlPanel": {
+                  "type": "boolean",
+                  "description": "是否开启调试器 WXML 面板展示 shadow-root"
+                },
+                "useIsolateContext": {
+                  "type": "boolean",
+                  "description": "是否开启小程序独立域调试特性"
                 },
                 "useMultiFrameRuntime": {
-                  "description": "是否开启模拟器预先载入小程序的某些资源 设置为 false 时会导致 useIsolateContext 失效",
-                  "type": "boolean"
+                  "type": "boolean",
+                  "description": "是否开启模拟器预先载入小程序的某些资源 设置为 false 时会导致 useIsolateContext 失效"
                 },
-                "useStaticServer": {
-                  "description": "小游戏项目有效，是否开启静态资源服务器",
-                  "type": "boolean"
+                "useApiHook": {
+                  "type": "boolean",
+                  "description": "是否启用 API Hook 功能"
+                },
+                "useApiHostProcess": {
+                  "type": "boolean",
+                  "description": "是否在额外的进程处理一些小程序 API"
+                },
+                "useLanDebug": {
+                  "type": "boolean",
+                  "description": "小游戏有效，是否开启局域网调试服务器"
+                },
+                "enableEngineNative": {
+                  "type": "boolean",
+                  "description": "是否在游戏引擎项目中开启支持引用 node 原生模块的底层加速特性"
+                },
+                "showES6CompileOption": {
+                  "type": "boolean",
+                  "description": "是否在本地设置中展示传统的 ES6 转 ES5 开关（对应 es6），增强编译开关 （对应 enhance）"
+                },
+                "checkSiteMap": {
+                  "type": "boolean",
+                  "description": "是否检查 SiteMap 索引"
                 }
               },
-              "required": [
-                "es6",
-                "es7",
-                "enhance",
-                "postcss",
-                "minified",
-                "minifyWXSS",
-                "minifyWXML",
-                "uglifyFileName",
-                "ignoreUploadUnusedFiles",
-                "autoAudits",
-                "urlCheck",
-                "compileHotReLoad",
-                "preloadBackgroundData",
-                "lazyloadPlaceholderEnable",
-                "useStaticServer",
-                "bigPackageSizeSupport",
-                "babelSetting",
-                "useCompilerPlugins",
-                "disableUseStrict",
-                "uploadWithSourceMap",
-                "localPlugins",
-                "packNpmManually",
-                "packNpmRelationList",
-                "coverView",
-                "ignoreDevUnusedFiles",
-                "checkInvalidKey",
-                "showShadowRootInWxmlPanel",
-                "useIsolateContext",
-                "useMultiFrameRuntime",
-                "useApiHook",
-                "useApiHostProcess",
-                "useLanDebug",
-                "enableEngineNative",
-                "showES6CompileOption",
-                "checkSiteMap"
-              ],
-              "type": "object"
-            },
-            "uniStatistics": {
               "additionalProperties": false,
-              "description": "uni 统计配置项",
-              "properties": {
-                "enable": {
-                  "description": "是否开启 uni 统计 默认为 false",
-                  "type": "boolean"
-                }
+              "description": "微信小程序项目设置 更多信息查看 <https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html>"
+            },
+            "functionalPages": {
+              "type": "boolean",
+              "description": "是否启用插件功能页 默认为 false"
+            },
+            "requiredBackgroundModes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "audio",
+                  "location"
+                ]
               },
-              "required": [
-                "enable"
-              ],
-              "type": "object"
+              "description": "需要在后台使用的能力"
+            },
+            "plugins": {
+              "type": "object",
+              "description": "使用到的插件"
+            },
+            "resizable": {
+              "type": "boolean",
+              "description": "是否支持 iPad 上屏幕旋转 默认为 false"
+            },
+            "navigateToMiniProgramAppIdList": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "需要跳转的微信小程序列表"
+            },
+            "permission": {
+              "type": "object",
+              "description": "接口权限设置"
             },
             "workers": {
-              "description": "Worker 代码目录",
-              "type": "string"
-            }
-          },
-          "required": [
-            "appid",
-            "setting",
-            "functionalPages",
-            "requiredBackgroundModes",
-            "plugins",
-            "resizable",
-            "navigateToMiniProgramAppIdList",
-            "permission",
-            "workers",
-            "optimization",
-            "cloudfunctionRoot",
-            "uniStatistics",
-            "scopedSlotsCompiler",
-            "mergeVirtualHostAttributes",
-            "embeddedAppIdList",
-            "requiredPrivateInfos",
-            "lazyCodeLoading"
-          ],
-          "type": "object"
-        },
-        "name": {
-          "description": "应用名称，安装 APP 后显示的名称",
-          "type": "string"
-        },
-        "networkTimeout": {
-          "additionalProperties": false,
-          "description": "网络超时时间",
-          "properties": {
-            "connectSocket": {
-              "description": "uni.connectSocket 超时时间 单位为 ms 默认为 60000",
-              "type": "number"
+              "type": "string",
+              "description": "Worker 代码目录"
             },
-            "downloadFile": {
-              "description": "uni.downloadFile 超时时间 单位为 ms 默认为 60000",
-              "type": "number"
-            },
-            "request": {
-              "description": "uni.request 超时时间 单位为 ms 默认为 60000",
-              "type": "number"
-            },
-            "uploadFile": {
-              "description": "uni.uploadFile 超时时间 单位为 ms 默认为 60000",
-              "type": "number"
-            }
-          },
-          "type": "object"
-        },
-        "quickapp-webview": {
-          "description": "快应用特有配置",
-          "properties": {
-            "icon": {
-              "description": "应用图标，推荐尺寸 192x192",
-              "type": "string"
-            },
-            "minPlatformVersion": {
-              "description": "最小平台支持，快应用联盟最低 1063，快应用华为最低 1070",
-              "type": "number"
-            },
-            "package": {
-              "description": "应用包名",
-              "type": "string"
-            },
-            "versionCode": {
-              "description": "版本号",
-              "type": "number"
-            },
-            "versionName": {
-              "description": "版本名称",
-              "type": "string"
-            }
-          },
-          "required": [
-            "icon",
-            "package",
-            "minPlatformVersion",
-            "versionName",
-            "versionCode"
-          ],
-          "type": "object"
-        },
-        "quickapp-webview-huawei": {
-          "additionalProperties": false,
-          "description": "快应用华为特有配置",
-          "properties": {
-            "minPlatformVersion": {
-              "description": "最小平台支持，最低 1070",
-              "type": "number"
-            }
-          },
-          "required": [
-            "minPlatformVersion"
-          ],
-          "type": "object"
-        },
-        "quickapp-webview-union": {
-          "additionalProperties": false,
-          "description": "快应用联盟特有配置",
-          "properties": {
-            "minPlatformVersion": {
-              "description": "最小平台支持，最低 1063",
-              "type": "number"
-            }
-          },
-          "required": [
-            "minPlatformVersion"
-          ],
-          "type": "object"
-        },
-        "transformPx": {
-          "description": "是否转换 px 为 rpx 默认为 true 建议使用 false",
-          "type": "boolean"
-        },
-        "uniStatistics": {
-          "additionalProperties": false,
-          "description": "uni 统计配置 更多信息查看 <https://uniapp.dcloud.net.cn/uni-stat-v1.html> 和 <https://uniapp.dcloud.net.cn/uni-stat-v2.html>",
-          "properties": {
-            "collectItems": {
-              "additionalProperties": false,
-              "description": "采集项配置",
+            "optimization": {
+              "type": "object",
               "properties": {
-                "uniPushClientID": {
-                  "description": "是否开启推送 PushClientID 的采集 默认为 false",
-                  "type": "boolean"
+                "subPackages": {
+                  "type": "boolean",
+                  "description": "是否开启分包优化"
                 }
               },
-              "required": [
-                "uniPushClientID"
-              ],
-              "type": "object"
+              "additionalProperties": false,
+              "description": "优化配置"
             },
-            "debug": {
-              "description": "是否开启统计调试模式 生产阶段务必关闭 默认为 false",
-              "type": "boolean"
+            "cloudfunctionRoot": {
+              "type": "string",
+              "description": "云开发代码目录"
             },
-            "enable": {
-              "description": "是否开启 uni 统计 默认为 false",
-              "type": "boolean"
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
             },
-            "reportInterval": {
-              "description": "前端数据上报周期 默认为 10",
-              "type": "number"
-            },
-            "version": {
-              "description": "uni 统计版本 默认为 1",
+            "scopedSlotsCompiler": {
+              "type": "string",
               "enum": [
-                "1",
-                "2"
+                "auto",
+                "legacy",
+                "augmented"
               ],
-              "type": "string"
+              "description": "Vue2 作用域插槽编译模式 默认为 auto"
+            },
+            "mergeVirtualHostAttributes": {
+              "type": "boolean",
+              "description": "是否合并组件虚拟节点外层属性 目前仅支持 style、class 属性"
+            },
+            "embeddedAppIdList": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "要半屏跳转的小程序 appid"
+            },
+            "requiredPrivateInfos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "地理位置相关接口"
+            },
+            "lazyCodeLoading": {
+              "type": "string",
+              "const": "requiredComponents",
+              "description": "目前仅支持值 requiredComponents，代表开启小程序按需注入特性"
             }
           },
-          "required": [
-            "enable",
-            "version",
-            "debug",
-            "reportInterval",
-            "collectItems"
-          ],
-          "type": "object"
+          "description": "微信小程序特有配置"
         },
-        "versionCode": {
-          "description": "版本号",
-          "type": "string"
+        "mp-alipay": {
+          "type": "object",
+          "properties": {
+            "plugins": {
+              "type": "object",
+              "description": "使用到的插件"
+            },
+            "component2": {
+              "type": "boolean",
+              "description": "是否启用 component2 编译 默认为 true"
+            },
+            "enableAppxNg": {
+              "type": "boolean",
+              "description": "是否启用小程序基础库 2.0 构建 默认为 true"
+            },
+            "axmlStrictCheck": {
+              "type": "boolean",
+              "description": "是否开启 axml 严格语法检查 默认为 false"
+            },
+            "enableParallelLoader": {
+              "type": "boolean",
+              "description": "是否启用多进程编译 默认为 false"
+            },
+            "enableDistFileMinify": {
+              "type": "boolean",
+              "description": "是否压缩编译产物，仅在真机预览/真机调试时生效 默认为 false"
+            },
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
+            },
+            "scopedSlotsCompiler": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
+              "description": "Vue2 作用域插槽编译模式 默认为 auto"
+            },
+            "mergeVirtualHostAttributes": {
+              "type": "boolean",
+              "description": "是否合并组件虚拟节点外层属性 目前仅支持 style、class 属性"
+            },
+            "lazyCodeLoading": {
+              "type": "string",
+              "const": "requiredComponents",
+              "description": "目前仅支持值 requiredComponents，代表开启小程序按需注入特性"
+            }
+          },
+          "description": "支付宝小程序特有配置"
         },
-        "versionName": {
-          "description": "版本名称，在云打包和生成 wgt 资源时使用",
-          "type": "string"
+        "mp-baidu": {
+          "type": "object",
+          "properties": {
+            "appid": {
+              "type": "string",
+              "description": "百度小程序的 appid"
+            },
+            "requiredBackgroundModes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "const": "audio"
+              },
+              "description": "需要在后台使用的能力"
+            },
+            "prefetches": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "预请求的所有 url 的列表"
+            },
+            "optimization": {
+              "type": "object",
+              "properties": {
+                "subPackages": {
+                  "type": "boolean",
+                  "description": "是否开启分包优化"
+                }
+              },
+              "additionalProperties": false,
+              "description": "优化配置"
+            },
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
+            },
+            "scopedSlotsCompiler": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
+              "description": "Vue2 作用域插槽编译模式 默认为 auto"
+            }
+          },
+          "description": "百度小程序特有配置"
+        },
+        "mp-toutiao": {
+          "type": "object",
+          "properties": {
+            "appid": {
+              "type": "string",
+              "description": "字节跳动小程序的 appid"
+            },
+            "setting": {
+              "type": "object",
+              "properties": {
+                "es6": {
+                  "type": "boolean",
+                  "description": "是否启用 ES6 转 ES5"
+                },
+                "postcss": {
+                  "type": "boolean",
+                  "description": "上传代码时样式是否自动补全"
+                },
+                "minified": {
+                  "type": "boolean",
+                  "description": "上传代码时是否自动压缩脚本文件"
+                },
+                "urlCheck": {
+                  "type": "boolean",
+                  "description": "是否检查安全域名和 TLS 版本"
+                },
+                "autoCompile": {
+                  "type": "boolean",
+                  "description": "修改文件的时候是否自动编译"
+                },
+                "mockUpdate": {
+                  "type": "boolean",
+                  "description": "下次编译是否模拟更新"
+                },
+                "scripts": {
+                  "type": "boolean",
+                  "description": "是否启动自定义处理命令"
+                },
+                "mockLogin": {
+                  "type": "boolean",
+                  "description": "是否开启宿主登录模拟"
+                }
+              },
+              "additionalProperties": false,
+              "description": "字节跳动小程序小程序项目设置"
+            },
+            "navigateToMiniProgramAppIdList": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "需要跳转的字节跳动小程序列表"
+            },
+            "optimization": {
+              "type": "object",
+              "properties": {
+                "subPackages": {
+                  "type": "boolean",
+                  "description": "是否开启分包优化"
+                }
+              },
+              "additionalProperties": false,
+              "description": "优化配置"
+            },
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
+            },
+            "scopedSlotsCompiler": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
+              "description": "Vue2 作用域插槽编译模式 默认为 auto"
+            }
+          },
+          "description": "字节跳动小程序特有配置"
+        },
+        "mp-lark": {
+          "type": "object",
+          "properties": {
+            "appid": {
+              "type": "string",
+              "description": "飞书小程序的 appid"
+            },
+            "setting": {
+              "type": "object",
+              "properties": {
+                "es6": {
+                  "type": "boolean",
+                  "description": "是否启用 ES6 转 ES5"
+                },
+                "minified": {
+                  "type": "boolean",
+                  "description": "是否启用脚本代码自动压缩"
+                },
+                "postcss": {
+                  "type": "boolean",
+                  "description": "是否启用样式自动补全"
+                },
+                "urlCheck": {
+                  "type": "boolean",
+                  "description": "是否检查安全域名和 TLS 版本"
+                },
+                "babelSetting": {
+                  "type": "object",
+                  "properties": {
+                    "ignore": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "需要跳过 Babel 编译（包括代码压缩）处理的文件或目录"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "Babel 的配置项"
+                }
+              },
+              "additionalProperties": false,
+              "description": "飞书小程序小程序项目设置"
+            },
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
+            },
+            "scopedSlotsCompiler": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
+              "description": "Vue2 作用域插槽编译模式 默认为 auto"
+            }
+          },
+          "description": "飞书小程序特有配置"
+        },
+        "mp-qq": {
+          "type": "object",
+          "properties": {
+            "appid": {
+              "type": "string",
+              "description": "QQ 小程序的 appid"
+            },
+            "requiredBackgroundModes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "const": "audio"
+              },
+              "description": "需要在后台使用的能力"
+            },
+            "navigateToMiniProgramAppIdList": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "需要跳转的 QQ 小程序列表"
+            },
+            "permission": {
+              "type": "object",
+              "description": "接口权限设置"
+            },
+            "workers": {
+              "type": "string",
+              "description": "Worker 代码目录"
+            },
+            "groupIdList": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "需要打开群资料卡的群号列表"
+            },
+            "optimization": {
+              "type": "object",
+              "properties": {
+                "subPackages": {
+                  "type": "boolean",
+                  "description": "是否开启分包优化"
+                }
+              },
+              "additionalProperties": false,
+              "description": "优化配置"
+            },
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
+            },
+            "scopedSlotsCompiler": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
+              "description": "Vue2 作用域插槽编译模式 默认为 auto"
+            }
+          },
+          "description": "QQ 小程序特有配置"
+        },
+        "mp-kuaishou": {
+          "type": "object",
+          "properties": {
+            "appid": {
+              "type": "string",
+              "description": "快手小程序的 appid"
+            },
+            "optimization": {
+              "type": "object",
+              "properties": {
+                "subPackages": {
+                  "type": "boolean",
+                  "description": "是否开启分包优化"
+                }
+              },
+              "additionalProperties": false,
+              "description": "优化配置"
+            },
+            "uniStatistics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "description": "是否开启 uni 统计 默认为 false"
+                }
+              },
+              "description": "uni 统计配置项"
+            },
+            "scopedSlotsCompiler": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "legacy",
+                "augmented"
+              ],
+              "description": "Vue2 作用域插槽编译模式 默认为 auto"
+            }
+          },
+          "description": "快手小程序特有配置"
         }
-      },
-      "required": [
-        "app-plus",
-        "appid",
-        "debug",
-        "description",
-        "h5",
-        "locale",
-        "mp-alipay",
-        "mp-baidu",
-        "mp-kuaishou",
-        "mp-lark",
-        "mp-qq",
-        "mp-toutiao",
-        "mp-weixin",
-        "name",
-        "networkTimeout",
-        "quickapp-webview",
-        "quickapp-webview-huawei",
-        "quickapp-webview-union",
-        "transformPx",
-        "uniStatistics",
-        "versionCode",
-        "versionName"
-      ],
-      "type": "object"
+      }
     }
   }
 }

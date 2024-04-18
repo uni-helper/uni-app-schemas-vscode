@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "build": "conc \"npm:build:manifest-schema\" \"npm:build:pages-schema\"",
-    "build:manifest-schema": "echo \"import {type ManifestConfig as MC} from '@uni-helper/vite-plugin-uni-manifest';export interface ManifestConfig extends MC{}\" >> manifest.ts && ts-json-schema-generator -p \"manifest.ts\" -t \"ManifestConfig\" -o \"schemas/manifest.json\" --no-type-check && rm -rf manifest.ts",
+    "build:manifest-schema": "tsx ./scripts/build-manifest-schema.ts",
     "build:pages-schema": "cp node_modules/@uni-helper/pages-json-schema/schema.json schemas/pages.json",
     "depupdate": "taze -fw",
     "format": "prettier . \"!**/package-lock.json*\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" --ignore-unknown --write --cache --log-level=warn",
