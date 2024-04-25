@@ -9,11 +9,13 @@ const readmePath = resolve(root, 'README.md');
 
 const readme = `# @uni-helper/uni-app-schemas-vscode
 
-[![License](https://img.shields.io/github/license/uni-helper/uni-app-schemas-vscode)](https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/LICENSE)
+<!-- ⚠️ 该文件由脚本生成，请勿手动修改 ⚠️ -->
 
-[![VSCode](https://vsmarketplacebadge.apphb.com/version-short/uni-helper.uni-app-schemas-vscode.png)](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
+[![License](https://img.shields.io/github/license/uni-helper/uni-app-schemas-vscode?label=License&color=brightgreen)](https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/LICENSE)
 
-[![OpenVSX](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=OpenVSX&query=%24.version&url=https%3A%2F%2Fopen-vsx.org%2Fapi%2Funi-helper%2Funi-app-schemas-vscode)](https://open-vsx.org/extension/uni-helper/uni-app-schemas-vscode)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/uni-helper.uni-app-schemas-vscode?label=VS%20Marketplace&color=brightgreen)](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
+
+[![Open VSX Version](https://img.shields.io/open-vsx/v/uni-helper/uni-app-schemas-vscode?label=Open%20VSX&color=brightgreen)](https://open-vsx.org/extension/uni-helper/uni-app-schemas-vscode)
 
 [改动日志](https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/CHANGELOG.md)
 
@@ -50,7 +52,7 @@ const readme = `# @uni-helper/uni-app-schemas-vscode
 
 \`\`\`json
 {
-  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest_legacy.json"
+  "$schema": "https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json"
 }
 \`\`\`
 
