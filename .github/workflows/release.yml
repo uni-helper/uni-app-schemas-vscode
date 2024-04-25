@@ -27,3 +27,4 @@ jobs:
       - run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - run: curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/androidPrivacy.json && curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json && curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages.json
