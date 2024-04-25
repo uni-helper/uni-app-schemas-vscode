@@ -22,11 +22,9 @@
 
 ## 使用
 
-安装插件后重启 VSCode 即可。
+安装插件后重启 VSCode 即可。如果不使用插件，可以手动在对应文件的顶部加入 `"$schema"` 字段。
 
-### 不使用插件
-
-在对应文件的顶部加入 `"$schema"` 字段即可。
+> 由于网络原因，`cdn.jsdelivr.net` 可能不可用，请手动更换成 `jsd.cdn.zzko.cn`、`cdn.jsdelivr.us`、`gcore.jsdelivr.net`、`testingcf.jsdelivr.net` 等地址，或直接引用 GitHub 源文件地址。
 
 `androidPrivacy.json`
 
