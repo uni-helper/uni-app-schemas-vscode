@@ -2566,7 +2566,10 @@
         },
         "versionCode": {
           "description": "版本号",
-          "type": "string"
+          "type": [
+            "number",
+            "string"
+          ]
         },
         "versionName": {
           "description": "版本名称，在云打包和生成 wgt 资源时使用",
