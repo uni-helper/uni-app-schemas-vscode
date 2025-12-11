@@ -35,7 +35,7 @@
   "publisher": "uni-helper",
   "type": "module",
   "files": [
-    "*.vsix"
+    "uni-helper.png"
   ],
   "scripts": {
     "build": "conc \"npm:build:manifest-schema\" \"npm:build:pages-schema\" && npm run fix",
