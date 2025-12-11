@@ -42,10 +42,7 @@
         "popGesture": {
           "default": "close",
           "description": "侧滑返回功能，仅支持 \"close\" / \"none\"\n\n\"close\" 启用侧滑返回\n\n\"none\" 禁用侧滑返回",
-          "enum": [
-            "close",
-            "none"
-          ],
+          "enum": ["close", "none"],
           "type": "string"
         },
         "pullToRefresh": {
@@ -123,10 +120,7 @@
             "style": {
               "default": "Android 为 \"circle\"，iOS 为 \"default\"",
               "description": "下拉刷新控件样式\n\n\"default\" 下拉拖动时页面内容跟随\n\n\"circle\" 下拉拖动时仅刷新控件跟随",
-              "enum": [
-                "default",
-                "circle"
-              ],
+              "enum": ["default", "circle"],
               "type": "string"
             },
             "support": {
@@ -144,19 +138,13 @@
         "softInputMode": {
           "default": "adjustPan",
           "description": "软键盘弹出模式，仅支持 \"adjustResize\" / \"adjustPan\"",
-          "enum": [
-            "adjustResize",
-            "adjustPan"
-          ],
+          "enum": ["adjustResize", "adjustPan"],
           "type": "string"
         },
         "softInputNavBar": {
           "default": "auto",
           "description": "iOS 软键盘上完成工具栏的显示模式，设置为 \"none\" 时关闭工具栏",
-          "enum": [
-            "auto",
-            "none"
-          ],
+          "enum": ["auto", "none"],
           "type": "string"
         },
         "subNVues": {
@@ -203,12 +191,7 @@
                   "dock": {
                     "default": "bottom",
                     "description": "原生子窗体停靠位置，仅 position 为 \"dock\" 时生效\n\n\"top\" 原生子窗体停靠在页面顶部\n\n\"bottom\" 原生子窗体停靠在页面底部\n\n\"right\" 原生子窗体停靠在页面右侧\n\n\"left\" 原生子窗体停靠在页面左侧",
-                    "enum": [
-                      "top",
-                      "bottom",
-                      "right",
-                      "left"
-                    ],
+                    "enum": ["top", "bottom", "right", "left"],
                     "type": "string"
                   },
                   "height": {
@@ -248,11 +231,7 @@
                   "position": {
                     "default": "absolute",
                     "description": "原生子窗体的排版位置，排版位置决定原生子窗体在父窗口中的定位方式\n\n\"static\" 原生子窗体在页面中正常定位，如果页面存在滚动条则随窗口内容滚动\n\n\"absolute\" 原生子窗体在页面中绝对定位，如果页面存在滚动条不随窗口内容滚动\n\n\"dock\" 原生子窗体在页面中停靠，停靠位置由 dock 属性值决定",
-                    "enum": [
-                      "static",
-                      "absolute",
-                      "dock"
-                    ],
+                    "enum": ["static", "absolute", "dock"],
                     "type": "string"
                   },
                   "right": {
@@ -373,10 +352,7 @@
                     "fontWeight": {
                       "default": "normal",
                       "description": "返回图标的粗细\n\n\"normal\" 正常\n\n\"bold\" 粗体",
-                      "enum": [
-                        "normal",
-                        "bold"
-                      ],
+                      "enum": ["normal", "bold"],
                       "type": "string"
                     },
                     "redDot": {
@@ -391,10 +367,7 @@
                     },
                     "titleWeight": {
                       "description": "返回按钮上标题的粗细\n\n\"normal\" 正常\n\n\"bold\" 粗体",
-                      "enum": [
-                        "normal",
-                        "bold"
-                      ],
+                      "enum": ["normal", "bold"],
                       "type": "string"
                     }
                   },
@@ -420,23 +393,13 @@
                 "backgroundRepeat": {
                   "default": "no-repeat",
                   "description": "仅在 backgroundImage 设置为图片路径时有效\n\n\"repeat\" 背景图片在垂直方向和水平方向平铺\n\n\"repeat-x\" 背景图片在水平方向平铺，垂直方向拉伸\n\n\"repeat-y\" 背景图片在垂直方向平铺，水平方向拉伸\n\n\"no-repeat\" 背景图片在垂直方向和水平方向都拉伸",
-                  "enum": [
-                    "repeat",
-                    "repeat-x",
-                    "repeat-y",
-                    "no-repeat"
-                  ],
+                  "enum": ["repeat", "repeat-x", "repeat-y", "no-repeat"],
                   "type": "string"
                 },
                 "blurEffect": {
                   "default": "none",
                   "description": "高斯模糊效果，仅在 type 为 \"transparent\" 或 \"float\" 时有效\n\n使用模糊效果时应避免设置背景颜色，设置背景颜色可能覆盖模糊效果\n\n\"dark\" 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果\n\n\"extralight\" 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果\n\n\"light\" 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果\n\n\"none\" 无模糊效果",
-                  "enum": [
-                    "dark",
-                    "extralight",
-                    "light",
-                    "none"
-                  ],
+                  "enum": ["dark", "extralight", "light", "none"],
                   "type": "string"
                 },
                 "buttons": {
@@ -469,11 +432,7 @@
                     "align": {
                       "default": "center",
                       "description": "非输入状态下文本的对齐方式\n\n\"left\" 居左对齐\n\n\"right\" 居右对齐\n\n\"center\" 居中对齐",
-                      "enum": [
-                        "center",
-                        "left",
-                        "right"
-                      ],
+                      "enum": ["center", "left", "right"],
                       "type": "string"
                     },
                     "autoFocus": {
@@ -572,10 +531,7 @@
                 "subtitleOverflow": {
                   "default": "ellipsis",
                   "description": "标题文字超出显示区域时处理方式\n\n\"clip\" 超出显示区域时内容裁剪\n\n\"ellipsis\" 超出显示区域时尾部显示省略标记（...）",
-                  "enum": [
-                    "clip",
-                    "ellipsis"
-                  ],
+                  "enum": ["clip", "ellipsis"],
                   "type": "string"
                 },
                 "subtitleSize": {
@@ -806,11 +762,7 @@
                           "align": {
                             "default": "left",
                             "description": "富文本内容的水平对齐方式，对整体内容有效，无法单独控制每行的内容\n\n\"left\" 字体在指定的区域中水平居左对齐\n\n\"center\" 字体在指定的区域中水平居中对齐\n\n\"right\" 字体在指定的区域中水平居右对齐",
-                            "enum": [
-                              "left",
-                              "right",
-                              "center"
-                            ],
+                            "enum": ["left", "right", "center"],
                             "type": "string"
                           },
                           "family": {
@@ -928,13 +880,7 @@
                       },
                       "tag": {
                         "description": "绘制操作类型\n\n\"img\" 绘制图片，与 drawBitmap 操作一致，此时 id、src、position、sprite 属性值有效\n\n\"rect\" 绘制矩形区域，与 drawRect 操作一致，此时 id、color、position、rectStyles 属性值有效\n\n\"font\" 绘制文本内容，与 drawText 操作一致，此时 id、position、text、textStyles 属性值有效\n\n\"richtext\" 绘制富文本内容，与 drawRichText 操作一致，此时 id、position、text、richTextStyles 属性值有效\n\n\"input\" 绘制输入框内容，此时 id、position、inputStyles 属性值有效",
-                        "enum": [
-                          "img",
-                          "rect",
-                          "font",
-                          "richtext",
-                          "input"
-                        ],
+                        "enum": ["img", "rect", "font", "richtext", "input"],
                         "type": "string"
                       },
                       "text": {
@@ -947,11 +893,7 @@
                           "align": {
                             "default": "center",
                             "description": "水平对齐方式\n\n\"left\" 字体在指定的区域中水平居左对齐\n\n\"center\" 字体在指定的区域中水平居中对齐\n\n\"right\" 字体在指定的区域中水平居右对齐",
-                            "enum": [
-                              "left",
-                              "right",
-                              "center"
-                            ],
+                            "enum": ["left", "right", "center"],
                             "type": "string"
                           },
                           "color": {
@@ -970,11 +912,7 @@
                           "decoration": {
                             "default": "none",
                             "description": "文本装饰\n\n\"none\" 无装饰效果\n\n\"underline\" 文本带下划线效果\n\n\"line-through\" 文本带贯穿线（删除线）效果",
-                            "enum": [
-                              "none",
-                              "underline",
-                              "line-through"
-                            ],
+                            "enum": ["none", "underline", "line-through"],
                             "type": "string"
                           },
                           "family": {
@@ -1005,10 +943,7 @@
                           "overflow": {
                             "default": "clip",
                             "description": "文本内容超出显示区域时处理方式\n\n\"clip\" 超出显示区域时内容裁剪\n\n\"ellipsis\" 超出显示区域时尾部显示省略标记（...）",
-                            "enum": [
-                              "clip",
-                              "ellipsis"
-                            ],
+                            "enum": ["clip", "ellipsis"],
                             "type": "string"
                           },
                           "size": {
@@ -1019,38 +954,25 @@
                           "style": {
                             "default": "normal",
                             "description": "字体样式\n\n\"normal\" 正常样式\n\n\"italic\" 斜体样式",
-                            "enum": [
-                              "normal",
-                              "italic"
-                            ],
+                            "enum": ["normal", "italic"],
                             "type": "string"
                           },
                           "verticalAlign": {
                             "default": "middle",
                             "description": "垂直对齐方式，文本内容在指定绘制区域中的垂直对齐方式\n\n\"top\" 垂直居顶对齐\n\n\"middle\" 垂直居中对齐\n\n\"bottom\" - 垂直居底对齐",
-                            "enum": [
-                              "top",
-                              "middle",
-                              "bottom"
-                            ],
+                            "enum": ["top", "middle", "bottom"],
                             "type": "string"
                           },
                           "weight": {
                             "default": "normal",
                             "description": "字体粗细\n\n\"normal\" 正常\n\n\"bold\" 粗体",
-                            "enum": [
-                              "normal",
-                              "bold"
-                            ],
+                            "enum": ["normal", "bold"],
                             "type": "string"
                           },
                           "whiteSpace": {
                             "default": "nowrap",
                             "description": "文本换行模式\n\n\"nowrap\" 不换行，将所有文本在一行中绘制，忽略换行符(\"\\n\")\n\n\"normal\" 自动换行，当指定的宽度无法绘制所有文本时自动换行绘制，碰到 \"\\n\" 字符时强制换行",
-                            "enum": [
-                              "normal",
-                              "nowrap"
-                            ],
+                            "enum": ["normal", "nowrap"],
                             "type": "string"
                           }
                         },
@@ -1064,11 +986,7 @@
                 "titleAlign": {
                   "default": "auto",
                   "description": "文本对齐方式\n\n\"center\" 居中对齐\n\n\"left\" 居左对齐\n\n\"auto\" 根据平台自动选择（Android 平台居左对齐，iOS 平台居中对齐）",
-                  "enum": [
-                    "auto",
-                    "center",
-                    "left"
-                  ],
+                  "enum": ["auto", "center", "left"],
                   "type": "string"
                 },
                 "titleColor": {
@@ -1089,10 +1007,7 @@
                 "titleOverflow": {
                   "default": "ellipsis",
                   "description": "标题文字超出显示区域时处理方式\n\n\"ellipsis\" 超出显示区域时尾部显示省略标记（...）\n\n\"clip\" 超出显示区域时内容裁剪",
-                  "enum": [
-                    "ellipsis",
-                    "clip"
-                  ],
+                  "enum": ["ellipsis", "clip"],
                   "type": "string"
                 },
                 "titleSize": {
@@ -1106,11 +1021,7 @@
                 "type": {
                   "default": "default",
                   "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"transparent\" 滚动透明渐变\n\n\"float\" 悬浮导航栏",
-                  "enum": [
-                    "default",
-                    "transparent",
-                    "float"
-                  ],
+                  "enum": ["default", "transparent", "float"],
                   "type": "string"
                 }
               },
@@ -1152,10 +1063,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "current",
-        "list"
-      ],
+      "required": ["current", "list"],
       "type": "object"
     },
     "EasyCom": {
@@ -1321,14 +1229,7 @@
           "properties": {
             "colorType": {
               "description": "阴影颜色",
-              "enum": [
-                "grey",
-                "blue",
-                "green",
-                "orange",
-                "red",
-                "yellow"
-              ],
+              "enum": ["grey", "blue", "green", "orange", "red", "yellow"],
               "type": "string"
             }
           },
@@ -1358,10 +1259,7 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式，仅支持 \"default\" / \"custom\"\n\n\"custom\" 即取消默认的原生导航栏，详看 [使用注意](https://uniapp.dcloud.net.cn/collocation/pages#customnav)",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         },
         "onReachBottomDistance": {
@@ -1405,10 +1303,7 @@
         "titlePenetrate": {
           "default": "NO",
           "description": "导航栏点击穿透",
-          "enum": [
-            "YES",
-            "NO"
-          ],
+          "enum": ["YES", "NO"],
           "type": "string"
         },
         "topWindow": {
@@ -1419,11 +1314,7 @@
         "transparentTitle": {
           "default": "none",
           "description": "导航栏整体（前景、背景）透明设置，仅支持 \"always\" / \"auto\" / \"none\n\n\"always\" 一直透明\n\n\"auto\" 滑动自适应\n\n\"none\" 不透明",
-          "enum": [
-            "always",
-            "auto",
-            "none"
-          ],
+          "enum": ["always", "auto", "none"],
           "type": "string"
         },
         "usingComponents": {
@@ -1488,11 +1379,7 @@
                     "align": {
                       "default": "center",
                       "description": "非输入状态下文本的对齐方式\n\n\"left\" 居左对齐\n\n\"right\" 居右对齐\n\n\"center\" 居中对齐",
-                      "enum": [
-                        "center",
-                        "left",
-                        "right"
-                      ],
+                      "enum": ["center", "left", "right"],
                       "type": "string"
                     },
                     "autoFocus": {
@@ -1553,10 +1440,7 @@
                 "type": {
                   "default": "default",
                   "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"transparent\" 滚动透明渐变",
-                  "enum": [
-                    "default",
-                    "transparent"
-                  ],
+                  "enum": ["default", "transparent"],
                   "type": "string"
                 }
               },
@@ -1577,10 +1461,7 @@
         "allowsBounceVertical": {
           "default": "YES",
           "description": "是否允许向下拉拽",
-          "enum": [
-            "YES",
-            "NO"
-          ],
+          "enum": ["YES", "NO"],
           "type": "string"
         },
         "backgroundColor": {
@@ -1611,27 +1492,18 @@
         "enableScrollBar": {
           "default": "YES",
           "description": "仅支持 Android，是否显示 WebView 滚动条",
-          "enum": [
-            "YES",
-            "NO"
-          ],
+          "enum": ["YES", "NO"],
           "type": "string"
         },
         "gestureBack": {
           "default": "YES",
           "description": "仅支持 iOS，是否支持手势返回",
-          "enum": [
-            "YES",
-            "NO"
-          ],
+          "enum": ["YES", "NO"],
           "type": "string"
         },
         "navigationBarFrontColor": {
           "description": "导航栏前景色",
-          "enum": [
-            "black",
-            "white"
-          ],
+          "enum": ["black", "white"],
           "type": "string"
         },
         "onReachBottomDistance": {
@@ -1651,10 +1523,7 @@
         "showTitleLoading": {
           "default": "NO",
           "description": "是否进入时显示导航栏的 loading",
-          "enum": [
-            "YES",
-            "NO"
-          ],
+          "enum": ["YES", "NO"],
           "type": "string"
         },
         "titleBarColor": {
@@ -1668,20 +1537,13 @@
         "titlePenetrate": {
           "default": "NO",
           "description": "导航栏点击穿透",
-          "enum": [
-            "YES",
-            "NO"
-          ],
+          "enum": ["YES", "NO"],
           "type": "string"
         },
         "transparentTitle": {
           "default": "none",
           "description": "导航栏透明设置\n\nalways 一直透明\n\nauto 滑动自适应\n\nnone 不透明",
-          "enum": [
-            "always",
-            "auto",
-            "none"
-          ],
+          "enum": ["always", "auto", "none"],
           "type": "string"
         }
       },
@@ -1785,10 +1647,7 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"custom\" 自定义导航栏，只保留右上角胶囊按钮",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         },
         "onReachBottomDistance": {
@@ -1799,20 +1658,13 @@
         "pageOrientation": {
           "default": "portrait",
           "description": "屏幕旋转设置，支持 auto / portrait / landscape\n\n\"auto\" 自动\n\n\"portrait\" 竖屏\n\n\"landscape\" 横屏",
-          "enum": [
-            "auto",
-            "portrait",
-            "landscape"
-          ],
+          "enum": ["auto", "portrait", "landscape"],
           "type": "string"
         },
         "textSizeAdjust": {
           "default": "auto",
           "description": "小程序页面是否禁止响应字体大小的设置\n\n\"auto\" 默认响应\n\n\"none\" 不响应",
-          "enum": [
-            "auto",
-            "none"
-          ],
+          "enum": ["auto", "none"],
           "type": "string"
         }
       },
@@ -1916,10 +1768,7 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"custom\" 自定义导航栏，只保留右上角胶囊按钮",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         }
       },
@@ -2023,10 +1872,7 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"custom\" 自定义导航栏，只保留右上角胶囊按钮",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         },
         "onReachBottomDistance": {
@@ -2037,11 +1883,7 @@
         "pageOrientation": {
           "default": "portrait",
           "description": "屏幕旋转设置，支持 auto / portrait / landscape，详见 [响应显示区域变化](https://developers.weixin.qq.com/miniprogram/dev/framework/view/resizable.html)\n\n\"auto\" 自动\n\n\"portrait\" 竖屏\n\n\"landscape\" 横屏",
-          "enum": [
-            "auto",
-            "portrait",
-            "landscape"
-          ],
+          "enum": ["auto", "portrait", "landscape"],
           "type": "string"
         }
       },
@@ -2150,10 +1992,7 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"custom\" 自定义导航栏，只保留右上角胶囊按钮",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         },
         "onReachBottomDistance": {
@@ -2164,11 +2003,7 @@
         "transparentTitle": {
           "default": "none",
           "description": "导航栏透明设置\n\n\"always\" 一直透明\n\n\"auto\" 滑动自适应\n\n\"none\" 不透明",
-          "enum": [
-            "always",
-            "auto",
-            "none"
-          ],
+          "enum": ["always", "auto", "none"],
           "type": "string"
         }
       },
@@ -2272,20 +2107,13 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"custom\" 自定义导航栏，只保留右上角胶囊按钮",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         },
         "pageOrientation": {
           "default": "portrait",
           "description": "屏幕旋转设置，支持 auto / portrait / landscape，详见 [响应显示区域变化](https://q.qq.com/wiki/develop/miniprogram/frame/view/view_section_change.html)\n\n\"auto\" 自动\n\n\"portrait\" 竖屏\n\n\"landscape\" 横屏",
-          "enum": [
-            "auto",
-            "portrait",
-            "landscape"
-          ],
+          "enum": ["auto", "portrait", "landscape"],
           "type": "string"
         }
       },
@@ -2389,10 +2217,7 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"custom\" 自定义导航栏，只保留右上角胶囊按钮",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         },
         "onReachBottomDistance": {
@@ -2428,14 +2253,7 @@
                 "cssUnit": {
                   "default": "vw",
                   "description": "CSS单位，元素绝对定位都使用 \"vw\" 与 \"vh\"",
-                  "enum": [
-                    "px",
-                    "rem",
-                    "vw",
-                    "vh",
-                    "vmin",
-                    "vmax"
-                  ],
+                  "enum": ["px", "rem", "vw", "vh", "vmin", "vmax"],
                   "type": "string"
                 },
                 "decimal": {
@@ -2459,10 +2277,7 @@
                     "shape": {
                       "default": "rect",
                       "description": "骨架页面中图片块形状\n\ncircle 圆形\n\nrect 矩形",
-                      "enum": [
-                        "circle",
-                        "rect"
-                      ],
+                      "enum": ["circle", "rect"],
                       "type": "string"
                     }
                   },
@@ -2471,20 +2286,13 @@
                 "loading": {
                   "default": "spin",
                   "description": "骨架屏显示时的动画",
-                  "enum": [
-                    "spin",
-                    "chiaroscuro",
-                    "shine"
-                  ],
+                  "enum": ["spin", "chiaroscuro", "shine"],
                   "type": "string"
                 },
                 "mode": {
                   "default": "fullscreen",
                   "description": "默认为使用绝对定位占满全屏\n\n当对自定义组件使用，作为局部加载的样式时，可设置为 \"auto\"，高度随内容高度撑开",
-                  "enum": [
-                    "fullscreen",
-                    "auto"
-                  ],
+                  "enum": ["fullscreen", "auto"],
                   "type": "string"
                 },
                 "timeout": {
@@ -2508,11 +2316,7 @@
         "transparentTitle": {
           "default": "none",
           "description": "仅在 navigationStyle 为 \"default\" 时生效，用来控制导航栏透明设置\n\n\"always\" 一直透明\n\n\"auto\" 滑动自适应\n\n\"none\" 不透明",
-          "enum": [
-            "always",
-            "auto",
-            "none"
-          ],
+          "enum": ["always", "auto", "none"],
           "type": "string"
         }
       },
@@ -2582,11 +2386,7 @@
         "handleWebviewPreload": {
           "default": "static",
           "description": "控制预加载下个页面的时机，详见 [控制预加载下个页面的时机](https://developers.weixin.qq.com/miniprogram/dev/framework/performance/tips/runtime_nav.html#_2-4-%E6%8E%A7%E5%88%B6%E9%A2%84%E5%8A%A0%E8%BD%BD%E4%B8%8B%E4%B8%AA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%97%B6%E6%9C%BA)\n\n\"static\" 在当前页面 onReady 触发 200ms 后触发预加载\n\n\"auto\" 渲染线程空闲时进行预加载，由基础库根据一段时间内 requestAnimationFrame 的触发频率算法判断\n\n\"manual\" 由开发者通过调用 [wx.preloadWebview](https://developers.weixin.qq.com/miniprogram/dev/api/base/performance/wx.preloadWebview.html) 触发，开发者可以在页面主要内容的 setData 结束后手动触发",
-          "enum": [
-            "static",
-            "manual",
-            "auto"
-          ],
+          "enum": ["static", "manual", "auto"],
           "type": "string"
         },
         "homeButton": {
@@ -2596,10 +2396,7 @@
         },
         "initialRenderingCache": {
           "description": "页面初始渲染缓存配置，详见 [初始渲染缓存](https://developers.weixin.qq.com/miniprogram/dev/framework/view/initial-rendering-cache.html)",
-          "enum": [
-            "static",
-            "dynamic"
-          ],
+          "enum": ["static", "dynamic"],
           "type": "string"
         },
         "navigationBarBackgroundColor": {
@@ -2639,10 +2436,7 @@
         "navigationStyle": {
           "default": "default",
           "description": "导航栏样式\n\n\"default\" 默认样式\n\n\"custom\" 自定义导航栏，只保留右上角胶囊按钮",
-          "enum": [
-            "default",
-            "custom"
-          ],
+          "enum": ["default", "custom"],
           "type": "string"
         },
         "onReachBottomDistance": {
@@ -2653,28 +2447,18 @@
         "pageOrientation": {
           "default": "portrait",
           "description": "屏幕旋转设置，支持 auto / portrait / landscape，详见 [响应显示区域变化](https://developers.weixin.qq.com/miniprogram/dev/framework/view/resizable.html)\n\n\"auto\" 自动\n\n\"portrait\" 竖屏\n\n\"landscape\" 横屏",
-          "enum": [
-            "auto",
-            "portrait",
-            "landscape"
-          ],
+          "enum": ["auto", "portrait", "landscape"],
           "type": "string"
         },
         "restartStrategy": {
           "description": "重新启动策略配置\n\n\"homePage\" 如果从这个页面退出小程序，下次将从首页冷启动\n\n\"homePageAndLatestPage\" 如果从这个页面退出小程序，下次冷启动后立刻加载这个页面，页面的参数保持不变（不可用于 tab 页）",
-          "enum": [
-            "homePage",
-            "homePageAndLatestPage"
-          ],
+          "enum": ["homePage", "homePageAndLatestPage"],
           "type": "string"
         },
         "visualEffectInBackground": {
           "default": "none",
           "description": "切入系统后台时，隐藏页面内容，保护用户隐私",
-          "enum": [
-            "hidden",
-            "none"
-          ],
+          "enum": ["hidden", "none"],
           "type": "string"
         }
       },
@@ -2698,9 +2482,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "path"
-      ],
+      "required": ["path"],
       "type": "object"
     },
     "PagesConfig": {
@@ -2741,10 +2523,7 @@
               "network": {
                 "default": "wifi",
                 "description": "在指定网络下预下载\n\n\"all\" 不限网络\n\n\"wifi\" 仅 wifi 下预下载",
-                "enum": [
-                  "all",
-                  "wifi"
-                ],
+                "enum": ["all", "wifi"],
                 "type": "string"
               },
               "packages": {
@@ -2755,9 +2534,7 @@
                 "type": "array"
               }
             },
-            "required": [
-              "packages"
-            ],
+            "required": ["packages"],
             "type": "object"
           },
           "description": "分包预下载规则",
@@ -2801,9 +2578,7 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "path"
-              ],
+              "required": ["path"],
               "type": "object"
             }
           ],
@@ -2836,10 +2611,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "root",
-        "pages"
-      ],
+      "required": ["root", "pages"],
       "type": "object"
     },
     "SubPackages": {
@@ -2869,23 +2641,13 @@
         "backgroundRepeat": {
           "default": "no-repeat",
           "description": "设置标题栏的背景图平铺方式\n\n\"repeat\" 背景图片在垂直方向和水平方向平铺\n\n\"repeat-x\" 背景图片在水平方向平铺，垂直方向拉伸\n\n\"repeat-y\" 背景图片在垂直方向平铺，水平方向拉伸\n\n\"no-repeat\" 背景图片在垂直方向和水平方向都拉伸",
-          "enum": [
-            "no-repeat",
-            "repeat",
-            "repeat-x",
-            "repeat-y"
-          ],
+          "enum": ["no-repeat", "repeat", "repeat-x", "repeat-y"],
           "type": "string"
         },
         "blurEffect": {
           "default": "none",
           "description": "iOS 高斯模糊效果，参考 [使用说明](https://ask.dcloud.net.cn/article/36617)",
-          "enum": [
-            "dark",
-            "extralight",
-            "light",
-            "none"
-          ],
+          "enum": ["dark", "extralight", "light", "none"],
           "type": "string"
         },
         "borderStyle": {
@@ -2956,10 +2718,7 @@
         "position": {
           "default": "bottom",
           "description": "tab 位置",
-          "enum": [
-            "bottom",
-            "top"
-          ],
+          "enum": ["bottom", "top"],
           "type": "string"
         },
         "redDotColor": {
@@ -2985,11 +2744,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "color",
-        "selectedColor",
-        "list"
-      ],
+      "required": ["color", "selectedColor", "list"],
       "type": "object"
     },
     "TabBarIconFont": {
@@ -3058,9 +2813,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "pagePath"
-      ],
+      "required": ["pagePath"],
       "type": "object"
     },
     "TabBarMidButton": {
@@ -3123,9 +2876,7 @@
           "description": "配置页面窗口表现，配置项参考 [pageStyle](https://uniapp.dcloud.net.cn/collocation/pages#style)"
         }
       },
-      "required": [
-        "path"
-      ],
+      "required": ["path"],
       "type": "object"
     },
     "ThemeVar": {
@@ -3169,10 +2920,7 @@
         "float": {
           "default": "right",
           "description": "自定义按钮在标题栏的显示位置，仅支持 \"right\" / \"left\"\n\n\"right\" 右侧\n\n\"left\" 左侧",
-          "enum": [
-            "right",
-            "left"
-          ],
+          "enum": ["right", "left"],
           "type": "string"
         },
         "fontSize": {
@@ -3186,10 +2934,7 @@
         "fontWeight": {
           "default": "normal",
           "description": "自定义按钮文字粗细，仅支持 \"normal\" | \"bold\"\n\n\"normal\" 标准\n\n\"bold\" 加粗",
-          "enum": [
-            "normal",
-            "bold"
-          ],
+          "enum": ["normal", "bold"],
           "type": "string"
         },
         "select": {
@@ -3237,18 +2982,12 @@
       "properties": {
         "loginPage": {
           "description": "登录页面路径",
-          "examples": [
-            "pages/index/index"
-          ],
+          "examples": ["pages/index/index"],
           "type": "string"
         },
         "needLogin": {
           "description": "需要登录才可以访问的页面列表，可以使用正则语法",
-          "examples": [
-            [
-              "pages/detail/.*"
-            ]
-          ],
+          "examples": [["pages/detail/.*"]],
           "items": {
             "type": "string"
           },
@@ -3260,10 +2999,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "loginPage",
-        "needLogin"
-      ],
+      "required": ["loginPage", "needLogin"],
       "type": "object"
     }
   }

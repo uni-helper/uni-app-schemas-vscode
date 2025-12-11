@@ -1,3 +1,3 @@
-import { commitlint } from '@modyqyw/fabric';
-
-export default commitlint();
+export default {
+  extends: ["@commitlint/config-conventional"],
+};

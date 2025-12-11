@@ -256,13 +256,22 @@
       "type": "string"
     },
     "leftWindow": {
-      "allOf": [{ "$ref": "#/definitions/window" }, { "description": "大屏左侧窗口。" }]
+      "allOf": [
+        { "$ref": "#/definitions/window" },
+        { "description": "大屏左侧窗口。" }
+      ]
     },
     "topWindow": {
-      "allOf": [{ "$ref": "#/definitions/window" }, { "description": "大屏顶部窗口。" }]
+      "allOf": [
+        { "$ref": "#/definitions/window" },
+        { "description": "大屏顶部窗口。" }
+      ]
     },
     "rightWindow": {
-      "allOf": [{ "$ref": "#/definitions/window" }, { "description": "大屏右侧窗口。" }]
+      "allOf": [
+        { "$ref": "#/definitions/window" },
+        { "description": "大屏右侧窗口。" }
+      ]
     },
     "uniIdRouter": {
       "description": "自动跳转相关配置。",
@@ -309,7 +318,16 @@
               "type": {
                 "description": "自定义按钮样式。默认为 none。",
                 "type": "string",
-                "enum": ["forward", "back", "share", "favorite", "home", "menu", "close", "none"]
+                "enum": [
+                  "forward",
+                  "back",
+                  "share",
+                  "favorite",
+                  "home",
+                  "menu",
+                  "close",
+                  "none"
+                ]
               },
               "color": {
                 "description": "自定义按钮文字颜色。默认和标题文字颜色一样。",
@@ -1113,7 +1131,14 @@
                     "properties": {
                       "description": "阴影色。",
                       "type": "string",
-                      "enum": ["grey", "blue", "green", "orange", "red", "yellow"]
+                      "enum": [
+                        "grey",
+                        "blue",
+                        "green",
+                        "orange",
+                        "red",
+                        "yellow"
+                      ]
                     }
                   },
                   "disableScroll": {

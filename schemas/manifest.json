@@ -31,12 +31,7 @@
           "properties": {
             "mode": {
               "default": "default",
-              "enum": [
-                "default",
-                "cacheElseNetwork",
-                "noCache",
-                "cacheOnly"
-              ],
+              "enum": ["default", "cacheElseNetwork", "noCache", "cacheOnly"],
               "type": "string"
             }
           },
@@ -83,10 +78,7 @@
         "compilerVersion": {
           "default": 2,
           "description": "编译器版本，详见 <https://ask.dcloud.net.cn/article/36599>",
-          "enum": [
-            2,
-            3
-          ],
+          "enum": [2, 3],
           "type": "number"
         },
         "confusion": {
@@ -115,12 +107,7 @@
                 "abiFilters": {
                   "description": "Android 平台 APP 支持的 CPU 类型，详见 <https://uniapp.dcloud.io/tutorial/app-android-abifilters>",
                   "items": {
-                    "enum": [
-                      "armeabi-v7a",
-                      "arm64-v8a",
-                      "x86",
-                      "x86_64"
-                    ],
+                    "enum": ["armeabi-v7a", "arm64-v8a", "x86", "x86_64"],
                     "type": "string"
                   },
                   "type": "array"
@@ -179,10 +166,7 @@
                 "jsEngine": {
                   "deprecated": true,
                   "description": "uni-app 使用的 JS 引擎",
-                  "enum": [
-                    "v8",
-                    "jsc"
-                  ],
+                  "enum": ["v8", "jsc"],
                   "type": "string"
                 },
                 "keystore": {
@@ -203,11 +187,7 @@
                 },
                 "packagingOptions": {
                   "description": "Android 平台云端打包时 build.gradle 的 packagingOptions 配置项",
-                  "examples": [
-                    [
-                      "doNotStrip '/armeabi-v7a/.so'"
-                    ]
-                  ],
+                  "examples": [["doNotStrip '/armeabi-v7a/.so'"]],
                   "items": {
                     "type": "string"
                   },
@@ -226,11 +206,7 @@
                     },
                     "request": {
                       "description": "Android 平台 APP 启动时申请读写手机存储权限策略的策略\n\n\"none\" 启动时不申请\n\n\"once\" 第一次启动时申请，用户可以拒绝\n\n\"always\" 每次启动都申请，用户必须允许，用户拒绝时弹出提示框引导用户重新允许",
-                      "enum": [
-                        "none",
-                        "once",
-                        "always"
-                      ],
+                      "enum": ["none", "once", "always"],
                       "type": "string"
                     }
                   },
@@ -245,11 +221,7 @@
                     },
                     "request": {
                       "description": "Android 平台 APP 启动时申请读取设备信息权限的策略\n\n\"none\" 启动时不申请\n\n\"once\" 第一次启动时申请，用户可以拒绝\n\n\"always\" 每次启动都申请，用户必须允许，用户拒绝时弹出提示框引导用户重新允许",
-                      "enum": [
-                        "none",
-                        "once",
-                        "always"
-                      ],
+                      "enum": ["none", "once", "always"],
                       "type": "string"
                     }
                   },
@@ -432,10 +404,7 @@
                 },
                 "UIBackgroundModes": {
                   "description": "应用后台运行模式，详见 <https://uniapp.dcloud.net.cn/tutorial/app-ios-uibackgroundmodes.html>\n\n\"audio\" 后台播放音乐\n\n\"location\" 后台定位",
-                  "enum": [
-                    "audio",
-                    "location"
-                  ],
+                  "enum": ["audio", "location"],
                   "type": "string"
                 },
                 "appid": {
@@ -463,11 +432,7 @@
                 },
                 "devices": {
                   "description": "iOS支持的设备类型\n\n\"iphone\" 仅支持 iPhone 设备\n\n\"ipad\" 仅支持 iPad 设备\n\n\"universal\" 同时支持iPhone和iPad设备",
-                  "enum": [
-                    "iphone",
-                    "ipad",
-                    "universal"
-                  ],
+                  "enum": ["iphone", "ipad", "universal"],
                   "type": "string"
                 },
                 "frameworks": {
@@ -615,13 +580,7 @@
                 "validArchitectures": {
                   "description": "编译时支持的 CPU 指令",
                   "items": {
-                    "enum": [
-                      "arm64",
-                      "arm64e",
-                      "armv7",
-                      "armv7s",
-                      "x86_64"
-                    ],
+                    "enum": ["arm64", "arm64e", "armv7", "armv7s", "x86_64"],
                     "type": "string"
                   },
                   "type": "array"
@@ -706,10 +665,7 @@
                         "__platform__": {
                           "description": "支持平台，至少选一个",
                           "items": {
-                            "enum": [
-                              "ios",
-                              "android"
-                            ],
+                            "enum": ["ios", "android"],
                             "type": "string"
                           },
                           "type": "array"
@@ -735,10 +691,7 @@
                         "__platform__": {
                           "description": "支持平台，至少选一个",
                           "items": {
-                            "enum": [
-                              "ios",
-                              "android"
-                            ],
+                            "enum": ["ios", "android"],
                             "type": "string"
                           },
                           "type": "array"
@@ -760,10 +713,7 @@
                         "__platform__": {
                           "description": "支持平台，至少选一个",
                           "items": {
-                            "enum": [
-                              "ios",
-                              "android"
-                            ],
+                            "enum": ["ios", "android"],
                             "type": "string"
                           },
                           "type": "array"
@@ -924,10 +874,7 @@
                         "__platform__": {
                           "description": "支持平台，至少选一个",
                           "items": {
-                            "enum": [
-                              "ios",
-                              "android"
-                            ],
+                            "enum": ["ios", "android"],
                             "type": "string"
                           },
                           "type": "array"
@@ -948,10 +895,7 @@
                         "__platform__": {
                           "description": "支持平台，至少选一个",
                           "items": {
-                            "enum": [
-                              "ios",
-                              "android"
-                            ],
+                            "enum": ["ios", "android"],
                             "type": "string"
                           },
                           "type": "array"
@@ -972,10 +916,7 @@
                         "__platform__": {
                           "description": "支持平台，至少选一个",
                           "items": {
-                            "enum": [
-                              "ios",
-                              "android"
-                            ],
+                            "enum": ["ios", "android"],
                             "type": "string"
                           },
                           "type": "array"
@@ -997,10 +938,7 @@
                         "__platform__": {
                           "description": "支持平台，至少选一个",
                           "items": {
-                            "enum": [
-                              "ios",
-                              "android"
-                            ],
+                            "enum": ["ios", "android"],
                             "type": "string"
                           },
                           "type": "array"
@@ -1118,10 +1056,7 @@
                         "version": {
                           "default": "1",
                           "description": "uni-push 版本",
-                          "enum": [
-                            "1",
-                            "2"
-                          ],
+                          "enum": ["1", "2"],
                           "type": "string"
                         },
                         "vivo": {
@@ -1292,10 +1227,7 @@
                 "androidStyle": {
                   "default": "common",
                   "description": "Android 平台启动界面样式",
-                  "enum": [
-                    "common",
-                    "default"
-                  ],
+                  "enum": ["common", "default"],
                   "type": "string"
                 },
                 "ios": {
@@ -1442,11 +1374,7 @@
                 "iosStyle": {
                   "default": "common",
                   "description": "iOS 平台启动界面样式",
-                  "enum": [
-                    "common",
-                    "default",
-                    "storyboard"
-                  ],
+                  "enum": ["common", "default", "storyboard"],
                   "type": "string"
                 },
                 "useOriginalMsgbox": {
@@ -1475,20 +1403,13 @@
             "ios": {
               "default": "WKWebview",
               "description": "iOS 平台使用的 webview 内核",
-              "enum": [
-                "WKWebview",
-                "UIWebview"
-              ],
+              "enum": ["WKWebview", "UIWebview"],
               "type": "string"
             },
             "recovery": {
               "default": "reload",
               "description": "iOS 平台使用 WKWebview 时，内核崩溃后的处理逻辑",
-              "enum": [
-                "reload",
-                "restart",
-                "none"
-              ],
+              "enum": ["reload", "restart", "none"],
               "type": "string"
             }
           },
@@ -1504,11 +1425,7 @@
             "backButtonAutoControl": {
               "default": "none",
               "description": "运行环境自动处理返回键的控制逻辑",
-              "enum": [
-                "none",
-                "hide",
-                "close"
-              ],
+              "enum": ["none", "hide", "close"],
               "type": "string"
             },
             "bottom": {
@@ -1567,10 +1484,7 @@
               "properties": {
                 "exclude": {
                   "description": "排除拦截理规则",
-                  "enum": [
-                    "none",
-                    "redirect"
-                  ],
+                  "enum": ["none", "redirect"],
                   "type": "string"
                 },
                 "match": {
@@ -1579,10 +1493,7 @@
                 },
                 "mode": {
                   "description": "拦截模式",
-                  "enum": [
-                    "reject",
-                    "allow"
-                  ],
+                  "enum": ["reject", "allow"],
                   "type": "string"
                 }
               },
@@ -1591,12 +1502,7 @@
             "plusrequire": {
               "default": "'normal",
               "description": "加载 plus API 时机",
-              "enum": [
-                "normal",
-                "later",
-                "ahead",
-                "none"
-              ],
+              "enum": ["normal", "later", "ahead", "none"],
               "type": "string"
             },
             "replacewebapi": {
@@ -1604,11 +1510,7 @@
               "properties": {
                 "geolocation": {
                   "description": "重写标准定位API",
-                  "enum": [
-                    "none",
-                    "alldevice",
-                    "auto"
-                  ],
+                  "enum": ["none", "alldevice", "auto"],
                   "type": "string"
                 }
               },
@@ -1701,10 +1603,7 @@
                       },
                       "float": {
                         "description": "按钮显示位置",
-                        "enum": [
-                          "left",
-                          "right"
-                        ],
+                        "enum": ["left", "right"],
                         "type": "string"
                       },
                       "fontSize": {
@@ -1719,10 +1618,7 @@
                       "fontWeight": {
                         "default": "normal",
                         "description": "按钮文字粗细",
-                        "enum": [
-                          "normal",
-                          "bold"
-                        ],
+                        "enum": ["normal", "bold"],
                         "type": "string"
                       },
                       "text": {
@@ -1902,12 +1798,7 @@
             "flex-direction": {
               "default": "column",
               "description": "flex 项目的排列方向\n\n\"row\" 从左到右\n\n\"row-reverse\" 从右到左\n\n\"column\" 从上到下\n\n\"column-reverse\" 从下到上",
-              "enum": [
-                "row",
-                "row-reverse",
-                "column",
-                "column-reverse"
-              ],
+              "enum": ["row", "row-reverse", "column", "column-reverse"],
               "type": "string"
             }
           },
@@ -1916,28 +1807,19 @@
         "nvueCompiler": {
           "default": "uni-app",
           "description": "nvue 编译模式，区别详见 <https://ask.dcloud.net.cn/article/36074>",
-          "enum": [
-            "weex",
-            "uni-app"
-          ],
+          "enum": ["weex", "uni-app"],
           "type": "string"
         },
         "nvueLaunchMode": {
           "default": "normal",
           "description": "nvue 首页启动模式，详见 <https://ask.dcloud.net.cn/article/36749>",
-          "enum": [
-            "normal",
-            "fast"
-          ],
+          "enum": ["normal", "fast"],
           "type": "string"
         },
         "nvueStyleCompiler": {
           "default": "weex",
           "description": "nvue 样式编译模式，区别详见 <https://ask.dcloud.net.cn/article/38751>",
-          "enum": [
-            "weex",
-            "uni-app"
-          ],
+          "enum": ["weex", "uni-app"],
           "type": "string"
         },
         "optimization": {
@@ -1953,11 +1835,7 @@
         "popGesture": {
           "default": "none",
           "description": "窗口侧滑返回默认效果",
-          "enum": [
-            "none",
-            "close",
-            "hide"
-          ],
+          "enum": ["none", "close", "hide"],
           "type": "string"
         },
         "renderer": {
@@ -1968,10 +1846,7 @@
         "runmode": {
           "default": "normal",
           "description": "运行模式，分包时必须设置为 \"liberate\"\n\n\"normal\" 默认模式\n\n\"liberate\" 资源释放模式",
-          "enum": [
-            "normal",
-            "liberate"
-          ],
+          "enum": ["normal", "liberate"],
           "type": "string"
         },
         "safearea": {
@@ -1993,10 +1868,7 @@
                 "offset": {
                   "default": "none",
                   "description": "安全区域偏移值",
-                  "enum": [
-                    "none",
-                    "auto"
-                  ],
+                  "enum": ["none", "auto"],
                   "type": "string"
                 }
               },
@@ -2008,10 +1880,7 @@
                 "offset": {
                   "default": "none",
                   "description": "安全区域偏移值",
-                  "enum": [
-                    "none",
-                    "auto"
-                  ],
+                  "enum": ["none", "auto"],
                   "type": "string"
                 }
               },
@@ -2023,10 +1892,7 @@
                 "offset": {
                   "default": "none",
                   "description": "安全区域偏移值",
-                  "enum": [
-                    "none",
-                    "auto"
-                  ],
+                  "enum": ["none", "auto"],
                   "type": "string"
                 }
               },
@@ -2059,19 +1925,13 @@
             "mode": {
               "default": "adjustResize",
               "description": "弹出系统软键盘模式",
-              "enum": [
-                "adjustResize",
-                "adjustPan"
-              ],
+              "enum": ["adjustResize", "adjustPan"],
               "type": "string"
             },
             "navBar": {
               "default": "auto",
               "description": "iOS 平台软键盘上导航条的显示模式",
-              "enum": [
-                "auto",
-                "none"
-              ],
+              "enum": ["auto", "none"],
               "type": "string"
             }
           },
@@ -2119,21 +1979,14 @@
               "default": "loaded",
               "deprecated": true,
               "description": "不明属性",
-              "enum": [
-                "titleUpdate",
-                "rendering",
-                "loaded"
-              ],
+              "enum": ["titleUpdate", "rendering", "loaded"],
               "type": "string"
             },
             "target": {
               "default": "default",
               "deprecated": true,
               "description": "不明属性",
-              "enum": [
-                "default",
-                "second"
-              ],
+              "enum": ["default", "second"],
               "type": "string"
             },
             "waiting": {
@@ -2150,11 +2003,7 @@
             "untrustedca": {
               "default": "accept",
               "description": "https 请求时服务器非受信证书的处理逻辑",
-              "enum": [
-                "accept",
-                "refuse",
-                "warning"
-              ],
+              "enum": ["accept", "refuse", "warning"],
               "type": "string"
             }
           },
@@ -2171,20 +2020,13 @@
             "immersed": {
               "default": "none",
               "description": "沉浸式状态栏样式",
-              "enum": [
-                "none",
-                "suggestedDevice",
-                "supportedDevice"
-              ],
+              "enum": ["none", "suggestedDevice", "supportedDevice"],
               "type": "string"
             },
             "style": {
               "default": "light",
               "description": "系统状态栏样式（前景颜色）",
-              "enum": [
-                "light",
-                "dark"
-              ],
+              "enum": ["light", "dark"],
               "type": "string"
             }
           },
@@ -2245,9 +2087,7 @@
           "properties": {
             "minUserAgentVersion": {
               "description": "最小 webview 版本\n\n当低于最小版本要求时，显示弹框，点击确定退出应用\n\nVue3 要求 Android 系统 webview 最低版本为 64.0.3282.116",
-              "examples": [
-                "64.0.3282.116"
-              ],
+              "examples": ["64.0.3282.116"],
               "type": "string"
             },
             "x5": {
@@ -2368,10 +2208,7 @@
             "mode": {
               "default": "hash",
               "description": "路由跳转模式",
-              "enum": [
-                "hash",
-                "history"
-              ],
+              "enum": ["hash", "history"],
               "type": "string"
             }
           },
@@ -2606,11 +2443,7 @@
             },
             "globalObjectMode": {
               "description": "小程序全局对象（global/globalThis）访问策略, 详见 <https://opendocs.alipay.com/mini/03dbc3#globalObjectMode>\n\n\"legacy\" 禁止访问全局对象\n\n\"enable\" 可访问到真实的小程序 JavaScript 全局对象  global 与 globalThis\n\n\"fake\" 可访问到一个全局挂载的虚拟空对象",
-              "enum": [
-                "legacy",
-                "enable",
-                "fake"
-              ],
+              "enum": ["legacy", "enable", "fake"],
               "type": "string"
             },
             "less": {
@@ -2762,9 +2595,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "version"
-                ],
+                "required": ["version"],
                 "type": "object"
               },
               "description": "指定插件联调的动态插件版本",
@@ -2783,9 +2614,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "version"
-                ],
+                "required": ["version"],
                 "type": "object"
               },
               "description": "指定插件联调的静态插件版本",
@@ -2804,11 +2633,7 @@
         "scopedSlotsCompiler": {
           "default": "auto",
           "description": "Vue2 作用域插槽编译模式",
-          "enum": [
-            "auto",
-            "legacy",
-            "augmented"
-          ],
+          "enum": ["auto", "legacy", "augmented"],
           "type": "string"
         },
         "scripts": {
@@ -2843,10 +2668,7 @@
         "styleIsolation": {
           "default": "apply-shared",
           "description": "组件样式隔离方式，uni-app 3.99+ 开始支持，详见 <https://opendocs.alipay.com/mini/framework/page-acss>",
-          "enum": [
-            "apply-shared",
-            "shared"
-          ],
+          "enum": ["apply-shared", "shared"],
           "type": "string"
         },
         "uniStatistics": {
@@ -2900,11 +2722,7 @@
         "scopedSlotsCompiler": {
           "default": "auto",
           "description": "Vue2 作用域插槽编译模式，uni-app 3.1.19+ 开始支持",
-          "enum": [
-            "auto",
-            "legacy",
-            "augmented"
-          ],
+          "enum": ["auto", "legacy", "augmented"],
           "type": "string"
         },
         "slotMultipleInstance": {
@@ -2937,11 +2755,7 @@
         "scopedSlotsCompiler": {
           "default": "auto",
           "description": "Vue2 作用域插槽编译模式，uni-app 3.1.19+ 开始支持",
-          "enum": [
-            "auto",
-            "legacy",
-            "augmented"
-          ],
+          "enum": ["auto", "legacy", "augmented"],
           "type": "string"
         },
         "slotMultipleInstance": {
@@ -2964,11 +2778,7 @@
         "scopedSlotsCompiler": {
           "default": "auto",
           "description": "Vue2 作用域插槽编译模式，uni-app 3.1.19+ 开始支持",
-          "enum": [
-            "auto",
-            "legacy",
-            "augmented"
-          ],
+          "enum": ["auto", "legacy", "augmented"],
           "type": "string"
         },
         "setting": {
@@ -3062,15 +2872,11 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "desc"
-              ],
+              "required": ["desc"],
               "type": "object"
             }
           },
-          "required": [
-            "scope.userLocation"
-          ],
+          "required": ["scope.userLocation"],
           "type": "object"
         },
         "requiredBackgroundModes": {
@@ -3084,11 +2890,7 @@
         "scopedSlotsCompiler": {
           "default": "auto",
           "description": "Vue2 作用域插槽编译模式，uni-app 3.1.19+ 开始支持",
-          "enum": [
-            "auto",
-            "legacy",
-            "augmented"
-          ],
+          "enum": ["auto", "legacy", "augmented"],
           "type": "string"
         },
         "slotMultipleInstance": {
@@ -3132,11 +2934,7 @@
         "scopedSlotsCompiler": {
           "default": "auto",
           "description": "Vue2 作用域插槽编译模式，uni-app 3.1.19+ 开始支持",
-          "enum": [
-            "auto",
-            "legacy",
-            "augmented"
-          ],
+          "enum": ["auto", "legacy", "augmented"],
           "type": "string"
         },
         "setting": {
@@ -3252,15 +3050,11 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "desc"
-              ],
+              "required": ["desc"],
               "type": "object"
             }
           },
-          "required": [
-            "scope.userLocation"
-          ],
+          "required": ["scope.userLocation"],
           "type": "object"
         },
         "plugins": {
@@ -3273,10 +3067,7 @@
         "requiredBackgroundModes": {
           "description": "需要在后台使用的能力，详见 <https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#requiredBackgroundModes>\n\n\"audio\" 后台音乐播放\n\n\"location\" 后台定位",
           "items": {
-            "enum": [
-              "audio",
-              "location"
-            ],
+            "enum": ["audio", "location"],
             "type": "string"
           },
           "type": "array"
@@ -3306,11 +3097,7 @@
         "scopedSlotsCompiler": {
           "default": "auto",
           "description": "Vue2 作用域插槽编译模式，uni-app 3.1.19+ 开始支持",
-          "enum": [
-            "auto",
-            "legacy",
-            "augmented"
-          ],
+          "enum": ["auto", "legacy", "augmented"],
           "type": "string"
         },
         "setting": {
@@ -3483,11 +3270,7 @@
                 },
                 {
                   "items": {
-                    "enum": [
-                      "typescript",
-                      "less",
-                      "sass"
-                    ],
+                    "enum": ["typescript", "less", "sass"],
                     "type": "string"
                   },
                   "type": "array"
@@ -3537,9 +3320,7 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "path"
-              ],
+              "required": ["path"],
               "type": "object"
             }
           ],
@@ -3549,9 +3330,7 @@
       "type": "object"
     },
     "PNG": {
-      "type": [
-        "string"
-      ]
+      "type": ["string"]
     },
     "PercentageSize": {
       "type": "string"
@@ -3652,10 +3431,7 @@
         "version": {
           "default": "1",
           "description": "uni 统计版本",
-          "enum": [
-            "1",
-            "2"
-          ],
+          "enum": ["1", "2"],
           "type": "string"
         }
       },
