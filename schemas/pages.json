@@ -2606,6 +2606,25 @@
           },
           "type": "array"
         },
+        "plugins": {
+          "additionalProperties": {
+            "properties": {
+              "export": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "required": ["version", "provider"],
+            "type": "object"
+          },
+          "description": "分包插件",
+          "type": "object"
+        },
         "root": {
           "description": "子包的根目录",
           "type": "string"
@@ -2703,12 +2722,10 @@
           "type": "string"
         },
         "list": {
-          "description": "tab 列表，最少 2个，最多 5 个",
+          "description": "tab 列表，最少 2个，最多 5 个，app 端没有该限制",
           "items": {
             "$ref": "#/definitions/TabBarItem"
           },
-          "maxItems": 5,
-          "minItems": 2,
           "type": "array"
         },
         "midButton": {
@@ -2744,7 +2761,6 @@
           "type": "string"
         }
       },
-      "required": ["color", "selectedColor", "list"],
       "type": "object"
     },
     "TabBarIconFont": {
