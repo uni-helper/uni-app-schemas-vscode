@@ -1,5 +1,5 @@
 {
-  "description": "应用信息配置文件，用于指定大量信息。更多信息查看 <https://uniapp.dcloud.io/collocation/manifest> 和 <https://uniapp.dcloud.io/tutorial/app-manifest.html>。",
+  "description": "应用信息配置文件，用于指定大量信息。更多信息查看 <https://uniapp.dcloud.net.cn/collocation/manifest> 和 <https://uniapp.dcloud.net.cn/tutorial/app-manifest.html>。",
   "type": "object",
   "required": ["name", "appid", "versionName", "versionCode"],
   "properties": {
