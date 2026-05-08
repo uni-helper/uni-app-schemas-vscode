@@ -36,6 +36,7 @@
   "type": "module",
   "files": [
     "schemas",
+    "LICENSE",
     "uni-helper.png"
   ],
   "scripts": {
