@@ -18,13 +18,13 @@
     "androidPrivacy",
     "androidPrivacy.json"
   ],
-  "homepage": "https://github.com/uni-helper/uni-app-schamas-vscode#readme",
+  "homepage": "https://github.com/uni-helper/uni-app-schemas-vscode#readme",
   "bugs": {
     "url": "https://github.com/uni-helper/uni-app-schemas-vscode/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/uni-helper/uni-app-schemas-vscode"
+    "url": "git+https://github.com/uni-helper/uni-app-schemas-vscode.git"
   },
   "license": "MIT",
   "author": {
