@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node24",
+  "extends": "@tsconfig/node26",
   "compilerOptions": {
     "lib": ["ESNext"],
     "module": "ESNext",
@@ -7,6 +7,7 @@
     "target": "ESNext",
     "resolveJsonModule": true,
     "types": ["node"],
+    "strict": true,
     "strictNullChecks": true
   },
   "include": [
