@@ -19,12 +19,12 @@ jobs:
           cache: true
           run-install: true
 
-      - run: npm run publish
+      - run: vpr publish
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
 
-      - run: npx changelogithub
+      - run: vpx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 

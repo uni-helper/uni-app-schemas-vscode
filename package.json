@@ -43,6 +43,7 @@
     "build": "conc \"npm:build:manifest-schema\" \"npm:build:pages-schema\" && npm run fix",
     "build:manifest-schema": "cp node_modules/@uni-helper/manifest-json-schema/schema.json schemas/manifest.json",
     "build:pages-schema": "cp node_modules/@uni-helper/pages-json-schema/schema.json schemas/pages.json",
+    "check": "ultracite check",
     "fix": "ultracite fix",
     "publish": "conc \"npm:publish:vscode\" \"npm:publish:openvsx\"",
     "publish:openvsx": "ovsx publish",
