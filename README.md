@@ -86,6 +86,10 @@
 }
 ```
 
+## 参与贡献
+
+欢迎通过 Issue 或 Pull Request 参与改进本项目。开始前请阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)，了解项目结构、本地开发流程、测试方式与提交规范。
+
 ## 许可证
 
 [MIT](./LICENSE) © 2020-present [uni-helper](https://github.com/uni-helper)
