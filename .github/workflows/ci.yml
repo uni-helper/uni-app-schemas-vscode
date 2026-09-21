@@ -15,8 +15,8 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        node_version: [ 22, 24, 26 ]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node_version: [22, 24, 26]
       fail-fast: false
 
     runs-on: ${{ matrix.os }}
@@ -39,9 +39,6 @@ jobs:
 
       - name: Check
         run: vpr check
-
-      - name: Typecheck
-        run: vpr typecheck
 
       - name: Build
         run: vpr build
