@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: voidzero-dev/setup-vp@v1.19.0
+      - uses: voidzero-dev/setup-vp@v1.21.0
         with:
           cache: true
           run-install: true
@@ -28,4 +28,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - run: curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/androidPrivacy.json && curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json && curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages.json
+      - run: curl
+          https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/androidPrivacy.json
+          && curl
+          https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json
+          && curl
+          https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages.json
