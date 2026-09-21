@@ -1,9 +1,7 @@
-<a href="https://github.com/uni-helper/uni-app-schemas-vscode"><img src="https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode@main/banner.svg" alt="banner" width="100%"/></a>
-
 # @uni-helper/uni-app-schemas-vscode
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode@main/logo.svg" alt="logo" width="256" height="256" />
+  <img src="https://cdn.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode@main/logo.png" alt="logo" width="256" height="256" />
 </p>
 
 <p align="center">
