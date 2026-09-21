@@ -18,8 +18,6 @@
 
 为 [uni-app](https://uniapp.dcloud.net.cn/) 项目提供 `androidPrivacy.json`、`manifest.json` 和 `pages.json` 的 JSON Schema 校验。
 
-不想看文档？直接问 AI 🤖 <a href="https://deepwiki.com/uni-helper/uni-app-schemas-vscode"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
-
 > **请考虑持续[赞助](https://github.com/ModyQyW/sponsors)以维持该项目的持续健康发展，非常感谢！🙏**
 
 [改动日志](https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/CHANGELOG.md)
