@@ -68,7 +68,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.14",
-    "@types/node": "^26.6.2",
     "@uni-helper/manifest-json-schema": "^0.6.0",
     "@uni-helper/pages-json-schema": "^0.5.0",
     "@vscode/vsce": "^3.9.2",
