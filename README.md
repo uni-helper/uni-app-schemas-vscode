@@ -6,8 +6,8 @@
 
 <p align="center">
   <a href="https://github.com/uni-helper/uni-app-schemas-vscode/stargazers"><img src="https://img.shields.io/github/stars/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="GitHub Stars"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/downloads-short/uni-helper.uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode downloads"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/version-short/uni-helper.uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode version"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/downloads-short/uni-helper.uni-app-schemas-vscode.svg?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode downloads"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/version-short/uni-helper.uni-app-schemas-vscode.svg?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode version"></a>
   <a href="https://open-vsx.org/extension/uni-helper/uni-app-schemas-vscode"><img src="https://img.shields.io/open-vsx/dt/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="OpenVSX downloads"></a>
   <a href="https://open-vsx.org/extension/uni-helper/uni-app-schemas-vscode"><img src="https://img.shields.io/open-vsx/v/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="OpenVSX version"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="License"></a>
@@ -21,6 +21,8 @@
 > **请考虑持续[赞助](https://github.com/ModyQyW/sponsors)以维持该项目的持续健康发展，非常感谢！🙏**
 
 [改动日志](https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/CHANGELOG.md)
+
+想让 `uni-app` 开发变得更直观、高效？想要更好的 `uni-app` 开发体验？不妨看看 [uni-helper 主页](https://uni-helper.js.org) 和 [uni-helper GitHub Organization](https://github.com/uni-helper)！
 
 ## 插件特性
 
