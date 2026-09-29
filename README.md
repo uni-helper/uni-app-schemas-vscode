@@ -88,4 +88,4 @@
 
 ## 许可证
 
-[MIT](./LICENSE) © 2020-present [uni-helper](https://github.com/uni-helper) & Collaborators
+[MIT](https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/LICENSE) © 2020-present [uni-helper](https://github.com/uni-helper) & Collaborators
