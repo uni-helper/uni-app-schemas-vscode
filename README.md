@@ -5,12 +5,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/uni-helper/uni-app-schemas-vscode/stargazers"><img src="https://img.shields.io/github/stars/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="GitHub Stars"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/downloads-short/uni-helper.uni-app-schemas-vscode.svg?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode downloads"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/version-short/uni-helper.uni-app-schemas-vscode.svg?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode version"></a>
-  <a href="https://open-vsx.org/extension/uni-helper/uni-app-schemas-vscode"><img src="https://img.shields.io/open-vsx/dt/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="OpenVSX downloads"></a>
-  <a href="https://open-vsx.org/extension/uni-helper/uni-app-schemas-vscode"><img src="https://img.shields.io/open-vsx/v/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="OpenVSX version"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/github/license/uni-helper/uni-app-schemas-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/uni-helper/uni-app-schemas-vscode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/uni-helper/uni-app-schemas-vscode?labelColor=005947&color=eee&style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/uni-helper/uni-app-schemas-vscode/stargazers"><img src="https://img.shields.io/github/stars/uni-helper/uni-app-schemas-vscode?labelColor=005947&color=eee&style=for-the-badge" alt="GitHub Stars"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/version-short/uni-helper.uni-app-schemas-vscode.svg?labelColor=005947&color=eee&style=for-the-badge" alt="VS Marketplace Version"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode"><img src="https://vsmarketplacebadges.dev/downloads-short/uni-helper.uni-app-schemas-vscode.svg?labelColor=005947&color=eee&style=for-the-badge" alt="VS Marketplace Downloads"></a>
 </p>
 <p align="center">
   <a href="https://github.com/ModyQyW"><img src="https://img.shields.io/badge/Author%20%26%20Maintainer-ModyQyW-blue?style=for-the-badge" alt="Author & Maintainer"></a>
@@ -90,4 +88,4 @@
 
 ## 许可证
 
-[MIT](./LICENSE) © 2020-present [uni-helper](https://github.com/uni-helper)
+[MIT](./LICENSE) © 2020-present [uni-helper](https://github.com/uni-helper) & Collaborators
