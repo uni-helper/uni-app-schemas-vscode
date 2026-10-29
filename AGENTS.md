@@ -5,7 +5,7 @@ VSCode extension providing JSON Schema validation for uni-app's `androidPrivacy.
 ## Project
 
 - **Language/runtime:** no app source code — JSON schemas and configuration only. Dev pins Node 26 via `.node-version` and `devEngines.runtime` (`onFail: warn`); there is no published `engines.node`. The published `engines.vscode: ^1.40.0` is consumer-facing — the minimum VSCode version the extension supports.
-- **Toolchain:** npm 12 (pinned via `packageManager` + `devEngines.packageManager`), ultracite (a zero-config Biome preset) for lint/format, concurrently, bumpp (release), @vscode/vsce + ovsx (publish).
+- **Toolchain:** npm 12 (pinned via `packageManager` + `devEngines.packageManager`), ultracite (a zero-config Biome preset) for lint/format, concurrently, bumpp (release). vsce and ovsx are not dependencies — the release workflow fetches them on demand through `vpx`.
 - **Artifact:** the VSIX ships `schemas/`, `LICENSE`, `logo.png` (`files` + `icon`). Published to both VSCode Marketplace and OpenVSX under publisher `uni-helper`.
 
 ## Commands
@@ -18,7 +18,7 @@ npm run fix       # ultracite fix
 npm run release   # build → git add ./schemas/*.json → bumpp --all (version bump, commit, tag, push; the tag triggers .github/workflows/release.yml)
 ```
 
-CI (`.github/workflows/ci.yml`) runs `vpr check` and `vpr build` via `voidzero-dev/setup-vp` on Node 22/24/26 × ubuntu/macos/windows. The release workflow publishes to both marketplaces (`VSCE_PAT` / `OVSX_PAT` secrets), creates the GitHub Release via changelogithub, and purges the jsDelivr cache for the three current schemas — that purge is how the `$schema` URLs from the README pick up changes.
+CI (`.github/workflows/ci.yml`) runs `vpr check` and `vpr build` via `voidzero-dev/setup-vp` on Node 22/24/26 × ubuntu/macos/windows. The release workflow publishes to both marketplaces: VSCode Marketplace through `vpx @vscode/vsce publish --oidc` (GitHub OIDC trusted publishing, needs `permissions: id-token: write` and a trusted publishing policy for this repo on the Marketplace — there is no `VSCE_PAT`), OpenVSX through `vpx ovsx publish` with the `OVSX_PAT` secret. It then creates the GitHub Release via changelogithub, and purges the jsDelivr cache for the three current schemas — that purge is how the `$schema` URLs from the README pick up changes.
 
 ## Architecture
 
