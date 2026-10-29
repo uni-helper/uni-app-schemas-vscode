@@ -9,28 +9,28 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      id-token: write
+
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      - uses: voidzero-dev/setup-vp@v1.21.1
+      - uses: voidzero-dev/setup-vp@v1.22.0
         with:
           cache: true
           run-install: true
 
-      - run: vpr publish
+      - run: vpx @vscode/vsce publish --oidc
+
+      - run: vpx ovsx publish
         env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
 
       - run: vpx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - run: curl
-          https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/androidPrivacy.json
-          && curl
-          https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json
-          && curl
-          https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages.json
+      - run: curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/androidPrivacy.json && curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/manifest.json && curl https://purge.jsdelivr.net/gh/uni-helper/uni-app-schemas-vscode/schemas/pages.json
